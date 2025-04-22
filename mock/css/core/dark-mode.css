@@ -37,3 +37,8 @@ body.dark-mode .checkbox-group {
 body.dark-mode .footer-newsletter button {
   background-color: #fc6a07; /* Naranja */
 }
+
+body.dark-mode .button-group .btn {
+  color: white;
+  background-color: #333;
+}
