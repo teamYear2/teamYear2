@@ -1,0 +1,144 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom left, white, #e2e8f0, #16a34a);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.content {
+    display: flex;
+    background: white;
+    box-shadow: 0 4px 10px var(--color-naranja);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.video {
+    width: 50%;
+    display: block;
+    object-fit: cover;
+}
+
+.form-container {
+    width: 50%;
+    padding: 30px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.warning {
+    font-size: 12px;
+    color: red;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.checkbox-group input {
+    margin-right: 5px;
+}
+
+.button-group {
+    text-align: center;
+}
+
+.btn {
+    background: var(--color-azul-oscuro);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+.btn:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+.btn:hover {
+    background: var(--color-azul-oscuro);
+}
+
+.links {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.links a {
+    display: block;
+    color: var(--color-azul);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .content {
+        flex-direction: column;
+        max-width: 90%;
+    }
+
+    .video {
+        width: 100%;
+        height: auto;
+    }
+
+    .form-container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

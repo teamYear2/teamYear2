@@ -1,0 +1,115 @@
+/* 🎨 Estilos generales del footer */
+footer {
+    background-color: #010163; /* Azul oscuro */
+    color: #ffffff; /* Texto blanco */
+    
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  
+  /* 🏗️ Contenedor principal */
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px 150px;
+    max-width: 1000px;
+    margin: auto;
+    padding-bottom: 20px;
+  }
+  
+  
+  
+  
+  /* 📌 Secciones del footer */
+  .footer-container section {
+    padding: 10px;
+    margin-top: 10px;
+    text-align: left;
+  }
+  
+  .footer-container section h3{
+    margin-bottom: 10px;
+  }
+  
+  /* 🔗 Estilos para enlaces */
+  .footer-container a {
+    color: #FC6A07; /* Naranja */
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .footer-container a:hover {
+    color: #6564CC; /* Violeta */
+  }
+  
+  /* 🗂️ Estilos para listas */
+  .footer-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-container ul li {
+    margin-bottom: 8px;
+  }
+  
+  /* 📩 Estilos para el formulario del newsletter */
+  .footer-newsletter form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .footer-newsletter input {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+  }
+  
+  
+  
+  .footer-newsletter button {
+    padding: 8px;
+    background-color: #FC6A07; /* Naranja */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .footer-newsletter button:hover {
+    background-color: #00339E; /* Azul */
+  }
+  
+  /* ⚡ Línea de derechos de autor */
+  .footer-bottom {
+    
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* 📱 Estilos responsivos */
+  @media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+  
+    .footer-container section {
+        text-align: center;
+    }
+  }
+  
+  @media (max-width : 430px) {
+    
+  }
+  
+  
+  
