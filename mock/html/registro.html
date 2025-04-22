@@ -1,107 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro</title>
-    <link rel="stylesheet" href="/mock/css/pages/registro.css">
-    <link rel="stylesheet" href="/mock/css/core/footer.css">
-    <link rel="stylesheet" href="/mock/css/core/header.css">
+    <link rel="stylesheet" href="/mock/css/pages/registro.css" />
+    <link rel="stylesheet" href="/mock/css/core/footer.css" />
+    <link rel="stylesheet" href="/mock/css/core/header.css" />
 </head>
 
 <body>
     <header>
-        <div class="logo">
-            <a href="/"><img src="../../../assets/logo-header.png" alt="logo"></a>
-
-
+        <div class="logo2">
+            <a href="/mock/html/home.html"><img height="200" width="300" fetchpriority="high"
+                    class="attachment-medium size-medium wp-image-5404"
+                    srcset="https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-300x200.png 300w, https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-1024x682.png 1024w, https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-768x511.png 768w, https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-1536x1023.png 1536w, https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-2048x1364.png 2048w"
+                    src="https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-300x200.png"
+                    alt="logo ispc" /></a>
         </div>
 
         <nav class="nav-bar">
-
             <label class="switch">
-                <input type="checkbox" (click)="toggleDarkMode()" id="modo-desktop">
+                <input type="checkbox" id="modo-desktop">
                 <span class="slider"></span>
             </label>
 
-
-
-
-
-
-            <div class="auth-buttons" *ngFor="let menuItem of menuItems">
-                <a [ngClass]="menuItem.class" *ngIf="!menuItem.event" [routerLink]="menuItem.route"
-                    routerLinkActive="active">
-                    {{ menuItem.text }}
-                </a>
-
-                <div class="dropdown" *ngIf="menuItem.event">
-                    <button class="dropdown-btn">{{loggedUser?.name}}, {{loggedUser?.lastName}} ▼</button>
-                    <ul class="dropdown-menu">
-                        <li> <a id="dashboard-btn" class="dashboard" (click)="dashboard()">Ir al Dashboard</a> </li>
-                        <li> <a [ngClass]="menuItem.class" id="Logout" *ngIf="menuItem.event"
-                                (click)="menuItem.event()">{{ menuItem.text }}</a></li>
-
-                    </ul>
-                </div>
+            <div class="auth-buttons">
+                <a class="nav-link" href="/mock/html/login.html">Ingresar</a>
+                <a class="nav-link" href="/mock/html/registro.html">Registro</a>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <div class="content">
-            <iframe width="1250" height="720" src="https://www.youtube.com/embed/0YRX4pEP6pY"
-                title="CARDIO 30 MINUTOS PARA ELIMINAR GRASA ABDOMINAL" class="video"
+            <iframe width="1250" height="703" src="https://www.youtube.com/embed/OmqzUPUmPHg"
+                title="Controles internos inventario" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="form-container">
                 <h3 class="title">Crear una cuenta</h3>
 
-                <!-- Asegúrate de usar el FormGroup correctamente -->
-                <form [formGroup]="registerForm" (ngSubmit)="manejarEnvio()">
+                <form id="registerForm">
                     <div class="input-group">
                         <label for="name">Nombre completo</label>
-                        <input type="text" id="name" formControlName="name" placeholder="Introduce tu nombre completo"
-                            required />
+                        <input type="text" id="name" placeholder="Introduce tu nombre completo" required />
                     </div>
 
                     <div class="input-group">
                         <label for="lastName">Apellido completo</label>
-                        <input type="text" id="lastName" formControlName="lastName"
-                            placeholder="Introduce tu apellido completo" required />
+                        <input type="text" id="lastName" placeholder="Introduce tu apellido completo" required />
                     </div>
 
                     <div class="input-group">
                         <label for="dni">DNI</label>
-                        <input type="text" id="dni" formControlName="dni" placeholder="Introduce tu DNI" required />
+                        <input type="text" id="dni" placeholder="Introduce tu DNI" required />
                     </div>
 
                     <div class="input-group">
                         <label for="date_of_birth">Fecha de nacimiento</label>
-                        <input type="date" id="date_of_birth" formControlName="date_of_birth" required />
+                        <input type="date" id="date_of_birth" required />
                     </div>
 
                     <div class="input-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" formControlName="email" placeholder="Introduce tu email"
-                            required />
+                        <input type="email" id="email" placeholder="Introduce tu email" required />
                     </div>
 
                     <div class="input-group">
                         <label for="password">Contraseña</label>
-                        <input type="password" id="password" formControlName="password" placeholder="******************"
-                            required />
+                        <input type="password" id="password" placeholder="******************" required />
                     </div>
 
                     <div class="checkbox-group">
-                        <input type="checkbox" id="terms" formControlName="termsAccepted" />
+                        <input type="checkbox" id="terms" />
                         <label for="terms">Acepto los términos y condiciones</label>
                     </div>
 
                     <div class="button-group">
-                        <button type="submit" id="btn-formRegister" class="btn"
-                            [disabled]="registerForm.invalid">Registrar</button>
+                        <button type="submit" id="btn-formRegister">Registrar</button>
                     </div>
 
                     <hr />
@@ -113,35 +91,34 @@
             </div>
         </div>
     </div>
+
     <footer>
         <div class="footer-container">
             <section class="footer-info">
                 <h3>Sobre Nosotros</h3>
-                <p>Somos Incubadora del NOC, ayudamos a emprendedores a convertir sus ideas en negocios exitosos.</p>
+                <p>ISPC GESTOR DE INVENTARIO INTERNO.</p>
             </section>
 
             <section class="footer-links">
                 <h3>Enlaces Útiles</h3>
                 <ul>
-                    <li><a href="/courses">Cursos</a></li>
-                    <li><a href="/about-us">Sobre Nosotros</a></li>
-                    <li><a href="/contact">Contacto</a></li>
-                    <li><a href="/faq">Preguntas Frecuentes</a></li>
-
+                    <li><a href="/mock/html/home.html">Home</a></li>
+                    <li><a href="/mock/html/login.html">Login</a></li>
+                    <li><a href="/mock/html/registro.html">Registro</a></li>
                 </ul>
             </section>
 
             <section class="footer-contact">
                 <h3>Contacto</h3>
-                <p>Email: incubadoradelnoc&#64;gmail.com<a href="mailto:incubadoradelnoc@gmail.com"></a></p>
-                <p>Teléfono: <a href="tel:+5493549636800">+54 3549636800</a></p>
-                <p>📍Nos encontramos en Mitre 757</p>
+                <p>Email: <a href="mailto:politecnicocordoba@ispc.edu.ar">politecnicocordoba@ispc.edu.ar</a></p>
+                <p>Teléfono: <a href="tel:+54 9 3517587047">+54 9 3517587047</a></p>
+                <p>📍Nos encontramos en Humberto 1º 680</p>
             </section>
 
             <section class="footer-social">
                 <h3>Síguenos</h3>
-                <a href="https://www.facebook.com/profile.php?id=100063640024874" target="_blank">Facebook</a> |
-                <a href="https://www.instagram.com/incubadoradelnoc/?hl=es-la" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/ISPCordoba/" target="_blank">Facebook</a> |
+                <a href="https://www.instagram.com/ispcordoba/?hl=es" target="_blank">Instagram</a>
             </section>
 
             <section class="footer-legal">
@@ -155,19 +132,21 @@
 
             <section class="footer-newsletter">
                 <h3>Suscríbete a nuestro boletín</h3>
-                <form action="/suscribirse" method="post">
-                    <input type="email" placeholder="Tu correo electrónico" required>
+                <form>
+                    <input type="email" placeholder="Tu correo electrónico" required />
                     <button type="submit">Suscribirme</button>
                 </form>
             </section>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; {{ currentDay }}/{{ currentMonth }}/{{ currentYear }} {{ formattedHour }}:{{
-                formattedMinute }}:{{
-                formattedSeconds }} Incubadora del NOC. Todos los derechos reservados.</p>
+        <div class="footer-bottom" id="footer-date">
+            <!-- JS lo rellenará -->
         </div>
     </footer>
+
+    <script src="/mock/js/registro.js"></script>
+    <script src="/mock/js/dark-mode.js"></script>
+    <script src="/mock/js/footer.js"></script>
 </body>
 
 </html>

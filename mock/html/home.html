@@ -5,81 +5,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="/mock/css/pages/home.css">
     <link rel="stylesheet" href="/mock/css/core/footer.css">
     <link rel="stylesheet" href="/mock/css/core/header.css">
 </head>
 
 <body>
     <header>
-        <div class="logo">
-            <a href="/"><img src="../../../assets/logo-header.png" alt="logo"></a>
-
-
+        <div class="logo2">
+            <a href="/mock/html/home.html"><img height="200" width="300" fetchpriority="high"
+                    class="attachment-medium size-medium wp-image-5404"
+                    srcset="https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-300x200.png 300w, https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-1024x682.png 1024w, https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-768x511.png 768w, https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-1536x1023.png 1536w, https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-2048x1364.png 2048w"
+                    src="https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-300x200.png"
+                    alt="logo ispc" /></a>
         </div>
 
         <nav class="nav-bar">
-
             <label class="switch">
-                <input type="checkbox" (click)="toggleDarkMode()" id="modo-desktop">
+                <input type="checkbox" id="modo-desktop">
                 <span class="slider"></span>
             </label>
 
-
-
-
-
-
-            <div class="auth-buttons" *ngFor="let menuItem of menuItems">
-                <a [ngClass]="menuItem.class" *ngIf="!menuItem.event" [routerLink]="menuItem.route"
-                    routerLinkActive="active">
-                    {{ menuItem.text }}
-                </a>
-
-                <div class="dropdown" *ngIf="menuItem.event">
-                    <button class="dropdown-btn">{{loggedUser?.name}}, {{loggedUser?.lastName}} ▼</button>
-                    <ul class="dropdown-menu">
-                        <li> <a id="dashboard-btn" class="dashboard" (click)="dashboard()">Ir al Dashboard</a> </li>
-                        <li> <a [ngClass]="menuItem.class" id="Logout" *ngIf="menuItem.event"
-                                (click)="menuItem.event()">{{ menuItem.text }}</a></li>
-
-                    </ul>
-                </div>
+            <div class="auth-buttons">
+                <a class="nav-link" href="/mock/html/login.html">Ingresar</a>
+                <a class="nav-link" href="/mock/html/registro.html">Registro</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <p>Home</p>
+        <!-- Slider HTML -->
+        <div class="slider2" id="slider2">
+            <div class="slide2 active">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0LdVk3f0l3Q6W8pFaY9LvmUciv2kRM_gmJw&s"
+                    alt="Depósito">
+                <div class="slide2-content">
+                    <h2>Gestión de Stock en Tiempo Real</h2>
+                    <button>Ver más</button>
+                </div>
+            </div>
+            <div class="slide2">
+                <img src="https://media.licdn.com/dms/image/v2/D4E12AQFjgF1zpKkfNA/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1702434135345?e=1749686400&v=beta&t=tD1JXfFiNHzKYgAiC80pywh2d5Qq0nH5TzA-HzR7kwk"
+                    alt="Inventario con tablet">
+                <div class="slide2-content">
+                    <h2>Control desde cualquier dispositivo</h2>
+                    <button>Acceder</button>
+                </div>
+            </div>
+            <div class="slide2">
+                <img src="https://www.xamai.com/hubfs/Miniaturas%20junio%20%282%29-3.webp" alt="Códigos de barras">
+                <div class="slide2-content">
+                    <h2>Lectura de códigos optimizada</h2>
+                    <button>Conectar escáner</button>
+                </div>
+            </div>
+
+            <!-- Botones de control -->
+            <div class="slider-controls">
+                <button onclick="previousSlide()">⟨</button>
+                <button onclick="showNextSlide()">⟩</button>
+            </div>
+        </div>
+
+
     </main>
     <footer>
         <div class="footer-container">
             <section class="footer-info">
                 <h3>Sobre Nosotros</h3>
-                <p>Somos Incubadora del NOC, ayudamos a emprendedores a convertir sus ideas en negocios exitosos.</p>
+                <p>ISPC GESTOR DE INVENTARIO INTERNO.</p>
             </section>
 
             <section class="footer-links">
                 <h3>Enlaces Útiles</h3>
                 <ul>
-                    <li><a href="/courses">Cursos</a></li>
-                    <li><a href="/about-us">Sobre Nosotros</a></li>
-                    <li><a href="/contact">Contacto</a></li>
-                    <li><a href="/faq">Preguntas Frecuentes</a></li>
-
+                    <li><a href="/mock/html/home.html">Home</a></li>
+                    <li><a href="/mock/html/login.html">Login</a></li>
+                    <li><a href="/mock/html/registro.html">Registro</a></li>
                 </ul>
             </section>
 
             <section class="footer-contact">
                 <h3>Contacto</h3>
-                <p>Email: incubadoradelnoc&#64;gmail.com<a href="mailto:incubadoradelnoc@gmail.com"></a></p>
-                <p>Teléfono: <a href="tel:+5493549636800">+54 3549636800</a></p>
-                <p>📍Nos encontramos en Mitre 757</p>
+                <p>Email: <a href="mailto:politecnicocordoba@ispc.edu.ar">politecnicocordoba@ispc.edu.ar</a></p>
+                <p>Teléfono: <a href="tel:+54 9 3517587047">+54 9 3517587047</a></p>
+                <p>📍Nos encontramos en Humberto 1º 680</p>
             </section>
 
             <section class="footer-social">
                 <h3>Síguenos</h3>
-                <a href="https://www.facebook.com/profile.php?id=100063640024874" target="_blank">Facebook</a> |
-                <a href="https://www.instagram.com/incubadoradelnoc/?hl=es-la" target="_blank">Instagram</a>
+                <a href="https://www.facebook.com/ISPCordoba/" target="_blank">Facebook</a> |
+                <a href="https://www.instagram.com/ispcordoba/?hl=es" target="_blank">Instagram</a>
             </section>
 
             <section class="footer-legal">
@@ -93,19 +109,20 @@
 
             <section class="footer-newsletter">
                 <h3>Suscríbete a nuestro boletín</h3>
-                <form action="/suscribirse" method="post">
-                    <input type="email" placeholder="Tu correo electrónico" required>
+                <form>
+                    <input type="email" placeholder="Tu correo electrónico" required />
                     <button type="submit">Suscribirme</button>
                 </form>
             </section>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; {{ currentDay }}/{{ currentMonth }}/{{ currentYear }} {{ formattedHour }}:{{
-                formattedMinute }}:{{
-                formattedSeconds }} Incubadora del NOC. Todos los derechos reservados.</p>
+        <div class="footer-bottom" id="footer-date">
+            <!-- JS lo rellenará -->
         </div>
     </footer>
+    <script src="/mock/js/slide.js"></script>
+    <script src="/mock/js/dark-mode.js"></script>
+    <script src="/mock/js/footer.js"></script>
 </body>
 
 </html>
