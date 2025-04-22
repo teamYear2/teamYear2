@@ -1,78 +1,108 @@
 .slider2 {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-  }
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+ 
+}
 
-  .slide2 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
+.slide2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
 
-  .slide2.active {
-    opacity: 1;
-    z-index: 1;
-  }
+.slide2.active {
+  opacity: 1;
+  z-index: 1;
+}
 
-  .slide2 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.slide2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  .slide2-content {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-  }
+.slide2-content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
 
-  .slide2-content h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
-  }
+.slide2-content h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
 
-  .slide2-content button {
-    background-color: #00bcd4;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
+.slide2-content button {
+  background-color: #00bcd4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
-  .slide2-content button:hover {
-    background-color: #0097a7;
-  }
+.slide2-content button:hover {
+  background-color: #0097a7;
+}
 
-  .slider-controls {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-  }
+/* Posicionamiento lateral de los botones */
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 2;
+}
 
-  .slider-controls button {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 18px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 50%;
-  }
+.slider-controls button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
 
-  .slider-controls button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
+.slider-controls button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Estilo de los puntos indicadores */
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 2;
+}
+
+.slider-dots span {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(45, 44, 44, 0.5);
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slider-dots span.active {
+  background-color: #00bcd4;
+}

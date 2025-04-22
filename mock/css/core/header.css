@@ -56,12 +56,12 @@ li {
 
 /* Estilo para el slider cuando el input está marcado */
 input:checked + .slider {
-  background-color: crimson; /* Cambiar color de fondo del slider */
+  background-color: #fc6a07; /* Cambiar color de fondo del slider */
 }
 
 /* Estilo para el slider cuando el input está enfocado */
 input:focus + .slider {
-  box-shadow: 0 0 10px crimson; /* Agregar sombra alrededor del slider */
+  box-shadow: 0 0 10px #fc6a07; /* Agregar sombra alrededor del slider */
 }
 
 /* Estilo para el círculo dentro del slider cuando el input está marcado */
