@@ -1,0 +1,36 @@
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Opcional: también podés cambiar los botones, headers, etc. */
+body.dark-mode button {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode header {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode footer {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode .button-group {
+  color: rgb(35, 34, 34);
+}
+body.dark-mode .links a {
+  color: rgb(35, 34, 34);
+}
+body.dark-mode .input-group {
+  color: rgb(35, 34, 34);
+}
+body.dark-mode .title {
+  color: rgb(35, 34, 34);
+}
+body.dark-mode .checkbox-group {
+  color: rgb(35, 34, 34);
+}

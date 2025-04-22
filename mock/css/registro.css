@@ -1,6 +1,5 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to bottom left, white, #e2e8f0, #16a34a);
     color: #333;
     margin: 0;
     padding: 0;
@@ -90,8 +89,7 @@ body {
 }
 
 .btn {
-    background: var(--color-azul-oscuro);
-    color: white;
+    color: rgb(35, 34, 34);
     padding: 10px;
     border: none;
     border-radius: 20px;
