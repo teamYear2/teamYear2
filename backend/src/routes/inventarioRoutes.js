@@ -1,20 +1,20 @@
 const express = require('express');
 const inventarioController = require('../controllers/inventarioController');
 const router = express.Router();
-
+const verificarToken = require('../middlewares/authMiddleware');
 // Crear producto
-router.post('/', inventarioController.crearProducto);
+router.post('/', verificarToken, inventarioController.crearProducto);
 
 // Obtener todos los productos (con filtros)
-router.get('/', inventarioController.obtenerInventario);
+router.get('/', verificarToken, inventarioController.obtenerInventario);
 
 // Obtener un producto por ID
-router.get('/:id', inventarioController.obtenerProductoPorId);
+router.get('/:id', verificarToken, inventarioController.obtenerProductoPorId);
 
 // Actualizar producto por ID
-router.put('/:id', inventarioController.actualizarProducto);
+router.put('/:id', verificarToken,  inventarioController.actualizarProducto);
 
 // Eliminar producto por ID
-router.delete('/:id', inventarioController.eliminarProducto);
+router.delete('/:id', verificarToken,  inventarioController.eliminarProducto);
 
 module.exports = router;

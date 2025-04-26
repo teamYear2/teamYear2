@@ -5,6 +5,9 @@ const router = express.Router();
 // Crear usuario
 router.post('/', usuarioController.crearUsuario);
 
+// Ruta de login
+router.post('/login', usuarioController.loginUsuario);
+
 // Obtener todos los usuarios
 router.get('/', usuarioController.obtenerUsuarios);
 
