@@ -83,24 +83,23 @@ Durante esta primera fase del proyecto, se trabajará en el maquetado inicial de
 
 Esta etapa se enfocará en diseñar una interfaz amigable y funcional, que sirva como base para futuras integraciones de lógica y conexión con bases de datos.
 
-## Segunda Parte
-- backend con nodejs
+## 🛠️ Segunda Parte backend con nodejs
 
-- Route http://localhost:3000/
+### Route http://localhost:3000/
 
-- POST /usuarios → Crear usuario
+#### - POST /usuarios → Crear usuario
 - GET /usuarios → Listar todos los usuarios
 - GET /usuarios/:id → Obtener un usuario por ID
 - PUT /usuarios/:id → Actualizar usuario
 - DELETE /usuarios/:id → Eliminar usuario
 
-- POST /inventario → Crear nuevo producto
+#### - POST /inventario → Crear nuevo producto
 - GET /inventario?usuario_id=1&categoria_id=2 → Listar productos (con filtros)
 - GET /inventario/:id → Traer un producto específico
 - PUT /inventario/:id → Actualizar un producto
 - DELETE /inventario/:id → Borrar un producto
 
-- POST /categorias → Crear una nueva categoría
+#### - POST /categorias → Crear una nueva categoría
 - GET /categorias?usuario_id=1 → Listar todas las categorías de un usuario
 - GET /categorias/:id → Traer una categoría puntual
 - PUT /categorias/:id → Editar una categoría
