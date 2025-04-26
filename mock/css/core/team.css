@@ -1,0 +1,84 @@
+.cv-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    font-family: Arial, sans-serif;
+}
+
+.cv-content {
+    display: flex;
+    gap: 30px;
+    align-items:flex-start;
+    margin-bottom: 40px;
+}
+
+/* Bloques invertidos */
+.cv-content.reverse {
+    flex-direction: row-reverse;
+}
+
+.left-side {
+    flex: 1;
+}
+
+.profile-photo {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.right-side {
+    flex: 1;
+}
+
+/* Formulario */
+.form-section {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn {
+    display: block;
+    padding: 10px 20px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* NUEVO: Responsive para pantallas chicas */
+@media (max-width: 768px) {
+    .cv-content, .cv-content.reverse {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .right-side, .left-side {
+        flex: none;
+        width: 100%;
+    }
+
+    .profile-photo {
+        max-width: 300px;
+    }
+}

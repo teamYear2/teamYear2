@@ -1,0 +1,196 @@
+
+    /* Estilos base - modo escritorio */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+      padding: 2rem;
+    }
+
+    .header2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+   
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Sección de resumen */
+    .resumen {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      flex: 1;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+
+    .card p {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    /* Sección de categoría */
+    #categoria-selector {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    select {
+      width: 100%;
+      padding: 0.6rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    /* Acciones disponibles */
+    #acciones {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    #acciones h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .acciones-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .acciones-grid button {
+      flex: 1 1 150px;
+      padding: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #3498db;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .acciones-grid button:hover {
+      background: #2980b9;
+    }
+
+    .buscador-paginacion {
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .buscador input {
+      padding: 8px;
+      font-size: 16px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .paginacion {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .paginacion button {
+      padding: 6px 12px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .paginacion button:disabled {
+      background-color: #ccc;
+    }
+    
+    .paginacion button:hover {
+      background-color: #2980b9;
+    }
+    
+
+    /* Tabla de productos destacados */
+    .tabla-productos {
+      margin-top: 2rem;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.75rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #ecf0f1;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .resumen {
+        flex-direction: column;
+      }
+
+      .acciones-grid {
+        flex-direction: column;
+      }
+    }
+  

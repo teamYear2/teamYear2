@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Inventario Interno</title>
+    <link rel="stylesheet" href="/mock/css/reset.css">
+    <link rel="stylesheet" href="/mock/css/core/dark-mode.css">
+    <link rel="stylesheet" href="/mock/css/core/dashboard.css">
+    <link rel="stylesheet" href="/mock/css/core/header.css">
+    <link rel="stylesheet" href="/mock/css/core/footer.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo2">
+            <a href="/mock/html/home.html"><img height="200" width="300" fetchpriority="high"
+                    class="attachment-medium size-medium wp-image-5404"
+                    srcset="https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-300x200.png 300w, https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-1024x682.png 1024w, https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-768x511.png 768w, https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-1536x1023.png 1536w, https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-2048x1364.png 2048w"
+                    src="https://www.ispc.edu.ar/wp-content/uploads/2020/09/Isologotipo_ISPC_blanco-transparente-300x200.png"
+                    alt="logo ispc" /></a>
+        </div>
+
+        <nav class="nav-bar">
+            <label class="switch">
+                <input type="checkbox" id="modo-desktop">
+                <span class="slider"></span>
+            </label>
+
+            <div class="auth-buttons">
+                <a class="nav-link" href="/mock/html/team.html">Sobre Nosotros</a>
+                <a class="nav-link" href="/mock/html/login.html">Ingresar</a>
+                <a class="nav-link" href="/mock/html/registro.html">Registro</a>
+                <a class="nav-link" href="/mock/html/dashboard.html">Registro</a>
+            </div>
+        </nav>
+    </header>
+
+    <navegacion class="header2">
+        <h1>Dashboard de Inventario</h1>
+        <p>Gestiona tu inventario de manera eficiente</p>
+    </navegacion>
+
+    <main>
+
+        <!-- Sección de resumen -->
+        <section class="resumen">
+            <div class="card">
+                <h3>Total de productos</h3>
+                <p>120</p>
+            </div>
+            <div class="card">
+                <h3>Stock bajo</h3>
+                <p>8</p>
+            </div>
+            <div class="card">
+                <h3>Categorías activas</h3>
+                <p>5</p>
+            </div>
+        </section>
+
+        <!-- Selector de categoría -->
+        <section id="categoria-selector">
+            <label for="categorias">Categoría:</label>
+            <select id="categorias" name="categorias">
+                <option value="" disabled selected>-- Elige una categoría --</option>
+                <option value="bebidas">Bebidas</option>
+                <option value="alimentos">Alimentos</option>
+                <option value="electronica">Electrónica</option>
+                <option value="limpieza">Limpieza</option>
+            </select>
+        </section>
+
+        <!-- Acciones disponibles -->
+        <section id="acciones">
+            <h2>Acciones disponibles</h2>
+            <div class="acciones-grid">
+                <button>Agregar producto</button>
+                <button>Ver stock</button>
+                <button>Actualizar precios</button>
+                <button>Exportar CSV</button>
+                <button>Eliminar producto</button>
+            </div>
+        </section>
+
+        <!-- Sección de búsqueda y paginación -->
+        <section class="buscador-paginacion">
+            <!-- Buscador -->
+            <div class="buscador">
+                <label for="buscador-producto">Buscar producto:</label>
+                <input type="text" id="buscador-producto" placeholder="Buscar producto..." onkeyup="filtrarProductos()">
+            </div>
+
+            <!-- Paginación -->
+            <div class="paginacion">
+                <button id="back-btn" onclick="cambiarPagina('back')">Atrás</button>
+                <button id="page-1" onclick="cambiarPagina(1)">1</button>
+                <button id="page-2" onclick="cambiarPagina(2)">2</button>
+                <button id="page-3" onclick="cambiarPagina(3)">3</button>
+                <button id="next-btn" onclick="cambiarPagina('next')">Siguiente</button>
+            </div>
+        </section>
+        <!-- Productos destacados -->
+        <section class="tabla-productos">
+            <h2>Productos destacados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Categoría</th>
+                        <th>Stock</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Coca Cola 500ml</td>
+                        <td>Bebidas</td>
+                        <td>35</td>
+                        <td>$250</td>
+                    </tr>
+                    <tr>
+                        <td>Detergente Ultra</td>
+                        <td>Limpieza</td>
+                        <td>12</td>
+                        <td>$450</td>
+                    </tr>
+                    <tr>
+                        <td>Smartphone Zeta</td>
+                        <td>Electrónica</td>
+                        <td>5</td>
+                        <td>$120.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+        <!-- Gráficos -->
+        <section class="graficos">
+            <h2>Estadísticas del producto seleccionado</h2>
+
+            <!-- Selector de tipo de gráfico -->
+            <div style="margin-bottom: 1rem;">
+                <label for="tipo-grafico">Elegir tipo de gráfico:</label>
+                <select id="tipo-grafico" onchange="cambiarGrafico()">
+                    <option value="diario">Consumo Diario</option>
+                    <option value="mensual">Consumo Mensual</option>
+                    <option value="anual">Consumo Anual</option>
+                    <option value="stock">Stock vs Stock mínimo</option>
+                </select>
+            </div>
+
+            <!-- Canvas de Chart.js -->
+            <canvas id="grafico" width="400" height="200"></canvas>
+        </section>
+
+        <!-- Cargamos Chart.js desde CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <section class="footer-info">
+                <h3>Sobre Nosotros</h3>
+                <p>ISPC GESTOR DE INVENTARIO INTERNO.</p>
+            </section>
+
+            <section class="footer-links">
+                <h3>Enlaces Útiles</h3>
+                <ul>
+                    <li><a href="/mock/html/home.html">Home</a></li>
+                    <li><a href="/mock/html/login.html">Login</a></li>
+                    <li><a href="/mock/html/registro.html">Registro</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-contact">
+                <h3>Contacto</h3>
+                <p>Email: <a href="mailto:politecnicocordoba@ispc.edu.ar">politecnicocordoba@ispc.edu.ar</a></p>
+                <p>Teléfono: <a href="tel:+54 9 3517587047">+54 9 3517587047</a></p>
+                <p>📍Nos encontramos en Humberto Primo 680. Complejo Capitalinas. Edificio Suquía.
+                </p>
+            </section>
+
+            <section class="footer-social">
+                <h3>Síguenos</h3>
+                <a href="https://www.facebook.com/ISPCordoba/" target="_blank">Facebook</a> |
+                <a href="https://www.instagram.com/ispcordoba/?hl=es" target="_blank">Instagram</a>
+            </section>
+
+            <section class="footer-legal">
+                <h3>Información Legal</h3>
+                <ul>
+                    <li><a href="/terms">Términos y Condiciones</a></li>
+                    <li><a href="/policies">Política de Privacidad</a></li>
+                    <li><a href="/cookie-policies">Política de Cookies</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-newsletter">
+                <h3>Suscríbete a nuestro boletín</h3>
+                <form>
+                    <input type="email" placeholder="Tu correo electrónico" required />
+                    <button type="submit">Suscribirme</button>
+                </form>
+            </section>
+        </div>
+
+        <div class="footer-bottom" id="footer-date">
+            <!-- JS lo rellenará -->
+        </div>
+    </footer>
+    <script src="/mock/js/graficos.js"></script>
+    <script src="/mock/js/dark-mode.js"></script>
+    <script src="/mock/js/footer.js"></script>
+</body>
+
+</html>
+
+
+</body>
+
+</html>
