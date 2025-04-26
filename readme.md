@@ -88,6 +88,7 @@ Esta etapa se enfocará en diseñar una interfaz amigable y funcional, que sirva
 ### Route http://localhost:3000/
 
 #### - POST /usuarios → Crear usuario
+- POST /usuarios/login → Logear usuario
 - GET /usuarios → Listar todos los usuarios
 - GET /usuarios/:id → Obtener un usuario por ID
 - PUT /usuarios/:id → Actualizar usuario

@@ -18,7 +18,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #ccc;
 }
-
+main{
+  padding-top: 50px;
+}
 img,
 picture,
 video,

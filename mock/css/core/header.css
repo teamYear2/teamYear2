@@ -78,11 +78,29 @@ header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+
+}
+
+/* Cuando scrollea hacia abajo, escondemos el header */
+#header.hide {
+  transform: translateY(-100%);
+}
+
+/* Cuando vuelve hacia arriba, mostramos el header */
+#header.show {
+  transform: translateY(0);
 }
 
 /* 🔹 Logo */
 .logo2 a img {
-  height: 9rem;
+  height: 5rem;
+  width: 8rem;
   background-size: contain;
 }
 
