@@ -63,17 +63,7 @@
             </div>
         </section>
 
-        <!-- Selector de categoría -->
-        <section id="categoria-selector">
-            <label for="categorias">Categoría:</label>
-            <select id="categorias" name="categorias">
-                <option value="" disabled selected>-- Elige una categoría --</option>
-                <option value="bebidas">Bebidas</option>
-                <option value="alimentos">Alimentos</option>
-                <option value="electronica">Electrónica</option>
-                <option value="limpieza">Limpieza</option>
-            </select>
-        </section>
+
 
         <!-- Acciones disponibles -->
         <section id="acciones">
@@ -85,6 +75,19 @@
                 <button>Exportar CSV</button>
                 <button>Eliminar producto</button>
             </div>
+        </section>
+
+
+        <!-- Selector de categoría -->
+        <section id="categoria-selector">
+            <label for="categorias">Categoría:</label>
+            <select id="categorias" name="categorias">
+                <option value="" disabled selected>-- Elige una categoría --</option>
+                <option value="bebidas">Bebidas</option>
+                <option value="alimentos">Alimentos</option>
+                <option value="higiene">Higiene</option>
+                <option value="limpieza">Limpieza</option>
+            </select>
         </section>
 
         <!-- Sección de búsqueda y paginación -->
@@ -103,6 +106,7 @@
                 <button id="page-3" onclick="cambiarPagina(3)">3</button>
                 <button id="next-btn" onclick="cambiarPagina('next')">Siguiente</button>
             </div>
+
         </section>
         <!-- Tabla de Productos (ejemplo) -->
         <section class="productos">
@@ -119,6 +123,7 @@
                     <!-- Los productos se agregarán aquí mediante JS -->
                 </tbody>
             </table>
+
         </section>
 
         <!-- Gráficos -->
@@ -132,16 +137,16 @@
                     <option value="diario">Consumo Diario</option>
                     <option value="mensual">Consumo Mensual</option>
                     <option value="anual">Consumo Anual</option>
-                    <option value="stock">Stock vs Stock mínimo</option>
+
+
                 </select>
             </div>
 
             <!-- Canvas de Chart.js -->
             <canvas id="grafico" width="400" height="200"></canvas>
+
         </section>
 
-        <!-- Cargamos Chart.js desde CDN -->
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
     </main>
@@ -197,8 +202,10 @@
             <!-- JS lo rellenará -->
         </div>
     </footer>
+    <!-- Cargamos Chart.js desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/mock/js/producto.js"></script>
-    <script src="/mock/js/graficos.js"></script>
+
     <script src="/mock/js/dark-mode.js"></script>
     <script src="/mock/js/footer.js"></script>
 </body>
