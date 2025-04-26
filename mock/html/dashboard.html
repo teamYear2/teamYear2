@@ -102,41 +102,22 @@
                 <button id="next-btn" onclick="cambiarPagina('next')">Siguiente</button>
             </div>
         </section>
-        <!-- Productos destacados -->
-        <section class="tabla-productos">
-            <h2>Productos destacados</h2>
-            <table>
+        <!-- Tabla de Productos (ejemplo) -->
+        <section class="productos">
+            <table id="tabla-productos">
                 <thead>
                     <tr>
-                        <th>Producto</th>
+                        <th>Código</th>
+                        <th>Nombre</th>
                         <th>Categoría</th>
                         <th>Stock</th>
-                        <th>Precio</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Coca Cola 500ml</td>
-                        <td>Bebidas</td>
-                        <td>35</td>
-                        <td>$250</td>
-                    </tr>
-                    <tr>
-                        <td>Detergente Ultra</td>
-                        <td>Limpieza</td>
-                        <td>12</td>
-                        <td>$450</td>
-                    </tr>
-                    <tr>
-                        <td>Smartphone Zeta</td>
-                        <td>Electrónica</td>
-                        <td>5</td>
-                        <td>$120.000</td>
-                    </tr>
+                    <!-- Los productos se agregarán aquí mediante JS -->
                 </tbody>
             </table>
         </section>
-
 
         <!-- Gráficos -->
         <section class="graficos">
@@ -214,6 +195,7 @@
             <!-- JS lo rellenará -->
         </div>
     </footer>
+    <script src="/mock/js/producto.js"></script>
     <script src="/mock/js/graficos.js"></script>
     <script src="/mock/js/dark-mode.js"></script>
     <script src="/mock/js/footer.js"></script>
