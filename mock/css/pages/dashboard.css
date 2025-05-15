@@ -1,0 +1,34 @@
+.sidebar {
+            transition: all 0.3s ease;
+        }
+        .sidebar-collapsed {
+            width: 70px;
+        }
+        .sidebar-collapsed .nav-text {
+            display: none;
+        }
+        .sidebar-collapsed .logo-text {
+            display: none;
+        }
+        .sidebar-collapsed .nav-item {
+            justify-content: center;
+        }
+        .main-content {
+            transition: all 0.3s ease;
+        }
+        .content-expanded {
+            margin-left: 250px;
+        }
+        .content-collapsed {
+            margin-left: 70px;
+        }
+        .active-nav {
+            background-color: #3b82f6;
+            color: white !important;
+        }
+        .active-nav i {
+            color: white !important;
+        }
+        .chart-container {
+            height: 300px;
+        }
