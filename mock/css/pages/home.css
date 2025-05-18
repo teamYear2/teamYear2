@@ -1,3 +1,4 @@
+@import "./switch.css";
 .hero-gradient {
     background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
   }
@@ -50,3 +51,4 @@
   .main-content {
     transition: margin-left 0.3s ease;
   }
+
