@@ -1,0 +1,55 @@
+/* Estilos para el interruptor (switch) */
+.switch {
+  position: relative; /* Posición relativa para el interruptor */
+  display: inline-block; /* Mostrar en línea y como bloque */
+  width: 40px; /* Ancho del interruptor */
+  height: 18px; /* Altura del interruptor */
+}
+
+/* Estilo para el input del interruptor (oculto) */
+.switch input {
+  opacity: 0; /* Hacer el input invisible */
+  width: 0; /* Ancho del input (cero) */
+  height: 0; /* Altura del input (cero) */
+}
+
+/* Estilo para el slider del interruptor */
+.slider {
+  position: absolute; /* Posición absoluta para el slider */
+  cursor: pointer; /* Cambiar el cursor a mano al pasar sobre el slider */
+  top: 0; /* Posición superior */
+  left: 0; /* Posición izquierda */
+  right: 0; /* Posición derecha */
+  bottom: 0; /* Posición inferior */
+  background-color: #00339e; /* Color de fondo del slider */
+  border-radius: 24px; /* Bordes redondeados del slider */
+  transition: background-color 0.4s ease; /* Transición suave para el cambio de color de fondo */
+}
+
+/* Estilo para el círculo dentro del slider */
+.slider::before {
+  position: absolute; /* Posición absoluta para el círculo */
+  content: ""; /* Sin contenido */
+  height: 12px; /* Altura del círculo */
+  width: 12px; /* Ancho del círculo */
+  left: 2px; /* Posición izquierda del círculo */
+  bottom: 3px; /* Posición inferior del círculo */
+  border-radius: 50%; /* Bordes redondeados del círculo */
+  background-color: #fff; /* Color de fondo del círculo */
+  transition: transform 0.4s ease; /* Transición suave para el movimiento del círculo */
+}
+
+/* Estilo para el slider cuando el input está marcado */
+input:checked + .slider {
+  background-color: #fc6a07; /* Cambiar color de fondo del slider */
+}
+
+/* Estilo para el slider cuando el input está enfocado */
+input:focus + .slider {
+  box-shadow: 0 0 10px #fc6a07; /* Agregar sombra alrededor del slider */
+}
+
+/* Estilo para el círculo dentro del slider cuando el input está marcado */
+input:checked + .slider::before {
+  transform: translateX(24px); /* Mover el círculo a la derecha */
+}
