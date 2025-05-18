@@ -2,16 +2,16 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Gestor de Inventario</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/pages/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../css/pages/dashboard.css" />
 </head>
 
 <body class="bg-gray-100">
-        <!-- Header/Navbar -->
+    <!-- Header/Navbar -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
@@ -22,7 +22,7 @@
                 </div>
                 <nav class="hidden md:flex space-x-8">
                     <label class="switch">
-                        <input type="checkbox" id="modo-desktop">
+                        <input type="checkbox" id="modo-desktop" >
                         <span class="slider"></span>
                     </label>
                     <a href="./home.html" class="text-gray-600 hover:text-blue-600 font-medium">Home</a>
@@ -31,13 +31,15 @@
                 </nav>
                 <div class="flex items-center space-x-4">
                     <a href="./login_registro.html"
-                        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition duration-300">Cerrar sesión</a>
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition duration-300">Cerrar
+                        sesión</a>
                 </div>
                 <button class="md:hidden text-gray-600">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
+    </header>
     <div class="flex h-screen overflow-hidden">
         <!-- Sidebar -->
         <div class="sidebar bg-gray-800 text-white w-64 fixed h-full" id="sidebar">
@@ -74,7 +76,7 @@
             </nav>
             <div class="absolute bottom-0 w-full p-4 border-t border-gray-700">
                 <div class="flex items-center">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-8 h-8 rounded-full">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-8 h-8 rounded-full" />
                     <div class="ml-3">
                         <p class="text-sm font-medium">Admin User</p>
                         <p class="text-xs text-gray-400">Administrador</p>
@@ -92,7 +94,9 @@
                         <button onclick="toggleSidebar()" class="text-gray-500 focus:outline-none mr-4">
                             <i class="fas fa-bars"></i>
                         </button>
-                        <h1 class="text-xl font-semibold text-gray-800" id="section-title">Dashboard</h1>
+                        <h1 class="text-xl font-semibold text-gray-800" id="section-title">
+                            Dashboard
+                        </h1>
                     </div>
                     <div class="flex items-center space-x-4">
                         <div class="relative">
@@ -103,7 +107,7 @@
                         </div>
                         <div class="relative">
                             <input type="text" placeholder="Buscar..."
-                                class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
                             <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
                         </div>
                     </div>
@@ -156,7 +160,9 @@
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
                         <div class="bg-white rounded-lg shadow p-6 col-span-2">
                             <div class="flex justify-between items-center mb-4">
-                                <h2 class="text-lg font-semibold">Movimiento de inventario</h2>
+                                <h2 class="text-lg font-semibold">
+                                    Movimiento de inventario
+                                </h2>
                                 <select class="border border-gray-300 rounded px-3 py-1 text-sm">
                                     <option>Últimos 7 días</option>
                                     <option>Últimos 30 días</option>
@@ -168,7 +174,9 @@
                             </div>
                         </div>
                         <div class="bg-white rounded-lg shadow p-6">
-                            <h2 class="text-lg font-semibold mb-4">Productos con bajo stock</h2>
+                            <h2 class="text-lg font-semibold mb-4">
+                                Productos con bajo stock
+                            </h2>
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center">
@@ -233,7 +241,9 @@
                     <div class="bg-white rounded-lg shadow p-6 mb-6">
                         <div class="flex justify-between items-center mb-4">
                             <h2 class="text-lg font-semibold">Últimos movimientos</h2>
-                            <button class="text-blue-600 hover:text-blue-800">Ver todos</button>
+                            <button class="text-blue-600 hover:text-blue-800">
+                                Ver todos
+                            </button>
                         </div>
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200">
@@ -241,45 +251,77 @@
                                     <tr>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Fecha</th>
+                                            Fecha
+                                        </th>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Producto</th>
+                                            Producto
+                                        </th>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Tipo</th>
+                                            Tipo
+                                        </th>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Cantidad</th>
+                                            Cantidad
+                                        </th>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Usuario</th>
+                                            Usuario
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">15/06/2023</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            15/06/2023
+                                        </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            Teclado Mecánico</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Entrada</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">+20</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Juan Pérez</td>
+                                            Teclado Mecánico
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            Entrada
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
+                                            +20
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            Juan Pérez
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">14/06/2023</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Mouse
-                                            Inalámbrico</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Salida</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">-5</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">María Gómez</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            14/06/2023
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                            Mouse Inalámbrico
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            Salida
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">
+                                            -5
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            María Gómez
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">13/06/2023</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            13/06/2023
+                                        </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            Monitor 24"</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Entrada</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">+15</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Carlos Ruiz</td>
+                                            Monitor 24"
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            Entrada
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">
+                                            +15
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            Carlos Ruiz
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -290,7 +332,9 @@
                 <!-- Productos Section -->
                 <div id="productos-section" class="hidden">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800">Gestión de Productos</h2>
+                        <h2 class="text-2xl font-bold text-gray-800">
+                            Gestión de Productos
+                        </h2>
                         <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
                             <i class="fas fa-plus mr-2"></i> Nuevo Producto
                         </button>
@@ -305,7 +349,7 @@
                                     <option>Mostrar 50</option>
                                 </select>
                                 <input type="text" placeholder="Buscar producto..."
-                                    class="border border-gray-300 rounded px-3 py-1 text-sm">
+                                    class="border border-gray-300 rounded px-3 py-1 text-sm" />
                             </div>
                             <div class="flex items-center">
                                 <button class="text-gray-500 hover:text-gray-700 mr-2">
@@ -322,121 +366,167 @@
                                     <tr>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            <input type="checkbox" class="rounded text-blue-600">
+                                            <input type="checkbox" class="rounded text-blue-600" />
                                         </th>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Código</th>
+                                            Código
+                                        </th>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Nombre</th>
+                                            Nombre
+                                        </th>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Categoría</th>
+                                            Categoría
+                                        </th>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Stock</th>
+                                            Stock
+                                        </th>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Precio</th>
+                                            Precio
+                                        </th>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Estado</th>
+                                            Estado
+                                        </th>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Acciones</th>
+                                            Acciones
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <input type="checkbox" class="rounded text-blue-600">
+                                            <input type="checkbox" class="rounded text-blue-600" />
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            TEC-001</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Teclado Mecánico
-                                            RGB</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Periféricos</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">22</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$59.99</td>
+                                            TEC-001
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            Teclado Mecánico RGB
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            Periféricos
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            22
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            $59.99
+                                        </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <span
                                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Disponible</span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <button class="text-blue-600 hover:text-blue-900 mr-2"><i
-                                                    class="fas fa-edit"></i></button>
-                                            <button class="text-red-600 hover:text-red-900"><i
-                                                    class="fas fa-trash"></i></button>
+                                            <button class="text-blue-600 hover:text-blue-900 mr-2">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-600 hover:text-red-900">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <input type="checkbox" class="rounded text-blue-600">
+                                            <input type="checkbox" class="rounded text-blue-600" />
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            MOU-005</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Mouse Inalámbrico
+                                            MOU-005
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Periféricos</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">3</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$29.99</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            Mouse Inalámbrico
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            Periféricos
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            3
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            $29.99
+                                        </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <span
                                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Bajo
                                                 stock</span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <button class="text-blue-600 hover:text-blue-900 mr-2"><i
-                                                    class="fas fa-edit"></i></button>
-                                            <button class="text-red-600 hover:text-red-900"><i
-                                                    class="fas fa-trash"></i></button>
+                                            <button class="text-blue-600 hover:text-blue-900 mr-2">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-600 hover:text-red-900">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <input type="checkbox" class="rounded text-blue-600">
+                                            <input type="checkbox" class="rounded text-blue-600" />
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            MON-012</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Monitor 24" Full
-                                            HD</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Monitores</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">5</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$179.99</td>
+                                            MON-012
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            Monitor 24" Full HD
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            Monitores
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            5
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            $179.99
+                                        </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <span
                                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Bajo
                                                 stock</span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <button class="text-blue-600 hover:text-blue-900 mr-2"><i
-                                                    class="fas fa-edit"></i></button>
-                                            <button class="text-red-600 hover:text-red-900"><i
-                                                    class="fas fa-trash"></i></button>
+                                            <button class="text-blue-600 hover:text-blue-900 mr-2">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-600 hover:text-red-900">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <input type="checkbox" class="rounded text-blue-600">
+                                            <input type="checkbox" class="rounded text-blue-600" />
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            DIS-008</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Disco Duro 1TB
+                                            DIS-008
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Almacenamiento
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            Disco Duro 1TB
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">0</td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">$49.99</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            Almacenamiento
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            0
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            $49.99
+                                        </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <span
                                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Agotado</span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <button class="text-blue-600 hover:text-blue-900 mr-2"><i
-                                                    class="fas fa-edit"></i></button>
-                                            <button class="text-red-600 hover:text-red-900"><i
-                                                    class="fas fa-trash"></i></button>
+                                            <button class="text-blue-600 hover:text-blue-900 mr-2">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="text-red-600 hover:text-red-900">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -447,12 +537,21 @@
                                 Mostrando 1 a 4 de 1248 productos
                             </div>
                             <div class="flex space-x-1">
-                                <button class="px-3 py-1 border border-gray-300 rounded text-sm">Anterior</button>
-                                <button
-                                    class="px-3 py-1 border border-blue-600 bg-blue-600 text-white rounded text-sm">1</button>
-                                <button class="px-3 py-1 border border-gray-300 rounded text-sm">2</button>
-                                <button class="px-3 py-1 border border-gray-300 rounded text-sm">3</button>
-                                <button class="px-3 py-1 border border-gray-300 rounded text-sm">Siguiente</button>
+                                <button class="px-3 py-1 border border-gray-300 rounded text-sm">
+                                    Anterior
+                                </button>
+                                <button class="px-3 py-1 border border-blue-600 bg-blue-600 text-white rounded text-sm">
+                                    1
+                                </button>
+                                <button class="px-3 py-1 border border-gray-300 rounded text-sm">
+                                    2
+                                </button>
+                                <button class="px-3 py-1 border border-gray-300 rounded text-sm">
+                                    3
+                                </button>
+                                <button class="px-3 py-1 border border-gray-300 rounded text-sm">
+                                    Siguiente
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -461,7 +560,9 @@
                 <!-- Categorías Section -->
                 <div id="categorias-section" class="hidden">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800">Gestión de Categorías</h2>
+                        <h2 class="text-2xl font-bold text-gray-800">
+                            Gestión de Categorías
+                        </h2>
                         <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
                             <i class="fas fa-plus mr-2"></i> Nueva Categoría
                         </button>
@@ -474,8 +575,12 @@
                                 <p class="text-gray-500">32 productos</p>
                             </div>
                             <div class="flex space-x-2">
-                                <button class="text-blue-600 hover:text-blue-900"><i class="fas fa-edit"></i></button>
-                                <button class="text-red-600 hover:text-red-900"><i class="fas fa-trash"></i></button>
+                                <button class="text-blue-600 hover:text-blue-900">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-600 hover:text-red-900">
+                                    <i class="fas fa-trash"></i>
+                                </button>
                             </div>
                         </div>
                         <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
@@ -484,8 +589,12 @@
                                 <p class="text-gray-500">15 productos</p>
                             </div>
                             <div class="flex space-x-2">
-                                <button class="text-blue-600 hover:text-blue-900"><i class="fas fa-edit"></i></button>
-                                <button class="text-red-600 hover:text-red-900"><i class="fas fa-trash"></i></button>
+                                <button class="text-blue-600 hover:text-blue-900">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-600 hover:text-red-900">
+                                    <i class="fas fa-trash"></i>
+                                </button>
                             </div>
                         </div>
                         <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
@@ -494,8 +603,12 @@
                                 <p class="text-gray-500">28 productos</p>
                             </div>
                             <div class="flex space-x-2">
-                                <button class="text-blue-600 hover:text-blue-900"><i class="fas fa-edit"></i></button>
-                                <button class="text-red-600 hover:text-red-900"><i class="fas fa-trash"></i></button>
+                                <button class="text-blue-600 hover:text-blue-900">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-600 hover:text-red-900">
+                                    <i class="fas fa-trash"></i>
+                                </button>
                             </div>
                         </div>
                         <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
@@ -504,8 +617,12 @@
                                 <p class="text-gray-500">45 productos</p>
                             </div>
                             <div class="flex space-x-2">
-                                <button class="text-blue-600 hover:text-blue-900"><i class="fas fa-edit"></i></button>
-                                <button class="text-red-600 hover:text-red-900"><i class="fas fa-trash"></i></button>
+                                <button class="text-blue-600 hover:text-blue-900">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-600 hover:text-red-900">
+                                    <i class="fas fa-trash"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -518,64 +635,80 @@
                             <div class="p-4 flex justify-between items-center">
                                 <div>
                                     <h4 class="font-medium">Periféricos</h4>
-                                    <p class="text-sm text-gray-500">Teclados, mouse, audífonos, etc.</p>
+                                    <p class="text-sm text-gray-500">
+                                        Teclados, mouse, audífonos, etc.
+                                    </p>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-4">32
                                         productos</span>
                                     <div class="flex space-x-2">
-                                        <button class="text-blue-600 hover:text-blue-900"><i
-                                                class="fas fa-edit"></i></button>
-                                        <button class="text-red-600 hover:text-red-900"><i
-                                                class="fas fa-trash"></i></button>
+                                        <button class="text-blue-600 hover:text-blue-900">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="text-red-600 hover:text-red-900">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <div class="p-4 flex justify-between items-center">
                                 <div>
                                     <h4 class="font-medium">Monitores</h4>
-                                    <p class="text-sm text-gray-500">Monitores de diferentes tamaños y resoluciones</p>
+                                    <p class="text-sm text-gray-500">
+                                        Monitores de diferentes tamaños y resoluciones
+                                    </p>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-4">15
                                         productos</span>
                                     <div class="flex space-x-2">
-                                        <button class="text-blue-600 hover:text-blue-900"><i
-                                                class="fas fa-edit"></i></button>
-                                        <button class="text-red-600 hover:text-red-900"><i
-                                                class="fas fa-trash"></i></button>
+                                        <button class="text-blue-600 hover:text-blue-900">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="text-red-600 hover:text-red-900">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <div class="p-4 flex justify-between items-center">
                                 <div>
                                     <h4 class="font-medium">Almacenamiento</h4>
-                                    <p class="text-sm text-gray-500">Discos duros, SSDs, memorias USB</p>
+                                    <p class="text-sm text-gray-500">
+                                        Discos duros, SSDs, memorias USB
+                                    </p>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-4">28
                                         productos</span>
                                     <div class="flex space-x-2">
-                                        <button class="text-blue-600 hover:text-blue-900"><i
-                                                class="fas fa-edit"></i></button>
-                                        <button class="text-red-600 hover:text-red-900"><i
-                                                class="fas fa-trash"></i></button>
+                                        <button class="text-blue-600 hover:text-blue-900">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="text-red-600 hover:text-red-900">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <div class="p-4 flex justify-between items-center">
                                 <div>
                                     <h4 class="font-medium">Componentes</h4>
-                                    <p class="text-sm text-gray-500">Tarjetas gráficas, RAM, procesadores</p>
+                                    <p class="text-sm text-gray-500">
+                                        Tarjetas gráficas, RAM, procesadores
+                                    </p>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-4">45
                                         productos</span>
                                     <div class="flex space-x-2">
-                                        <button class="text-blue-600 hover:text-blue-900"><i
-                                                class="fas fa-edit"></i></button>
-                                        <button class="text-red-600 hover:text-red-900"><i
-                                                class="fas fa-trash"></i></button>
+                                        <button class="text-blue-600 hover:text-blue-900">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="text-red-600 hover:text-red-900">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -586,7 +719,9 @@
                 <!-- Reportes Section -->
                 <div id="reportes-section" class="hidden">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800">Reportes de Inventario</h2>
+                        <h2 class="text-2xl font-bold text-gray-800">
+                            Reportes de Inventario
+                        </h2>
                         <div class="flex space-x-2">
                             <button
                                 class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
@@ -665,7 +800,9 @@
 
                     <div class="bg-white rounded-lg shadow p-6">
                         <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-lg font-semibold">Generar reporte personalizado</h3>
+                            <h3 class="text-lg font-semibold">
+                                Generar reporte personalizado
+                            </h3>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                             <div>
@@ -679,11 +816,11 @@
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Fecha inicial</label>
-                                <input type="date" class="w-full border border-gray-300 rounded px-3 py-2">
+                                <input type="date" class="w-full border border-gray-300 rounded px-3 py-2" />
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-1">Fecha final</label>
-                                <input type="date" class="w-full border border-gray-300 rounded px-3 py-2">
+                                <input type="date" class="w-full border border-gray-300 rounded px-3 py-2" />
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
@@ -717,7 +854,9 @@
                 <!-- Configuración Section -->
                 <div id="configuracion-section" class="hidden">
                     <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800">Configuración del Sistema</h2>
+                        <h2 class="text-2xl font-bold text-gray-800">
+                            Configuración del Sistema
+                        </h2>
                     </div>
 
                     <div class="bg-white rounded-lg shadow overflow-hidden mb-6">
@@ -746,13 +885,15 @@
                             <div id="general-config" class="config-content">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                     <div>
-                                        <h3 class="text-lg font-semibold mb-4">Configuración básica</h3>
+                                        <h3 class="text-lg font-semibold mb-4">
+                                            Configuración básica
+                                        </h3>
                                         <div class="space-y-4">
                                             <div>
                                                 <label class="block text-sm font-medium text-gray-700 mb-1">Nombre de la
                                                     empresa</label>
                                                 <input type="text" value="InventarioPro"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2">
+                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
                                             </div>
                                             <div>
                                                 <label
@@ -768,18 +909,22 @@
                                                     horaria</label>
                                                 <select class="w-full border border-gray-300 rounded px-3 py-2">
                                                     <option>(UTC-06:00) Centroamérica</option>
-                                                    <option selected>(UTC-06:00) Ciudad de México</option>
+                                                    <option selected>
+                                                        (UTC-06:00) Ciudad de México
+                                                    </option>
                                                     <option>(UTC-05:00) Bogotá, Lima</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div>
-                                        <h3 class="text-lg font-semibold mb-4">Configuración de inventario</h3>
+                                        <h3 class="text-lg font-semibold mb-4">
+                                            Configuración de inventario
+                                        </h3>
                                         <div class="space-y-4">
                                             <div class="flex items-center">
                                                 <input type="checkbox" id="low-stock-alerts"
-                                                    class="rounded text-blue-600" checked>
+                                                    class="rounded text-blue-600" checked />
                                                 <label for="low-stock-alerts" class="ml-2 text-sm text-gray-700">Alertas
                                                     de bajo stock</label>
                                             </div>
@@ -787,10 +932,11 @@
                                                 <label class="block text-sm font-medium text-gray-700 mb-1">Umbral para
                                                     bajo stock</label>
                                                 <input type="number" value="5"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2">
+                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
                                             </div>
                                             <div class="flex items-center">
-                                                <input type="checkbox" id="auto-reorder" class="rounded text-blue-600">
+                                                <input type="checkbox" id="auto-reorder"
+                                                    class="rounded text-blue-600" />
                                                 <label for="auto-reorder"
                                                     class="ml-2 text-sm text-gray-700">Reabastecimiento
                                                     automático</label>
@@ -820,19 +966,24 @@
                                             <tr>
                                                 <th
                                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Nombre</th>
+                                                    Nombre
+                                                </th>
                                                 <th
                                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Email</th>
+                                                    Email
+                                                </th>
                                                 <th
                                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Rol</th>
+                                                    Rol
+                                                </th>
                                                 <th
                                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Estado</th>
+                                                    Estado
+                                                </th>
                                                 <th
                                                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Acciones</th>
+                                                    Acciones
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
@@ -842,16 +993,18 @@
                                                         <div class="flex-shrink-0 h-10 w-10">
                                                             <img class="h-10 w-10 rounded-full"
                                                                 src="https://randomuser.me/api/portraits/men/32.jpg"
-                                                                alt="">
+                                                                alt="" />
                                                         </div>
                                                         <div class="ml-4">
-                                                            <div class="text-sm font-medium text-gray-900">Admin User
+                                                            <div class="text-sm font-medium text-gray-900">
+                                                                Admin User
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    admin@inventariopro.com</td>
+                                                    admin@inventariopro.com
+                                                </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                     <span
                                                         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">Administrador</span>
@@ -861,10 +1014,12 @@
                                                         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Activo</span>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    <button class="text-blue-600 hover:text-blue-900 mr-2"><i
-                                                            class="fas fa-edit"></i></button>
-                                                    <button class="text-red-600 hover:text-red-900"><i
-                                                            class="fas fa-trash"></i></button>
+                                                    <button class="text-blue-600 hover:text-blue-900 mr-2">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="text-red-600 hover:text-red-900">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -873,16 +1028,18 @@
                                                         <div class="flex-shrink-0 h-10 w-10">
                                                             <img class="h-10 w-10 rounded-full"
                                                                 src="https://randomuser.me/api/portraits/women/44.jpg"
-                                                                alt="">
+                                                                alt="" />
                                                         </div>
                                                         <div class="ml-4">
-                                                            <div class="text-sm font-medium text-gray-900">María Gómez
+                                                            <div class="text-sm font-medium text-gray-900">
+                                                                María Gómez
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    maria@inventariopro.com</td>
+                                                    maria@inventariopro.com
+                                                </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                     <span
                                                         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Inventario</span>
@@ -892,10 +1049,12 @@
                                                         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Activo</span>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    <button class="text-blue-600 hover:text-blue-900 mr-2"><i
-                                                            class="fas fa-edit"></i></button>
-                                                    <button class="text-red-600 hover:text-red-900"><i
-                                                            class="fas fa-trash"></i></button>
+                                                    <button class="text-blue-600 hover:text-blue-900 mr-2">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="text-red-600 hover:text-red-900">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -904,16 +1063,18 @@
                                                         <div class="flex-shrink-0 h-10 w-10">
                                                             <img class="h-10 w-10 rounded-full"
                                                                 src="https://randomuser.me/api/portraits/men/75.jpg"
-                                                                alt="">
+                                                                alt="" />
                                                         </div>
                                                         <div class="ml-4">
-                                                            <div class="text-sm font-medium text-gray-900">Carlos Ruiz
+                                                            <div class="text-sm font-medium text-gray-900">
+                                                                Carlos Ruiz
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    carlos@inventariopro.com</td>
+                                                    carlos@inventariopro.com
+                                                </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                     <span
                                                         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Ventas</span>
@@ -923,10 +1084,12 @@
                                                         class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Activo</span>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    <button class="text-blue-600 hover:text-blue-900 mr-2"><i
-                                                            class="fas fa-edit"></i></button>
-                                                    <button class="text-red-600 hover:text-red-900"><i
-                                                            class="fas fa-trash"></i></button>
+                                                    <button class="text-blue-600 hover:text-blue-900 mr-2">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="text-red-600 hover:text-red-900">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -938,18 +1101,20 @@
                             <div id="seguridad-config" class="config-content hidden">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
-                                        <h3 class="text-lg font-semibold mb-4">Configuración de seguridad</h3>
+                                        <h3 class="text-lg font-semibold mb-4">
+                                            Configuración de seguridad
+                                        </h3>
                                         <div class="space-y-4">
                                             <div class="flex items-center">
                                                 <input type="checkbox" id="two-factor-auth"
-                                                    class="rounded text-blue-600">
+                                                    class="rounded text-blue-600" />
                                                 <label for="two-factor-auth"
                                                     class="ml-2 text-sm text-gray-700">Autenticación de dos
                                                     factores</label>
                                             </div>
                                             <div class="flex items-center">
                                                 <input type="checkbox" id="password-expiration"
-                                                    class="rounded text-blue-600" checked>
+                                                    class="rounded text-blue-600" checked />
                                                 <label for="password-expiration"
                                                     class="ml-2 text-sm text-gray-700">Expiración de contraseña cada 90
                                                     días</label>
@@ -958,36 +1123,38 @@
                                                 <label class="block text-sm font-medium text-gray-700 mb-1">Duración de
                                                     sesión (minutos)</label>
                                                 <input type="number" value="30"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2">
+                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
                                             </div>
                                             <div>
                                                 <label class="block text-sm font-medium text-gray-700 mb-1">Intentos de
                                                     inicio de sesión permitidos</label>
                                                 <input type="number" value="5"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2">
+                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
                                             </div>
                                         </div>
                                     </div>
                                     <div>
-                                        <h3 class="text-lg font-semibold mb-4">Cambiar contraseña</h3>
+                                        <h3 class="text-lg font-semibold mb-4">
+                                            Cambiar contraseña
+                                        </h3>
                                         <div class="space-y-4">
                                             <div>
                                                 <label class="block text-sm font-medium text-gray-700 mb-1">Contraseña
                                                     actual</label>
                                                 <input type="password"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2">
+                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
                                             </div>
                                             <div>
                                                 <label class="block text-sm font-medium text-gray-700 mb-1">Nueva
                                                     contraseña</label>
                                                 <input type="password"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2">
+                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
                                             </div>
                                             <div>
                                                 <label class="block text-sm font-medium text-gray-700 mb-1">Confirmar
                                                     nueva contraseña</label>
                                                 <input type="password"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2">
+                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
                                             </div>
                                             <div class="flex justify-end">
                                                 <button
@@ -1004,11 +1171,13 @@
                             <div id="backup-config" class="config-content hidden">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
-                                        <h3 class="text-lg font-semibold mb-4">Configuración de backup</h3>
+                                        <h3 class="text-lg font-semibold mb-4">
+                                            Configuración de backup
+                                        </h3>
                                         <div class="space-y-4">
                                             <div class="flex items-center">
                                                 <input type="checkbox" id="auto-backup" class="rounded text-blue-600"
-                                                    checked>
+                                                    checked />
                                                 <label for="auto-backup" class="ml-2 text-sm text-gray-700">Backup
                                                     automático</label>
                                             </div>
@@ -1037,23 +1206,29 @@
                                             <div>
                                                 <label class="block text-sm font-medium text-gray-700 mb-1">Hora</label>
                                                 <input type="time" value="02:00"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2">
+                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
                                             </div>
                                         </div>
                                     </div>
                                     <div>
-                                        <h3 class="text-lg font-semibold mb-4">Realizar backup ahora</h3>
+                                        <h3 class="text-lg font-semibold mb-4">
+                                            Realizar backup ahora
+                                        </h3>
                                         <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                                            <p class="text-sm text-gray-600 mb-4">El último backup se realizó el
-                                                10/06/2023 a las 02:00 AM</p>
+                                            <p class="text-sm text-gray-600 mb-4">
+                                                El último backup se realizó el 10/06/2023 a las 02:00
+                                                AM
+                                            </p>
                                             <div class="flex space-x-3">
                                                 <button
                                                     class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
-                                                    <i class="fas fa-download mr-2"></i> Descargar Backup
+                                                    <i class="fas fa-download mr-2"></i> Descargar
+                                                    Backup
                                                 </button>
                                                 <button
                                                     class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center">
-                                                    <i class="fas fa-cloud-upload-alt mr-2"></i> Subir a la Nube
+                                                    <i class="fas fa-cloud-upload-alt mr-2"></i> Subir a
+                                                    la Nube
                                                 </button>
                                             </div>
                                         </div>
@@ -1068,8 +1243,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/dashboard.js">
-    </script>
+    <script src="../js/dashboard.js"></script>
 </body>
 
 </html>
