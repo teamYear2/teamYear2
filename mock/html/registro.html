@@ -20,7 +20,7 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <i class="fas fa-boxes text-blue-600 text-3xl mr-3"></i>
-                    <a href="./index.html"><span class="text-2xl font-bold text-blue-600">Inventario<span
+                    <a href="./home.html"><span class="text-2xl font-bold text-blue-600">Inventario<span
                                 class="text-blue-400">Pro</span></span></a>
                 </div>
                 <nav class="hidden md:flex space-x-8">
@@ -45,6 +45,50 @@
             </div>
         </div>
     </header>
+
+    <main class="flex items-center justify-center min-h-[calc(100vh-80px-200px)] bg-gray-100 py-12">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Registrarse</h2>
+            <form>
+                <div class="mb-5">
+                    <label for="reg-nombre" class="block text-gray-700 text-sm font-semibold mb-2">Nombre
+                        Completo:</label>
+                    <input type="text" id="reg-nombre" name="nombre"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Tu nombre y apellido">
+                </div>
+                <div class="mb-5">
+                    <label for="reg-email" class="block text-gray-700 text-sm font-semibold mb-2">Correo
+                        Electrónico:</label>
+                    <input type="email" id="reg-email" name="email"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="ejemplo@dominio.com">
+                </div>
+                <div class="mb-5">
+                    <label for="reg-password" class="block text-gray-700 text-sm font-semibold mb-2">Contraseña:</label>
+                    <input type="password" id="reg-password" name="password"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="••••••••">
+                </div>
+                <div class="mb-6">
+                    <label for="reg-confirm-password" class="block text-gray-700 text-sm font-semibold mb-2">Confirmar
+                        Contraseña:</label>
+                    <input type="password" id="reg-confirm-password" name="confirm_password"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="••••••••">
+                </div>
+                <button type="submit"
+                    class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+                    Crear Cuenta
+                </button>
+                <p class="text-center text-gray-600 text-sm mt-6">
+                    ¿Ya tienes una cuenta?
+                    <a href="./login.html" class="font-bold text-blue-600 hover:text-blue-800">Inicia sesión aquí</a>.
+                </p>
+            </form>
+        </div>
+    </main>
+
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
