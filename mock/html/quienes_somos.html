@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/pages/home.css" />
+</head>
+
+<body>
+    <!-- Header/Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <i class="fas fa-boxes text-blue-600 text-3xl mr-3"></i>
+                    <a href="./index.html"><span class="text-2xl font-bold text-blue-600">Inventario<span
+                                class="text-blue-400">Pro</span></span></a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <label class="switch">
+                        <input type="checkbox" id="modo-desktop" />
+                        <span class="slider"></span>
+                    </label>
+                    <a href="#features" class="text-gray-600 hover:text-blue-600 font-medium">Características</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-blue-600 font-medium">Testimonios</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-blue-600 font-medium">Precios</a>
+                    <a href="./quienes_somos.html" class="text-gray-600 hover:text-blue-600 font-medium">Quienes
+                        somos</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <a href="./login.html"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition duration-300">Iniciar
+                        sesión</a>
+                    <a href="./registro.html"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition duration-300">Registrarse</a>
+                </div>
+                <button class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+</body>
+
+</html>
