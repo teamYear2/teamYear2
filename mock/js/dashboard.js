@@ -1,7 +1,13 @@
 // Toggle sidebar
+
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('d-none');
+    const mainContent = document.getElementById('main-content');
+
+    const isHidden = sidebar.classList.toggle('hidden');
+
+    mainContent.classList.toggle('ml-0', isHidden);
+    mainContent.classList.toggle('ml-[250px]', !isHidden);
 }
 
 

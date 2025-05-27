@@ -13,12 +13,12 @@
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 ">
 
     <div class="flex h-screen overflow-hidden">
 
         <!-- Sidebar -->
-        <div class="bg-dark text-white position-fixed h-100" style="width: 250px;" id="sidebar">
+        <div class="fixed h-full bg-dark text-white w-[250px] lg:block hidden" style="width: 250px;" id="sidebar">
             <div class="border-bottom border-secondary p-3 d-flex align-items-center">
                 <i class="fas fa-boxes text-primary fs-4 me-2"></i>
                 <span class="fs-5 fw-bold">InventarioPro</span>
@@ -63,15 +63,15 @@
 
 
         <!-- Main Content -->
-        <div class="main-content flex-1 content-expanded overflow-auto" id="main-content">
+        <div class="flex-1 ml-0 lg:ml-[250px] transition-all duration-300 overflow-auto" id="main-content">
             <!-- Top Navigation -->
 
             <header class="bg-white shadow-sm border-bottom">
                 <div class="container-fluid py-3 px-4 d-flex justify-content-between align-items-center">
                     <!-- Menú hamburguesa y título -->
                     <div class="d-flex align-items-center">
-                        <!-- Solo visible en móvil -->
-                        <button class="btn btn-link text-dark d-md-none me-3 p-0" onclick="toggleSidebar()">
+                        <!-- Solo visible en móvil y tablet -->
+                        <button class="btn btn-link text-dark d-lg-none me-3 p-0" onclick="toggleSidebar()">
                             <i class="fas fa-bars fs-4"></i>
                         </button>
                         <h1 class="h5 mb-0 fw-semibold text-dark" id="section-title">Dashboard</h1>
@@ -107,23 +107,23 @@
                 <!-- Dashboard Section -->
 
                 <div id="dashboard-section">
-                    <div class="row g-4 mb-4">
+                    <div class="row g-1 mb-4">
                         <div class="col-md-3">
                             <div class="card shadow p-3 d-flex flex-row align-items-center">
-                                <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3"
-                                    style="width: 48px; height: 48px;">
+                                <div class=" bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center "
+                                    style="width: 40px; height: 40px;">
                                     <i class="fas fa-boxes fs-5"></i>
                                 </div>
                                 <div>
-                                    <p class="text-muted mb-0">Productos totales</p>
+                                    <p class="text-muted mb-0">Productos</p>
                                     <h3 class="fw-bold mb-0">1,248</h3>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="card shadow p-3 d-flex flex-row align-items-center">
-                                <div class="bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center me-3"
-                                    style="width: 48px; height: 48px;">
+                                <div class=" bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center "
+                                    style="width: 40px; height: 40px;">
                                     <i class="fas fa-check-circle fs-5"></i>
                                 </div>
                                 <div>
@@ -134,8 +134,8 @@
                         </div>
                         <div class="col-md-3">
                             <div class="card shadow p-3 d-flex flex-row align-items-center">
-                                <div class="bg-warning bg-opacity-10 text-warning rounded-circle d-flex align-items-center justify-content-center me-3"
-                                    style="width: 48px; height: 48px;">
+                                <div class=" bg-opacity-10 text-warning rounded-circle d-flex align-items-center justify-content-center "
+                                    style="width: 40px; height: 40px;">
                                     <i class="fas fa-exclamation-triangle fs-5"></i>
                                 </div>
                                 <div>
@@ -146,8 +146,8 @@
                         </div>
                         <div class="col-md-3">
                             <div class="card shadow p-3 d-flex flex-row align-items-center">
-                                <div class="bg-danger bg-opacity-10 text-danger rounded-circle d-flex align-items-center justify-content-center me-3"
-                                    style="width: 48px; height: 48px;">
+                                <div class=" bg-opacity-10 text-danger rounded-circle d-flex align-items-center justify-content-center"
+                                    style="width: 40px; height: 40px;">
                                     <i class="fas fa-times-circle fs-5"></i>
                                 </div>
                                 <div>
