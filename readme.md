@@ -21,6 +21,15 @@ El sistema permitirá medir y analizar:
 
 - **Equipo 1:** `teamYear2`
 - **Integrantes:**
+- - Areosa Ignacio Gastón – Scrum Master – [Mi GitHub](https://github.com/SrLachy) GitUser: SrLachy
+
+- Caucino Carolina – Programmer – [Mi GitHub](https://github.com/ccauci) - GitUser: ccauci
+
+- Argandoña Nahuel – Programmer – [Mi GitHub](https://github.com/Aubar48) - GitUser: Nahuel
+
+- Romero Eduardo Emilio – Programmer – [Mi GitHub](https://github.com/EmilioRome) - GitUser: EmilioR
+
+- Dagatti Christian Edgardo – Programmer – [Mi GitHub](https://github.com/CHRISTIANDAGATTI) - GitUser: CHRISTIANDAGATTI
 
 ## 🚧 Estado del Proyecto
 
