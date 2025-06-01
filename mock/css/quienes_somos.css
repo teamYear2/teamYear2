@@ -1,0 +1,41 @@
+
+.card-member {
+  border: 1px solid #dee2e6;
+  border-radius: 1rem;
+  text-align: center;
+  padding: 2rem 1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.card-member:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.card-member img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.hover-white:hover {
+  color: #fff !important;
+}
+
+.custom-title {
+  color: #6c7686; 
+}
+
+.portfolio-link {
+  color: #444; 
+  text-decoration: none;
+}
+
+.portfolio-link:hover {
+  color: #9da4af;
+  text-decoration: underline;
+}
+
