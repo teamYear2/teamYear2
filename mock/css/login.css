@@ -15,8 +15,8 @@
 
 body {
     background-color: var(--color-fondo);
-    min-height: 80vh;
-    margin: 0; 
+    min-height: 100vh; /* Ajustado para mejor control del footer */
+    margin: 0;
     font-family: sans-serif;
 }
 
@@ -24,40 +24,37 @@ body {
 /* ESTILOS DEL HEADER                                                        */
 /* ========================================================================= */
 .main-header {
-    background-color: var(--color-fondo-alt); 
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); 
-    position: sticky; 
-    top: 0; 
-    z-index: 1050; 
+    background-color: var(--color-fondo-alt);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Sobrescribe la sombra de Bootstrap si es necesario */
+    position: sticky;
+    top: 0;
+    z-index: 1050;
 }
 
 /* ========================================================================= */
 /* ESTILOS DEL NAVBAR                                                        */
 /* ========================================================================= */
-.main-navbar {
+
+.navbar {
     background-color: var(--color-fondo-alt);
-    padding: 15px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 15px 0; /* Sobrescribe el padding vertical de Bootstrap */
     z-index: 1000;
     width: 100%;
-    flex-shrink: 0;
 }
 
-/* Contenedor para el contenido del Navbar */
-.navbar-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Contenedor para el contenido del Navbar (para .container dentro de .navbar) */
+.navbar .container {
+    display: flex; /* Bootstrap ya lo hace display: flex */
+    justify-content: space-between; 
+    align-items: center; 
     width: 100%;
     max-width: 1400px;
-    padding: 15px 50px; 
+    padding: 15px 50px; /* Sobrescribe el padding horizontal de Bootstrap */
     box-sizing: border-box;
 }
 
 /* LOGO */
-.navbar-logo {
+.navbar-brand {
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -66,37 +63,36 @@ body {
     color: var(--color-botones);
 }
 
-.navbar-logo i {
+.navbar-brand i {
     font-size: 1.2em;
     margin-right: 20px;
     color: var(--color-footer);
 }
 
-.navbar-logo span {
+.navbar-brand span {
     color: var(--color-botones);
 }
 
-.navbar-logo .logo-pro {
+.navbar-brand .logo-pro {
     color: var(--color-footer);
     font-size: 0.8em;
     margin-left: 2px;
 }
 
 /* NAVEGACIÓN (UL y LI) */
+/* Selector más específico para navbar-nav y sus nav-link */
 .navbar-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 25px;
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    gap: 25px; 
     align-items: center;
+    flex-direction: row; 
+    margin-right: 25px; 
 }
 
-.nav-item {
-    position: relative;
-}
-
-.nav-link {
+.navbar-nav .nav-link { 
     text-decoration: none;
     color: var(--color-botones);
     font-weight: 500;
@@ -105,14 +101,34 @@ body {
     border-bottom: 2px solid transparent;
 }
 
-.nav-link:hover {
+.navbar-nav .nav-link:hover {
     color: var(--color-formularios);
     border-bottom-color: var(--color-formularios);
 }
 
+/* Contenedor principal del menú y botones (para control de display) */
+/* Estas reglas son para controlar el comportamiento del menú colapsable de Bootstrap */
+.navbar-collapse {
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+/* Contenedor de los botones de Login/Registro para desktop */
+.navbar-actions-desktop {
+    display: flex; 
+    gap: 20px; 
+}
+
+/* Elementos que deben estar ocultos en esta configuración (botones/enlaces móviles) */
+.navbar-toggler,
+.nav-item-actions-mobile {
+    display: none !important; 
+}
+
+
 /* ESTILOS ESPECÍFICOS DE BOTONES LOGIN Y REGISTRO */
-.btn-login,
-.btn-register {
+/* Estos selectores apuntan a las clases de Bootstrap 'btn' y 'btn-primary' o 'btn-outline-primary' */
+.btn {
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -120,64 +136,41 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 8px; 
+    min-width: 130px; 
 }
 
-/* Botón "Iniciar sesión" */
-.btn-login {
+/* Estilo para el botón "Iniciar sesión" (asumiendo que es .btn-outline-primary de Bootstrap) */
+.btn-outline-primary { /* Sobrescribe el estilo de Bootstrap */
     background-color: transparent;
     border: 2px solid var(--color-botones);
     color: var(--color-botones);
-    min-width: 130px;
 }
-
-.btn-login:hover {
+.btn-outline-primary:hover {
     background-color: var(--color-botones);
     color: var(--color-gris-claro);
 }
 
-.btn-login i {
-    color: var(--color-botones);
+/* Estilos para los íconos dentro de los botones */
+.btn i { 
+    margin-right: 5px; 
+    color: inherit; 
 }
 
-.btn-login:hover i {
+/* Sobrescribe el color de los íconos si el botón es outline */
+.btn-outline-primary i {
+    color: var(--color-botones);
+}
+.btn-outline-primary:hover i {
     color: var(--color-gris-claro);
 }
 
-/* Icono dentro de los botones de acción */
-.btn-login i,
-.nav-link-login i {
-    margin-right: 5px;
+/* Sobrescribe el color de los íconos si el botón es sólido */
+.btn-primary i {
+    color: var(--color-gris-claro);
 }
-
-/* Contenedor principal del menú y botones (siempre visible) */
-.navbar-collapse {
-    display: flex;
-    position: static;
-    width: auto;
-    background-color: transparent;
-    box-shadow: none;
-    border-top: none;
-    flex-grow: 1;
-    justify-content: flex-end;
-}
-
-/* Elementos del menú */
-.navbar-nav {
-    flex-direction: row;
-    margin-right: 25px;
-}
-
-/* Contenedor de los botones de Login/Registro */
-.navbar-actions-desktop {
-    display: flex;
-    gap: 20px;
-}
-
-/* Elementos que deben estar ocultos en esta configuración (no responsive) */
-.navbar-toggler,
-.nav-item-actions-mobile {
-    display: none;
+.btn-primary:hover i {
+    color: var(--color-gris-claro);
 }
 
 
@@ -186,57 +179,59 @@ body {
 /* ========================================================================= */
 
 main {
+    /* Mantenemos estos estilos generales */
     background-color: var(--color-fondo);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center; 
     align-items: center;
-    min-height: 80vh;
-    padding: 20px;
+    min-height: 100vh; 
+    padding: 20px; 
     box-sizing: border-box;
 }
 
-main > div {
+.card {
     background-color: #ffffff;
-    padding: 10px;
+    padding: 40px; /* Padding original para pantallas más grandes */
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
-     margin-top: 40px; 
+    margin-top: 0; /* Bootstrap puede manejar el margen, o usar flexbox para centrar */
+    margin-bottom: 20px; 
     border: 10px solid #cccccc;
 }
 
 /* Título "Bienvenido" */
-main > div h2 {
+.card h2 {
     text-align: center;
     margin-bottom: 10px;
     font-size: 2.2em;
     color: var(--color-botones);
 }
 
-/* Párrafo "Inicia sesión" */
-main > div p:nth-of-type(1) {
+/* Párrafo "Inicia sesión" dentro del formulario */
+.card p:nth-of-type(1) {
     text-align: left;
     color: #666666;
     margin-bottom: 30px;
     font-size: 1em;
 }
 
-/* Candado */
-main > div p i {
+/* Candado dentro del párrafo "Inicia sesión" */
+.card p i {
     margin-right: 8px;
     color: var(--color-formularios);
 }
 
-/* Contenedores de cada */
-main form div {
-    margin-bottom: 20px;
+/* Contenedores de cada campo del formulario */
+.card form div.mb-3 {
+    margin-bottom: 20px !important; 
 }
 
 /* Etiquetas del formulario */
-main form label {
+.form-label {
     color: var(--color-formularios);
     display: block;
     margin-bottom: 10px;
@@ -244,8 +239,7 @@ main form label {
 }
 
 /* Campos de entrada de texto y contraseña */
-main form input[type="text"],
-main form input[type="password"] {
+.form-control {
     width: 100%;
     padding: 12px;
     border: 1px solid #cccccc;
@@ -255,19 +249,14 @@ main form input[type="password"] {
 }
 
 /* Estilo al enfocar los campos de entrada */
-main form input[type="text"]:focus,
-main form input[type="password"]:focus {
+.form-control:focus {
     border-color: var(--color-formularios);
     outline: none;
     box-shadow: 0 0 0 3px rgba(19, 29, 79, 0.2);
 }
 
-main form div div a:hover {
-    text-decoration: underline;
-}
-
-/* Botón de "Entrar" */
-main form button[type="submit"] {
+/* Botón de "Entrar" (dentro del formulario) */
+.card .btn[type="submit"] {
     background-color: var(--color-botones);
     color: white;
     padding: 15px 25px;
@@ -281,12 +270,12 @@ main form button[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-main form button[type="submit"]:hover {
+.card .btn[type="submit"]:hover {
     background-color: #031221;
 }
 
 /* ¿No sos usuario? */
-main form p {
+.card p.text-muted {
     text-align: center;
     color: #666666;
     font-size: 0.9em;
@@ -294,12 +283,64 @@ main form p {
 }
 
 /* "Creá tu cuenta" */
-main form p a {
+.card p a.text-decoration-none {
     color: var(--color-botones);
     text-decoration: none;
     font-weight: bold;
 }
 
-main form p a:hover {
+.card p a.text-decoration-none:hover {
     text-decoration: underline;
+}
+
+/* ========================================================================= */
+/* MEDIA QUERIES PARA RESPONSIVIDAD DEL FORMULARIO                            */
+/* Se activa cuando la pantalla es de 900px o menos */
+/* ========================================================================= */
+@media (max-width: 900px) {
+    .card {
+        padding: 20px; 
+        border: 5px solid #cccccc; 
+        margin-top: 20px; 
+    }
+
+    .card h2 {
+        font-size: 1.8em; /* Un poco más pequeño en móviles */
+    }
+
+    .card p:nth-of-type(1) {
+        font-size: 0.9em; /* Texto más pequeño */
+        margin-bottom: 20px; /* Reduce el margen */
+    }
+
+    .form-label {
+        font-size: 0.9em; /* Reduce el tamaño de la etiqueta */
+        margin-bottom: 5px; /* Reduce el margen */
+    }
+
+    .form-control {
+        padding: 10px; /* Reduce el padding de los inputs */
+        font-size: 0.9em; /* Reduce el tamaño de la fuente de los inputs */
+    }
+
+    .card .btn[type="submit"] {
+        padding: 12px 20px; /* Reduce el padding del botón */
+        font-size: 1em; /* Reduce el tamaño de la fuente del botón */
+    }
+
+    .card p.text-muted {
+        font-size: 0.8em; /* Reduce el tamaño del texto "¿No sos usuario?" */
+        margin-top: 15px; /* Reduce el margen */
+    }
+}
+
+/* ========================================================================= */
+/* ESTILOS DEL FOOTER (para que los contenidos se alineen)                   */
+/* ========================================================================= */
+.footer-wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+    box-sizing: border-box;
 }
