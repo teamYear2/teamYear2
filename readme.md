@@ -21,7 +21,7 @@ El sistema permitirá medir y analizar:
 
 - **Equipo 1:** `teamYear2`
 - **Integrantes:**
-- - Areosa Ignacio Gastón – Scrum Master – [Mi GitHub](https://github.com/SrLachy) GitUser: SrLachy
+- Areosa Ignacio Gastón – Scrum Master – [Mi GitHub](https://github.com/SrLachy) GitUser: SrLachy
 
 - Caucino Carolina – Programmer – [Mi GitHub](https://github.com/ccauci) - GitUser: ccauci
 

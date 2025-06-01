@@ -1,0 +1,133 @@
+/* Paleta de colores */
+:root {
+    --color-fondo: #EFE4D2;
+    --color-botones: #254D70;
+    --color-formularios: #131D4F;
+}
+
+body {
+    background-color: var(--color-fondo);
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+main {
+    background-color: var(--color-fondo);
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+main > div {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin-top: auto; 
+    margin-bottom: 100vh; 
+    border: 10px solid #cccccc;
+}
+
+/* Título "Bienvenido" */
+main > div h2 { 
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.2em;
+    color: var(--color-botones);
+}
+
+/* Párrafo "Inicia sesión" */
+main > div p:nth-of-type(1) { 
+    text-align: left;
+    color: #666666;
+    margin-bottom: 30px;
+    font-size: 1em;
+}
+
+/* Candado */
+main > div p i {
+    margin-right: 8px;
+    color: var(--color-formularios);
+}
+
+/* Contenedores de cada */
+main form div {
+    margin-bottom: 20px; 
+}
+
+/* Etiquetas del formulario */
+main form label {
+    color: var(--color-formularios);
+    display: block; 
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Campos de entrada de texto y contraseña */
+main form input[type="text"],
+main form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc; 
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Estilo al enfocar los campos de entrada */
+main form input[type="text"]:focus,
+main form input[type="password"]:focus {
+    border-color: var(--color-formularios); 
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(19, 29, 79, 0.2); 
+}
+
+main form div div a:hover {
+    text-decoration: underline; 
+}
+
+/* Botón de "Entrar" */
+main form button[type="submit"] {
+    background-color: var(--color-botones); 
+    color: white; 
+    padding: 15px 25px;
+    border: none;
+    border-radius: 4px;
+    width: 100%; 
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer; 
+    margin-top: 10px; 
+    transition: background-color 0.3s ease; 
+}
+
+main form button[type="submit"]:hover {
+    background-color: #031221; 
+}
+
+/* ¿No sos usuario? */
+main form p {
+    text-align: center;
+    color: #666666; 
+    font-size: 0.9em;
+    margin-top: 25px; 
+}
+
+/* "Creá tu cuenta" */
+main form p a {
+    color: var(--color-botones); 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main form p a:hover {
+    text-decoration: underline; 
+}
