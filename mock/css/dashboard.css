@@ -1,3 +1,12 @@
+body {
+  background-color: #EFE4D2!important;
+}
+button{
+  background-color: #254D70!important;
+}
+a{
+  background-color: #254D70!important;
+}
 .sidebar {
   transition: all 0.3s ease;
 }
