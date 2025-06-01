@@ -1,24 +1,208 @@
-/* Paleta de colores */
+/* ========================================================================= */
+/* ESTILOS GLOBALES */
+/* ========================================================================= */
+
 :root {
     --color-fondo: #EFE4D2;
+    --color-fondo-alt: #ffffff;
     --color-botones: #254D70;
     --color-formularios: #131D4F;
+    --color-footer: #954C2E;
+    --color-gris-oscuro: #333333;
+    --color-gris-medio: #666666;
+    --color-gris-claro: #cccccc;
 }
 
 body {
     background-color: var(--color-fondo);
-    min-height: 100vh;
-    margin: 0;
+    min-height: 80vh;
+    margin: 0; 
     font-family: sans-serif;
 }
+
+/* ========================================================================= */
+/* ESTILOS DEL HEADER                                                        */
+/* ========================================================================= */
+.main-header {
+    background-color: var(--color-fondo-alt); 
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); 
+    position: sticky; 
+    top: 0; 
+    z-index: 1050; 
+}
+
+/* ========================================================================= */
+/* ESTILOS DEL NAVBAR                                                        */
+/* ========================================================================= */
+.main-navbar {
+    background-color: var(--color-fondo-alt);
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* Contenedor para el contenido del Navbar */
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    padding: 15px 50px; 
+    box-sizing: border-box;
+}
+
+/* LOGO */
+.navbar-logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--color-botones);
+}
+
+.navbar-logo i {
+    font-size: 1.2em;
+    margin-right: 20px;
+    color: var(--color-footer);
+}
+
+.navbar-logo span {
+    color: var(--color-botones);
+}
+
+.navbar-logo .logo-pro {
+    color: var(--color-footer);
+    font-size: 0.8em;
+    margin-left: 2px;
+}
+
+/* NAVEGACIÓN (UL y LI) */
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--color-botones);
+    font-weight: 500;
+    padding: 8px 0;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+    color: var(--color-formularios);
+    border-bottom-color: var(--color-formularios);
+}
+
+/* ESTILOS ESPECÍFICOS DE BOTONES LOGIN Y REGISTRO */
+.btn-login,
+.btn-register {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Botón "Iniciar sesión" */
+.btn-login {
+    background-color: transparent;
+    border: 2px solid var(--color-botones);
+    color: var(--color-botones);
+}
+
+.btn-login:hover {
+    background-color: var(--color-botones);
+    color: var(--color-gris-claro);
+}
+
+.btn-login i {
+    color: var(--color-botones);
+}
+
+.btn-login:hover i {
+    color: var(--color-gris-claro);
+}
+
+/* Botón "Registrarse" */
+.btn-register {
+    background-color: var(--color-botones);
+    border: 2px solid var(--color-botones);
+    color: var(--color-gris-claro);
+}
+
+.btn-register:hover {
+    background-color: var(--color-formularios);
+    border-color: var(--color-formularios);
+}
+
+/* Icono dentro de los botones de acción */
+.btn-login i,
+.nav-link-login i {
+    margin-right: 5px;
+}
+
+/* Contenedor principal del menú y botones (siempre visible) */
+.navbar-collapse {
+    display: flex;
+    position: static;
+    width: auto;
+    background-color: transparent;
+    box-shadow: none;
+    border-top: none;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+/* Elementos del menú */
+.navbar-nav {
+    flex-direction: row;
+    margin-right: 25px;
+}
+
+/* Contenedor de los botones de Login/Registro */
+.navbar-actions-desktop {
+    display: flex;
+    gap: 20px;
+}
+
+/* Elementos que deben estar ocultos en esta configuración (no responsive) */
+.navbar-toggler,
+.nav-item-actions-mobile {
+    display: none;
+}
+
+
+/* ========================================================================= */
+/* ESTILOS DEL LOGIN FORM                                                    */
+/* ========================================================================= */
 
 main {
     background-color: var(--color-fondo);
     display: flex;
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -31,13 +215,13 @@ main > div {
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
-    margin-top: auto; 
-    margin-bottom: 100vh; 
+    margin-top: auto;
+    margin-bottom: 150vh;
     border: 10px solid #cccccc;
 }
 
 /* Título "Bienvenido" */
-main > div h2 { 
+main > div h2 {
     text-align: center;
     margin-bottom: 10px;
     font-size: 2.2em;
@@ -45,7 +229,7 @@ main > div h2 {
 }
 
 /* Párrafo "Inicia sesión" */
-main > div p:nth-of-type(1) { 
+main > div p:nth-of-type(1) {
     text-align: left;
     color: #666666;
     margin-bottom: 30px;
@@ -60,13 +244,13 @@ main > div p i {
 
 /* Contenedores de cada */
 main form div {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 /* Etiquetas del formulario */
 main form label {
     color: var(--color-formularios);
-    display: block; 
+    display: block;
     margin-bottom: 10px;
     font-weight: bold;
 }
@@ -76,7 +260,7 @@ main form input[type="text"],
 main form input[type="password"] {
     width: 100%;
     padding: 12px;
-    border: 1px solid #cccccc; 
+    border: 1px solid #cccccc;
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 1em;
@@ -85,49 +269,49 @@ main form input[type="password"] {
 /* Estilo al enfocar los campos de entrada */
 main form input[type="text"]:focus,
 main form input[type="password"]:focus {
-    border-color: var(--color-formularios); 
-    outline: none; 
-    box-shadow: 0 0 0 3px rgba(19, 29, 79, 0.2); 
+    border-color: var(--color-formularios);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(19, 29, 79, 0.2);
 }
 
 main form div div a:hover {
-    text-decoration: underline; 
+    text-decoration: underline;
 }
 
 /* Botón de "Entrar" */
 main form button[type="submit"] {
-    background-color: var(--color-botones); 
-    color: white; 
+    background-color: var(--color-botones);
+    color: white;
     padding: 15px 25px;
     border: none;
     border-radius: 4px;
-    width: 100%; 
+    width: 100%;
     font-size: 1.1em;
     font-weight: bold;
-    cursor: pointer; 
-    margin-top: 10px; 
-    transition: background-color 0.3s ease; 
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 main form button[type="submit"]:hover {
-    background-color: #031221; 
+    background-color: #031221;
 }
 
 /* ¿No sos usuario? */
 main form p {
     text-align: center;
-    color: #666666; 
+    color: #666666;
     font-size: 0.9em;
-    margin-top: 25px; 
+    margin-top: 25px;
 }
 
 /* "Creá tu cuenta" */
 main form p a {
-    color: var(--color-botones); 
+    color: var(--color-botones);
     text-decoration: none;
     font-weight: bold;
 }
 
 main form p a:hover {
-    text-decoration: underline; 
+    text-decoration: underline;
 }
