@@ -27,7 +27,6 @@ function changeSection(section) {
         'dashboard': 'Dashboard',
         'productos': 'Gestión de Productos',
         'categorias': 'Gestión de Categorías',
-        'reportes': 'Reportes de Inventario'
     };
     document.getElementById('section-title').textContent = titles[section];
 
@@ -36,8 +35,6 @@ function changeSection(section) {
         initCharts();
     }
 }
-
-
 
 // Initialize charts
 function initCharts() {
