@@ -1,18 +1,47 @@
+/* === Global Styles === */
+body {
+  background-color: #efe4d2 !important;
+}
+
+button {
+  background-color: #254d70 !important;
+}
+
+a {
+  background-color: #254d70 !important;
+}
+
+/* === Sidebar === */
+#sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+}
+
 .sidebar {
   transition: all 0.3s ease;
 }
+
 .sidebar-collapsed {
   width: 70px;
 }
-.sidebar-collapsed .nav-text {
-  display: none;
-}
+
+.sidebar-collapsed .nav-text,
 .sidebar-collapsed .logo-text {
   display: none;
 }
+
 .sidebar-collapsed .nav-item {
   justify-content: center;
 }
+
+/* === Main Content === */
+#main-content {
+  margin-left: 250px;
+}
+
 .main-content {
   transition: all 0.3s ease;
 }
@@ -20,17 +49,38 @@
 .content-collapsed {
   margin-left: 70px;
 }
+
+.content-expanded {
+  margin-left: 0 !important;
+}
+
+/* === Active Navigation Item === */
 .active-nav {
-  background-color: #3b82f6;
+  background-color: #254d70;
   color: white !important;
 }
+
 .active-nav i {
   color: white !important;
 }
+
+/* === Chart Container === */
 .chart-container {
   height: 300px;
 }
 
-.content-expanded {
-  margin-left: 0 !important;
+/* === Responsive (Media Query) === */
+@media (max-width: 991.98px) {
+  #sidebar {
+    left: -250px;
+    z-index: 1050;
+  }
+
+  #sidebar.show {
+    left: 0;
+  }
+
+  #main-content {
+    margin-left: 0;
+  }
 }

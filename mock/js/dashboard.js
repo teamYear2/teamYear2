@@ -1,15 +1,8 @@
 // Toggle sidebar
-
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
-    const mainContent = document.getElementById('main-content');
-
-    const isHidden = sidebar.classList.toggle('hidden');
-
-    mainContent.classList.toggle('ml-0', isHidden);
-    mainContent.classList.toggle('ml-[250px]', !isHidden);
+    sidebar.classList.toggle('show');
 }
-
 
 // Change section
 function changeSection(section) {
@@ -34,8 +27,6 @@ function changeSection(section) {
         'dashboard': 'Dashboard',
         'productos': 'Gestión de Productos',
         'categorias': 'Gestión de Categorías',
-        'reportes': 'Reportes de Inventario',
-        'configuracion': 'Configuración del Sistema'
     };
     document.getElementById('section-title').textContent = titles[section];
 
@@ -43,33 +34,6 @@ function changeSection(section) {
     if (section === 'dashboard' || section === 'reportes') {
         initCharts();
     }
-}
-
-// Change config tab
-function changeConfigTab(tab) {
-    // Remove active class from all tabs
-    document.querySelectorAll('.config-tab').forEach(el => {
-        el.classList.remove('active-tab');
-        el.classList.remove('border-blue-500');
-        el.classList.remove('text-blue-600');
-        el.classList.add('border-transparent');
-        el.classList.add('text-gray-500');
-    });
-
-    // Add active class to clicked tab
-    event.currentTarget.classList.add('active-tab');
-    event.currentTarget.classList.add('border-blue-500');
-    event.currentTarget.classList.add('text-blue-600');
-    event.currentTarget.classList.remove('border-transparent');
-    event.currentTarget.classList.remove('text-gray-500');
-
-    // Hide all content
-    document.querySelectorAll('.config-content').forEach(el => {
-        el.classList.add('hidden');
-    });
-
-    // Show selected content
-    document.getElementById(`${tab}-config`).classList.remove('hidden');
 }
 
 // Initialize charts

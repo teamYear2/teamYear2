@@ -2,23 +2,23 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Gestor de Inventario</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="../css/dashboard.css" />
-    <link rel="stylesheet" href="../css/home.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<body class="bg-gray-100 ">
-
-    <div class="flex h-screen overflow-hidden">
-
+<body>
+    <div class="d-flex min-vh-100">
         <!-- Sidebar -->
-        <div class="fixed h-full bg-dark text-white w-[250px] lg:block hidden" style="width: 250px;" id="sidebar">
+        <div class="d-flex flex-column flex-shrink-0 bg-dark text-white shadow" style="width: 250px;" id="sidebar">
+            <button class="btn btn-dark d-lg-none position-absolute top-0 end-0 mt-2 me-2" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
             <div class="border-bottom border-secondary p-3 d-flex align-items-center">
                 <i class="fas fa-boxes text-primary fs-4 me-2"></i>
                 <span class="fs-5 fw-bold">InventarioPro</span>
@@ -39,16 +39,7 @@
                     <i class="fas fa-tags text-light me-2"></i>
                     <span>Categorías</span>
                 </div>
-                <div class="px-3 py-2 d-flex align-items-center nav-item rounded hover-bg-secondary cursor-pointer mb-1"
-                    onclick="changeSection('reportes')">
-                    <i class="fas fa-chart-bar text-light me-2"></i>
-                    <span>Reportes</span>
-                </div>
-                <div class="px-3 py-2 d-flex align-items-center nav-item rounded hover-bg-secondary cursor-pointer mb-1"
-                    onclick="changeSection('configuracion')">
-                    <i class="fas fa-cog text-light me-2"></i>
-                    <span>Configuración</span>
-                </div>
+                
             </nav>
             <div class="position-absolute bottom-0 w-100 border-top border-secondary p-3">
                 <div class="d-flex align-items-center">
@@ -60,52 +51,15 @@
                 </div>
             </div>
         </div>
-
-
         <!-- Main Content -->
-        <div class="flex-1 ml-0 lg:ml-[250px] transition-all duration-300 overflow-auto" id="main-content">
-            <!-- Top Navigation -->
-
-            <header class="bg-white shadow-sm border-bottom">
-                <div class="container-fluid py-3 px-4 d-flex justify-content-between align-items-center">
-                    <!-- Menú hamburguesa y título -->
-                    <div class="d-flex align-items-center">
-                        <!-- Solo visible en móvil y tablet -->
-                        <button class="btn btn-link text-dark d-lg-none me-3 p-0" onclick="toggleSidebar()">
-                            <i class="fas fa-bars fs-4"></i>
-                        </button>
-                        <h1 class="h5 mb-0 fw-semibold text-dark" id="section-title">Dashboard</h1>
-                    </div>
-
-                    <!-- Notificaciones y búsqueda -->
-                    <div class="d-flex align-items-center gap-3">
-                        <!-- Notificación -->
-                        <div class="position-relative">
-                            <button class="btn btn-link text-dark position-relative p-0">
-                                <i class="fas fa-bell fs-5"></i>
-                                <span
-                                    class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-white rounded-circle">
-                                    <span class="visually-hidden">Nuevo</span>
-                                </span>
-                            </button>
-                        </div>
-
-                        <!-- Búsqueda -->
-                        <div class="position-relative d-none d-sm-block">
-                            <input type="text" class="form-control ps-5 pe-3 py-1 rounded-pill" placeholder="Buscar..."
-                                style="min-width: 200px;">
-                            <i
-                                class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-
+        <div class="flex-grow-1 overflow-auto p-3 transition-all" id="main-content">
+            <!-- Hamburger Menu Button for Mobile -->
+            <button class="btn btn-dark d-lg-none mb-3" onclick="toggleSidebar()">
+                <i class="fas fa-bars"></i>
+            </button>
             <!-- Content Sections -->
             <main class="p-6">
                 <!-- Dashboard Section -->
-
                 <div id="dashboard-section">
                     <div class="row g-1 mb-4">
                         <div class="col-md-3">
@@ -157,7 +111,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row g-4 mb-4">
                         <div class="col-lg-8">
                             <div class="card shadow p-4">
@@ -172,43 +125,13 @@
                                 <canvas id="inventoryChart"></canvas>
                             </div>
                         </div>
-
                         <div class="col-lg-4">
                             <div class="card shadow p-4">
                                 <h2 class="h6 fw-semibold mb-3">Productos con bajo stock</h2>
-
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <div class="d-flex align-items-center">
-                                        <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3"
-                                            style="width: 40px; height: 40px;">
-                                            <i class="fas fa-box"></i>
-                                        </div>
-                                        <div>
-                                            <p class="mb-0 fw-medium">Teclado Mecánico</p>
-                                            <small class="text-muted">Código: TEC-001</small>
-                                        </div>
-                                    </div>
-                                    <span class="text-danger fw-medium">2</span>
-                                </div>
-
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div class="d-flex align-items-center">
-                                        <div class="bg-purple bg-opacity-10 text-purple rounded-circle d-flex align-items-center justify-content-center me-3"
-                                            style="width: 40px; height: 40px;">
-                                            <i class="fas fa-mobile-alt"></i>
-                                        </div>
-                                        <div>
-                                            <p class="mb-0 fw-medium">Mouse Inalámbrico</p>
-                                            <small class="text-muted">Código: MOU-005</small>
-                                        </div>
-                                    </div>
-                                    <span class="text-danger fw-medium">3</span>
-                                </div>
-
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div class="d-flex align-items-center">
-                                        <div class="bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center me-3"
-                                            style="width: 40px; height: 40px;">
+                                        <div
+                                            class="bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center me-3">
                                             <i class="fas fa-headphones"></i>
                                         </div>
                                         <div>
@@ -218,110 +141,43 @@
                                     </div>
                                     <span class="text-warning fw-medium">5</span>
                                 </div>
-
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <div class="d-flex align-items-center">
-                                        <div class="bg-warning bg-opacity-10 text-warning rounded-circle d-flex align-items-center justify-content-center me-3"
-                                            style="width: 40px; height: 40px;">
-                                            <i class="fas fa-laptop"></i>
+                            </div>
+                        </div>
+                        <!-- metricas Section -->
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-white rounded-lg shadow p-6">
+                                <div class="space-y-4">
+                                    <h2 class="h6 fw-semibold mb-3">productos mas vendidos</h2>
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">Teclado Mecánico</span>
+                                            <span class="text-sm font-medium">120 unidades</span>
                                         </div>
-                                        <div>
-                                            <p class="mb-0 fw-medium">Disco Duro 1TB</p>
-                                            <small class="text-muted">Código: DIS-008</small>
+                                        <div class="w-full bg-gray-200 rounded-full h-2">
+                                            <div class="bg-green-600 h-2 rounded-full" style="width: 80%"></div>
                                         </div>
                                     </div>
-                                    <span class="text-warning fw-medium">4</span>
                                 </div>
-
-                                <button class="btn btn-primary w-100 mt-3">Ver todos los productos</button>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="card shadow p-4 mb-4">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h2 class="h6 fw-semibold">Últimos movimientos</h2>
-                            <a href="#" class="text-primary">Ver todos</a>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover align-middle mb-0">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>Fecha</th>
-                                        <th>Producto</th>
-                                        <th>Tipo</th>
-                                        <th>Cantidad</th>
-                                        <th>Usuario</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>15/06/2023</td>
-                                        <td><strong>Teclado Mecánico</strong></td>
-                                        <td>Entrada</td>
-                                        <td class="text-success">+20</td>
-                                        <td>Juan Pérez</td>
-                                    </tr>
-                                    <tr>
-                                        <td>14/06/2023</td>
-                                        <td><strong>Mouse Inalámbrico</strong></td>
-                                        <td>Salida</td>
-                                        <td class="text-danger">-5</td>
-                                        <td>María Gómez</td>
-                                    </tr>
-                                    <tr>
-                                        <td>13/06/2023</td>
-                                        <td><strong>Monitor 24"</strong></td>
-                                        <td>Entrada</td>
-                                        <td class="text-success">+10</td>
-                                        <td>Carlos Ruiz</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
-
-
                 <!-- Productos Section -->
                 <div id="productos-section" class="hidden">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="h4 mb-0">
                             Gestión de Productos
                         </h2>
-                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
-                            <i class="fas fa-plus mr-2"></i> Nuevo Producto
-                        </button>
+                        <a href="producto-form.html" class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i> Nuevo Producto
+                        </a>
                     </div>
-
                     <div class="bg-white rounded-lg shadow overflow-hidden mb-6">
-                        <div class="p-4 border-b border-gray-200 flex justify-between items-center">
-                            <div class="flex items-center">
-                                <select class="border border-gray-300 rounded px-3 py-1 text-sm mr-2">
-                                    <option>Mostrar 10</option>
-                                    <option>Mostrar 25</option>
-                                    <option>Mostrar 50</option>
-                                </select>
-                                <input type="text" placeholder="Buscar producto..."
-                                    class="border border-gray-300 rounded px-3 py-1 text-sm" />
-                            </div>
-                            <div class="flex items-center">
-                                <button class="text-gray-500 hover:text-gray-700 mr-2">
-                                    <i class="fas fa-filter"></i>
-                                </button>
-                                <button class="text-gray-500 hover:text-gray-700">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
-                        </div>
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead class="bg-gray-50">
                                     <tr>
-                                        <th
-                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            <input type="checkbox" class="rounded text-blue-600" />
-                                        </th>
                                         <th
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Código
@@ -354,107 +210,7 @@
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <input type="checkbox" class="rounded text-blue-600" />
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            TEC-001
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            Teclado Mecánico RGB
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            Periféricos
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            22
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            $59.99
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <span
-                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Disponible</span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <button class="text-blue-600 hover:text-blue-900 mr-2">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="text-red-600 hover:text-red-900">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <input type="checkbox" class="rounded text-blue-600" />
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            MOU-005
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            Mouse Inalámbrico
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            Periféricos
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            3
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            $29.99
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <span
-                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Bajo
-                                                stock</span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <button class="text-blue-600 hover:text-blue-900 mr-2">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="text-red-600 hover:text-red-900">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <input type="checkbox" class="rounded text-blue-600" />
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            MON-012
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            Monitor 24" Full HD
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            Monitores
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            5
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            $179.99
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <span
-                                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Bajo
-                                                stock</span>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <button class="text-blue-600 hover:text-blue-900 mr-2">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="text-red-600 hover:text-red-900">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <input type="checkbox" class="rounded text-blue-600" />
-                                        </td>
+
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                             DIS-008
                                         </td>
@@ -475,112 +231,30 @@
                                                 class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Agotado</span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            <button class="text-blue-600 hover:text-blue-900 mr-2">
+                                            <a href="producto-form.html?id=TEC-001"
+                                                class="btn btn-sm btn-outline-primary me-2">
                                                 <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="text-red-600 hover:text-red-900">
+                                            </a>
+                                            <a class="text-red-600 btn-sm btn me-2">
                                                 <i class="fas fa-trash"></i>
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="p-4 border-t border-gray-200 flex justify-between items-center">
-                            <div class="text-sm text-gray-500">
-                                Mostrando 1 a 4 de 1248 productos
-                            </div>
-                            <div class="flex space-x-1">
-                                <button class="px-3 py-1 border border-gray-300 rounded text-sm">
-                                    Anterior
-                                </button>
-                                <button class="px-3 py-1 border border-blue-600 bg-blue-600 text-white rounded text-sm">
-                                    1
-                                </button>
-                                <button class="px-3 py-1 border border-gray-300 rounded text-sm">
-                                    2
-                                </button>
-                                <button class="px-3 py-1 border border-gray-300 rounded text-sm">
-                                    3
-                                </button>
-                                <button class="px-3 py-1 border border-gray-300 rounded text-sm">
-                                    Siguiente
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
-
                 <!-- Categorías Section -->
                 <div id="categorias-section" class="hidden">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="h4 mb-0">
                             Gestión de Categorías
                         </h2>
-                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
-                            <i class="fas fa-plus mr-2"></i> Nueva Categoría
-                        </button>
+                        <a href="categoria-form.html" class="btn btn-primary">
+                            <i class="fas fa-plus me-2"></i> Nueva Categoría
+                        </a>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
-                            <div>
-                                <h3 class="text-lg font-semibold">Periféricos</h3>
-                                <p class="text-gray-500">32 productos</p>
-                            </div>
-                            <div class="flex space-x-2">
-                                <button class="text-blue-600 hover:text-blue-900">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="text-red-600 hover:text-red-900">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
-                            <div>
-                                <h3 class="text-lg font-semibold">Monitores</h3>
-                                <p class="text-gray-500">15 productos</p>
-                            </div>
-                            <div class="flex space-x-2">
-                                <button class="text-blue-600 hover:text-blue-900">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="text-red-600 hover:text-red-900">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
-                            <div>
-                                <h3 class="text-lg font-semibold">Almacenamiento</h3>
-                                <p class="text-gray-500">28 productos</p>
-                            </div>
-                            <div class="flex space-x-2">
-                                <button class="text-blue-600 hover:text-blue-900">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="text-red-600 hover:text-red-900">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg shadow p-6 flex items-center justify-between">
-                            <div>
-                                <h3 class="text-lg font-semibold">Componentes</h3>
-                                <p class="text-gray-500">45 productos</p>
-                            </div>
-                            <div class="flex space-x-2">
-                                <button class="text-blue-600 hover:text-blue-900">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button class="text-red-600 hover:text-red-900">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="bg-white rounded-lg shadow mt-6">
                         <div class="p-4 border-b border-gray-200">
                             <h3 class="text-lg font-semibold">Todas las categorías</h3>
@@ -597,72 +271,12 @@
                                     <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-4">32
                                         productos</span>
                                     <div class="flex space-x-2">
-                                        <button class="text-blue-600 hover:text-blue-900">
+                                        <a href="categoria-form.html?id=1" class="btn btn-sm btn-outline-primary me-2">
                                             <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button class="text-red-600 hover:text-red-900">
+                                        </a>
+                                        <a class="text-red-600 btn-sm btn me-2">
                                             <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-4 flex justify-between items-center">
-                                <div>
-                                    <h4 class="font-medium">Monitores</h4>
-                                    <p class="text-sm text-gray-500">
-                                        Monitores de diferentes tamaños y resoluciones
-                                    </p>
-                                </div>
-                                <div class="flex items-center">
-                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-4">15
-                                        productos</span>
-                                    <div class="flex space-x-2">
-                                        <button class="text-blue-600 hover:text-blue-900">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button class="text-red-600 hover:text-red-900">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-4 flex justify-between items-center">
-                                <div>
-                                    <h4 class="font-medium">Almacenamiento</h4>
-                                    <p class="text-sm text-gray-500">
-                                        Discos duros, SSDs, memorias USB
-                                    </p>
-                                </div>
-                                <div class="flex items-center">
-                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-4">28
-                                        productos</span>
-                                    <div class="flex space-x-2">
-                                        <button class="text-blue-600 hover:text-blue-900">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button class="text-red-600 hover:text-red-900">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-4 flex justify-between items-center">
-                                <div>
-                                    <h4 class="font-medium">Componentes</h4>
-                                    <p class="text-sm text-gray-500">
-                                        Tarjetas gráficas, RAM, procesadores
-                                    </p>
-                                </div>
-                                <div class="flex items-center">
-                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-4">45
-                                        productos</span>
-                                    <div class="flex space-x-2">
-                                        <button class="text-blue-600 hover:text-blue-900">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button class="text-red-600 hover:text-red-900">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -670,535 +284,11 @@
                     </div>
                 </div>
 
-                <!-- Reportes Section -->
-                <div id="reportes-section" class="hidden">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800">
-                            Reportes de Inventario
-                        </h2>
-                        <div class="flex space-x-2">
-                            <button
-                                class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
-                                <i class="fas fa-file-pdf mr-2"></i> Exportar PDF
-                            </button>
-                            <button
-                                class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center">
-                                <i class="fas fa-file-excel mr-2"></i> Exportar Excel
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-                        <div class="bg-white rounded-lg shadow p-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-lg font-semibold">Reporte de stock</h3>
-                                <select class="border border-gray-300 rounded px-3 py-1 text-sm">
-                                    <option>Últimos 30 días</option>
-                                    <option>Últimos 90 días</option>
-                                    <option>Este año</option>
-                                </select>
-                            </div>
-                            <div class="chart-container">
-                                <canvas id="stockReportChart"></canvas>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-lg shadow p-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="text-lg font-semibold">Productos más vendidos</h3>
-                                <select class="border border-gray-300 rounded px-3 py-1 text-sm">
-                                    <option>Últimos 30 días</option>
-                                    <option>Últimos 90 días</option>
-                                    <option>Este año</option>
-                                </select>
-                            </div>
-                            <div class="space-y-4">
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium">Teclado Mecánico</span>
-                                        <span class="text-sm font-medium">120 unidades</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-2">
-                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium">Mouse Inalámbrico</span>
-                                        <span class="text-sm font-medium">95 unidades</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-2">
-                                        <div class="bg-green-600 h-2 rounded-full" style="width: 65%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium">Monitor 24"</span>
-                                        <span class="text-sm font-medium">72 unidades</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-2">
-                                        <div class="bg-yellow-600 h-2 rounded-full" style="width: 50%"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium">Disco Duro 1TB</span>
-                                        <span class="text-sm font-medium">60 unidades</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-2">
-                                        <div class="bg-red-600 h-2 rounded-full" style="width: 40%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-lg font-semibold">
-                                Generar reporte personalizado
-                            </h3>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de reporte</label>
-                                <select class="w-full border border-gray-300 rounded px-3 py-2">
-                                    <option>Reporte de stock</option>
-                                    <option>Reporte de movimientos</option>
-                                    <option>Reporte de productos agotados</option>
-                                    <option>Reporte de productos con bajo stock</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Fecha inicial</label>
-                                <input type="date" class="w-full border border-gray-300 rounded px-3 py-2" />
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Fecha final</label>
-                                <input type="date" class="w-full border border-gray-300 rounded px-3 py-2" />
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Categoría</label>
-                                <select class="w-full border border-gray-300 rounded px-3 py-2">
-                                    <option>Todas las categorías</option>
-                                    <option>Periféricos</option>
-                                    <option>Monitores</option>
-                                    <option>Almacenamiento</option>
-                                    <option>Componentes</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Formato</label>
-                                <select class="w-full border border-gray-300 rounded px-3 py-2">
-                                    <option>PDF</option>
-                                    <option>Excel</option>
-                                    <option>CSV</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="flex justify-end">
-                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">
-                                Generar Reporte
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Configuración Section -->
-                <div id="configuracion-section" class="hidden">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-gray-800">
-                            Configuración del Sistema
-                        </h2>
-                    </div>
-
-                    <div class="bg-white rounded-lg shadow overflow-hidden mb-6">
-                        <div class="border-b border-gray-200">
-                            <nav class="flex -mb-px">
-                                <button onclick="changeConfigTab('general')"
-                                    class="config-tab active-tab py-4 px-6 text-center border-b-2 font-medium text-sm border-blue-500 text-blue-600">
-                                    General
-                                </button>
-                                <button onclick="changeConfigTab('usuarios')"
-                                    class="config-tab py-4 px-6 text-center border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                                    Usuarios
-                                </button>
-                                <button onclick="changeConfigTab('seguridad')"
-                                    class="config-tab py-4 px-6 text-center border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                                    Seguridad
-                                </button>
-                                <button onclick="changeConfigTab('backup')"
-                                    class="config-tab py-4 px-6 text-center border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                                    Backup
-                                </button>
-                            </nav>
-                        </div>
-                        <div class="p-6">
-                            <!-- General Tab -->
-                            <div id="general-config" class="config-content">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                    <div>
-                                        <h3 class="text-lg font-semibold mb-4">
-                                            Configuración básica
-                                        </h3>
-                                        <div class="space-y-4">
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700 mb-1">Nombre de la
-                                                    empresa</label>
-                                                <input type="text" value="InventarioPro"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
-                                            </div>
-                                            <div>
-                                                <label
-                                                    class="block text-sm font-medium text-gray-700 mb-1">Moneda</label>
-                                                <select class="w-full border border-gray-300 rounded px-3 py-2">
-                                                    <option>USD - Dólar estadounidense</option>
-                                                    <option>EUR - Euro</option>
-                                                    <option selected>MXN - Peso mexicano</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700 mb-1">Zona
-                                                    horaria</label>
-                                                <select class="w-full border border-gray-300 rounded px-3 py-2">
-                                                    <option>(UTC-06:00) Centroamérica</option>
-                                                    <option selected>
-                                                        (UTC-06:00) Ciudad de México
-                                                    </option>
-                                                    <option>(UTC-05:00) Bogotá, Lima</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-lg font-semibold mb-4">
-                                            Configuración de inventario
-                                        </h3>
-                                        <div class="space-y-4">
-                                            <div class="flex items-center">
-                                                <input type="checkbox" id="low-stock-alerts"
-                                                    class="rounded text-blue-600" checked />
-                                                <label for="low-stock-alerts" class="ml-2 text-sm text-gray-700">Alertas
-                                                    de bajo stock</label>
-                                            </div>
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700 mb-1">Umbral para
-                                                    bajo stock</label>
-                                                <input type="number" value="5"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
-                                            </div>
-                                            <div class="flex items-center">
-                                                <input type="checkbox" id="auto-reorder"
-                                                    class="rounded text-blue-600" />
-                                                <label for="auto-reorder"
-                                                    class="ml-2 text-sm text-gray-700">Reabastecimiento
-                                                    automático</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="flex justify-end">
-                                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">
-                                        Guardar cambios
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Usuarios Tab -->
-                            <div id="usuarios-config" class="config-content hidden">
-                                <div class="flex justify-between items-center mb-4">
-                                    <h3 class="text-lg font-semibold">Gestión de usuarios</h3>
-                                    <button
-                                        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
-                                        <i class="fas fa-plus mr-2"></i> Nuevo Usuario
-                                    </button>
-                                </div>
-                                <div class="overflow-x-auto">
-                                    <table class="min-w-full divide-y divide-gray-200">
-                                        <thead class="bg-gray-50">
-                                            <tr>
-                                                <th
-                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Nombre
-                                                </th>
-                                                <th
-                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Email
-                                                </th>
-                                                <th
-                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Rol
-                                                </th>
-                                                <th
-                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Estado
-                                                </th>
-                                                <th
-                                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                                    Acciones
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="bg-white divide-y divide-gray-200">
-                                            <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="flex-shrink-0 h-10 w-10">
-                                                            <img class="h-10 w-10 rounded-full"
-                                                                src="https://randomuser.me/api/portraits/men/32.jpg"
-                                                                alt="" />
-                                                        </div>
-                                                        <div class="ml-4">
-                                                            <div class="text-sm font-medium text-gray-900">
-                                                                Admin User
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    admin@inventariopro.com
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    <span
-                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">Administrador</span>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    <span
-                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Activo</span>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    <button class="text-blue-600 hover:text-blue-900 mr-2">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    <button class="text-red-600 hover:text-red-900">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="flex-shrink-0 h-10 w-10">
-                                                            <img class="h-10 w-10 rounded-full"
-                                                                src="https://randomuser.me/api/portraits/women/44.jpg"
-                                                                alt="" />
-                                                        </div>
-                                                        <div class="ml-4">
-                                                            <div class="text-sm font-medium text-gray-900">
-                                                                María Gómez
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    maria@inventariopro.com
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    <span
-                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">Inventario</span>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    <span
-                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Activo</span>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    <button class="text-blue-600 hover:text-blue-900 mr-2">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    <button class="text-red-600 hover:text-red-900">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="flex-shrink-0 h-10 w-10">
-                                                            <img class="h-10 w-10 rounded-full"
-                                                                src="https://randomuser.me/api/portraits/men/75.jpg"
-                                                                alt="" />
-                                                        </div>
-                                                        <div class="ml-4">
-                                                            <div class="text-sm font-medium text-gray-900">
-                                                                Carlos Ruiz
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    carlos@inventariopro.com
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    <span
-                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Ventas</span>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    <span
-                                                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Activo</span>
-                                                </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    <button class="text-blue-600 hover:text-blue-900 mr-2">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    <button class="text-red-600 hover:text-red-900">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <!-- Seguridad Tab -->
-                            <div id="seguridad-config" class="config-content hidden">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <h3 class="text-lg font-semibold mb-4">
-                                            Configuración de seguridad
-                                        </h3>
-                                        <div class="space-y-4">
-                                            <div class="flex items-center">
-                                                <input type="checkbox" id="two-factor-auth"
-                                                    class="rounded text-blue-600" />
-                                                <label for="two-factor-auth"
-                                                    class="ml-2 text-sm text-gray-700">Autenticación de dos
-                                                    factores</label>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <input type="checkbox" id="password-expiration"
-                                                    class="rounded text-blue-600" checked />
-                                                <label for="password-expiration"
-                                                    class="ml-2 text-sm text-gray-700">Expiración de contraseña cada 90
-                                                    días</label>
-                                            </div>
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700 mb-1">Duración de
-                                                    sesión (minutos)</label>
-                                                <input type="number" value="30"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
-                                            </div>
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700 mb-1">Intentos de
-                                                    inicio de sesión permitidos</label>
-                                                <input type="number" value="5"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-lg font-semibold mb-4">
-                                            Cambiar contraseña
-                                        </h3>
-                                        <div class="space-y-4">
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700 mb-1">Contraseña
-                                                    actual</label>
-                                                <input type="password"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
-                                            </div>
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700 mb-1">Nueva
-                                                    contraseña</label>
-                                                <input type="password"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
-                                            </div>
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700 mb-1">Confirmar
-                                                    nueva contraseña</label>
-                                                <input type="password"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
-                                            </div>
-                                            <div class="flex justify-end">
-                                                <button
-                                                    class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg">
-                                                    Cambiar contraseña
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Backup Tab -->
-                            <div id="backup-config" class="config-content hidden">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <h3 class="text-lg font-semibold mb-4">
-                                            Configuración de backup
-                                        </h3>
-                                        <div class="space-y-4">
-                                            <div class="flex items-center">
-                                                <input type="checkbox" id="auto-backup" class="rounded text-blue-600"
-                                                    checked />
-                                                <label for="auto-backup" class="ml-2 text-sm text-gray-700">Backup
-                                                    automático</label>
-                                            </div>
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700 mb-1">Frecuencia
-                                                    de backup</label>
-                                                <select class="w-full border border-gray-300 rounded px-3 py-2">
-                                                    <option>Diario</option>
-                                                    <option selected>Semanal</option>
-                                                    <option>Mensual</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700 mb-1">Día de la
-                                                    semana</label>
-                                                <select class="w-full border border-gray-300 rounded px-3 py-2">
-                                                    <option>Lunes</option>
-                                                    <option>Martes</option>
-                                                    <option>Miércoles</option>
-                                                    <option>Jueves</option>
-                                                    <option selected>Viernes</option>
-                                                    <option>Sábado</option>
-                                                    <option>Domingo</option>
-                                                </select>
-                                            </div>
-                                            <div>
-                                                <label class="block text-sm font-medium text-gray-700 mb-1">Hora</label>
-                                                <input type="time" value="02:00"
-                                                    class="w-full border border-gray-300 rounded px-3 py-2" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-lg font-semibold mb-4">
-                                            Realizar backup ahora
-                                        </h3>
-                                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                                            <p class="text-sm text-gray-600 mb-4">
-                                                El último backup se realizó el 10/06/2023 a las 02:00
-                                                AM
-                                            </p>
-                                            <div class="flex space-x-3">
-                                                <button
-                                                    class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
-                                                    <i class="fas fa-download mr-2"></i> Descargar
-                                                    Backup
-                                                </button>
-                                                <button
-                                                    class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center">
-                                                    <i class="fas fa-cloud-upload-alt mr-2"></i> Subir a
-                                                    la Nube
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </main>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/dashboard.js"></script>
-    <script src="../js/darkmode.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
