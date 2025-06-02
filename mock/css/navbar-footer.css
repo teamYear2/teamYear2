@@ -299,5 +299,10 @@ body {
         display: none;
         margin-left: 8vw;
     }
+}
 
+@media (max-width: 400px) {
+    .footerLogo {
+    font-size: 2em;
+    }
 }
