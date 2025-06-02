@@ -1,64 +1,556 @@
 /* Variables CSS */
 :root {
-    --primary-color: #3498db; /* Azul */
-    --secondary-color: #2c3e50; /* Azul oscuro */
-    --accent-color: #e74c3c; /* Rojo/Naranja */
-    --text-color: #333;
-    --light-bg: #f4f4f4;
-    --dark-bg: #222;
+    --color_azul_botones: #1e2296dc;
+    --color_azul_secundario: #232f75e3;
+    --color_detalles_marron: #694933;
+    --color_texto: #272525;
+    --color_texto_claro: #efefef;
+    --color_fondo: #d7d6de;
+    --hover-color: #6a8ba6;
+    --color_blanco: #fff;
 }
 
-/* Estilos Generales y Reset Básico */
+/*--------------------------------------------------*/
+/* main.css */
+/*--------------------------------------------------*/
+
+/* Cuerpo del documento */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: #fff; 
+    color: var(--color_texto);
+    background-color: var(--color_fondo);
+    scroll-behavior: smooth;
 }
 
+/* Contenedor principal */
 .container {
-    width: 80%; 
-    max-width: 1200px; 
-    margin: 0 auto; 
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
     padding: 20px 0;
 }
 
-/* Cabecera */
+/* Imagen de perfil (general, no usada en header) */
+.profile-pic {
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    margin: 20px auto;
+    border: 5px solid var(--color_detalles_marron);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* Imagen de perfil al pasar el ratón */
+.profile-pic:hover {
+    transform: scale(1.2);
+}
+
+/* Secciones */
+/* General de todas las secciones */
+section {
+    padding: 30px 0;
+    text-align: center;
+    background-color: var(--color_fondo);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Secciones alternas (pares) */
+section:nth-of-type(even) {
+    background-color: var(--color_fondo);
+}
+
+/* Títulos de sección */
+section h2 {
+    font-size: 2.5rem;
+    color: var(--color_azul_secundario);
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Subrayado decorativo en títulos de sección */
+section h2::after {
+    content: '';
+    display: block;
+    width: 70%;
+    height: 4px;
+    background-color: var(--color_detalles_marron);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Sección Sobre Mí */
+/* Párrafos dentro de "Sobre Mí" */
+.hero p {
+    font-size: 1.15rem;
+    margin: 0 auto 20px auto;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Proyectos */
+/* Contenedor de proyectos (CSS Grid) */
+.projects .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjeta individual de proyecto */
+.project-card {
+    background-color: var(--color_fondo);
+    border: 1px solid var(--color_detalles_marron);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Tarjeta de proyecto al pasar el ratón */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Títulos de proyectos */
+.project-card h3 {
+    color: var(--color_azul_secundario);
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Imágenes dentro de tarjetas de proyecto */
+.project-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Párrafos dentro de tarjetas de proyecto */
+.project-card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Texto en negrita en párrafos de proyecto (tecnologías) */
+.project-card p strong {
+    color: var(--color_azul_botones);
+}
+
+/* Botones generales (enlaces de proyectos) */
+.btn {
+    display: inline-block;
+    background-color: var(--color_azul_botones);
+    color: var(--color_blanco);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+/* Botones al pasar el ratón */
+.btn:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+/* Cuadrícula de habilidades */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Caja de habilidad (transparente) */
+.skill-item {
+    border-radius: 8px;
+    padding: 20px;
+    background-color: transparent;
+}
+
+/* Títulos de categorías de habilidad */
+.skill-item h3 {
+    color: var(--color_azul_secundario);
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Listas de habilidades */
+.skill-item ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+/* Ítems individuales de habilidad */
+.skill-item ul li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+    padding-left: 0;
+}
+
+
+/*--------------------------------------------------*/
+/* header.css */
+/*--------------------------------------------------*/
+
+/* Encabezado de la página */
 header {
-    background-color: var(--secondary-color);
-    color: #fff;
-    padding: 1rem 0;
+    background-color: var(--color_azul_secundario);
+    color: var(--color_fondo);
+    padding: 2rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
+/* Contenedor principal dentro del header */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Bloque izquierdo (foto y nombre) */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Imagen de perfil dentro del header */
+.header-pic {
+    max-width: 120px;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+    border: 5px solid var(--color_detalles_marron);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* Hover de la imagen del header */
+.header-pic:hover {
+    transform: scale(1.1);
+}
+
+/* Título principal del encabezado */
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
+    color: var(--color_fondo);
+    text-align: left;
 }
 
+/* Párrafo debajo del título del encabezado (eslogan) */
 header p {
-    font-size: 1.2rem;
-    margin-top: 5px;
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--color_texto_claro);
 }
 
+/* Bloque derecho (eslogan y navegación) */
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    text-align: right;
+}
+
+/* Lista de navegación en el encabezado */
 header nav ul {
-    list-style: none; 
+    list-style: none;
     padding: 0;
-    margin: 15px 0 0 0;
-    display: flex; 
-    justify-content: center; /* Centrar ítems */
-    flex-wrap: wrap; /* Permite que los ítems se envuelvan en pantallas pequeñas */
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-/* Estilos para la imagen de perfil */
-.profile-pic {
-    max-width: 200px; 
-    height: auto; /* Mantiene la proporción de la imagen automáticamente */
-    border-radius: 50%; /* circular */
-    display: block; 
-    margin: 20px auto; /
-    border: 4px solid var(--primary-color); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+/* Elementos de la lista de navegación */
+header nav ul li {
+    margin: 0;
+}
+
+/* Enlaces de navegación */
+header nav ul li a {
+    color: var(--color_fondo);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid var(--color_fondo);
+}
+
+/* Enlaces de navegación al pasar el ratón */
+header nav ul li a:hover {
+    background-color: var(--color_azul_botones);
+    color: var(--color_fondo);
+    border-color: var(--color_azul_botones);
+}
+
+/*--------------------------------------------------*/
+/* footer.css */
+/*--------------------------------------------------*/
+
+footer {
+    background-color: var(--color_detalles_marron);
+    color: var(--color_blanco);
+    padding: 20px 0;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Contenedor principal del footer: CSS Grid */
+.footer-grid-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px 30px;
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    align-items: start;
+}
+
+/* Elementos individuales del footer */
+.footer-item {
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Posicionamiento en la cuadrícula */
+.footer-motto {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-contact-details {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    text-align: left;
+}
+
+.footer-address { /* Agregué este comentario que faltaba para footer-address */
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    text-align: right;
+}
+
+/* Títulos h3 (ya no aplicarán a "Contacto" y "Ubicación" en el footer) */
+.footer-item h3 {
+    font-size: 1.4rem;
+    color: var(--color_blanco);
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+/* Frase central */
+.main-phrase {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+}
+
+/* Líneas divisorias (HR) */
+hr {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin: 10px 0;
+}
+
+.full-width-divider {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Listas de enlaces */
+.footer-contact-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact-details ul li {
+    margin-bottom: 5px;
+    color: var(--color_blanco);
+}
+
+.footer-contact-details ul li a {
+    color: var(--color_blanco);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.footer-contact-details ul li a:hover {
+    color: var(--color_azul_botones);
+    text-decoration: underline;
+}
+
+/* Texto de copyright */
+.copyright-text {
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+    text-align: center;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 0.85rem;
+}
+
+
+/*--------------------------------------------------*/
+/* Responsividad */
+/*--------------------------------------------------*/
+
+/* Media query para pantallas con un ancho máximo de 768px (móviles) */
+@media (max-width: 768px) {
+    /* Header (se deja tal cual) */
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .header-left, .header-right {
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+    header h1 { font-size: 2.5rem; }
+    header p { font-size: 1.1rem; }
+    header nav ul { justify-content: center; }
+    .header-pic { max-width: 100px; }
+
+    /* Secciones (ajuste de padding y margin para móvil) */
+    section {
+        padding: 30px 0;
+        margin-bottom: 10px;
+    }
+    section h2 { font-size: 2rem; }
+    .projects .container { grid-template-columns: 1fr; }
+
+    /* Footer en pantallas pequeñas: apilar elementos */
+    .footer-grid-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 15px;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .footer-item {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Posicionamiento específico en la cuadrícula para móviles */
+    .footer-motto { grid-column: 1 / 2; grid-row: 1 / 2; }
+    .footer-contact-details { grid-column: 1 / 2; grid-row: 2 / 3; }
+    .footer-address { grid-column: 1 / 2; grid-row: 3 / 4; }
+
+    .full-width-divider {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .copyright-text {
+        grid-column: 1 / 2;
+        grid-row: 5 / 6;
+        margin-top: 0;
+    }
+}
+
+/* Media query para tablets o pantallas medianas (769px a 1023px) */
+@media (min-width: 769px) and (max-width: 1023px) {
+    .footer-grid-layout {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px 20px;
+        grid-template-areas:
+            "motto contact-details"
+            "address address"
+            "divider divider"
+            "copyright copyright";
+    }
+
+    .footer-motto { grid-area: motto; text-align: center; }
+    .footer-contact-details { grid-area: contact-details; text-align: left; }
+    .footer-address { grid-area: address; text-align: center; margin-top: 15px; }
+
+    .full-width-divider {
+        grid-area: divider;
+        margin-top: 20px;
+    }
+
+    .copyright-text {
+        grid-area: copyright;
+        margin-top: 0;
+    }
+
+    .footer-motto {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Media query para pantallas grandes (1024px en adelante) */
+@media (min-width: 1024px) {
+    .footer-grid-layout {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        grid-template-areas: none;
+        gap: 0px 30px;
+    }
+
+    .footer-motto { grid-column: 1 / 2; grid-row: 1 / 2; text-align: center;}
+    .footer-contact-details { grid-column: 2 / 3; grid-row: 1 / 2; text-align: left;}
+    .footer-address { grid-column: 3 / 4; grid-row: 1 / 2; text-align: right;}
+
+    .full-width-divider { grid-column: 1 / -1; grid-row: 2 / 3; margin-top: 15px; }
+    .copyright-text { grid-column: 1 / -1; grid-row: 3 / 4; margin-top: 0; }
+
+    .footer-motto {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
