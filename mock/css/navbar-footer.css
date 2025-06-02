@@ -15,7 +15,7 @@
 
 body {
     background-color: var(--color-fondo);
-    min-height: 100vh; 
+    min-height: 100vh;
     margin: 0;
     font-family: sans-serif;
 }
@@ -25,7 +25,8 @@ body {
     ========================================================================= */
 .main-header {
     background-color: var(--color-fondo-alt);
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Sobrescribe la sombra de Bootstrap */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    /* Sobrescribe la sombra de Bootstrap */
     position: sticky;
     top: 0;
     z-index: 1050;
@@ -38,30 +39,32 @@ body {
 
 .navbar {
     background-color: var(--color-fondo-alt);
-    padding: 15px 0; /* Sobrescribe el padding vertical de Bootstrap */
+    padding: 15px 0;
+    /* Sobrescribe el padding vertical de Bootstrap */
     z-index: 1000;
     width: 100%;
 }
 
 /* Contenedor para el contenido del Navbar (para .container dentro de .navbar) */
 .navbar .container {
-    display: flex; /
-    justify-content: space-between; 
-    align-items: center; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    max-width: 1400px; 
-    padding: 15px 50px; 
+    max-width: 1400px;
+    padding: 15px 50px;
     box-sizing: border-box;
 }
 
 /* LOGO */
-.navbar-brand { /* Apunta a la clase de Bootstrap */
+.navbar-brand {
+    /* Apunta a la clase de Bootstrap */
     text-decoration: none;
     display: flex;
     align-items: center;
     font-size: 1.8em;
     font-weight: bold;
-    color: var(--color-botones); 
+    color: var(--color-botones);
 }
 
 .navbar-brand i {
@@ -82,21 +85,23 @@ body {
 
 /* NAVEGACIÓN (UL y LI) */
 /* Selector más específico para navbar-nav y sus nav-link */
-.navbar-nav { 
+.navbar-nav {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 25px; /* Espacio entre los nav-items en desktop */
-    margin-right: 25px; 
+    gap: 25px;
+    /* Espacio entre los nav-items en desktop */
+    margin-right: 25px;
 }
 
-.navbar-nav .nav-link { /* Los enlaces individuales */
+.navbar-nav .nav-link {
+    /* Los enlaces individuales */
     text-decoration: none;
     color: var(--color-botones);
     font-weight: 500;
-    padding: 8px 0; 
+    padding: 8px 0;
     transition: color 0.3s ease, border-bottom-color 0.3s ease;
-    border-bottom: 2px solid transparent; 
+    border-bottom: 2px solid transparent;
 }
 
 .navbar-nav .nav-link:hover {
@@ -106,14 +111,14 @@ body {
 
 /* Contenedor principal del menú y botones (para control de display y alineación) */
 .navbar-collapse {
-    flex-grow: 1; 
-    justify-content: flex-end; 
+    flex-grow: 1;
+    justify-content: flex-end;
 }
 
 /* Contenedor de los botones de Login/Registro para desktop */
 .navbar-actions-desktop {
-    display: flex; 
-    gap: 20px; 
+    display: flex;
+    gap: 20px;
 }
 
 /* ESTILOS ESPECÍFICOS DE BOTONES LOGIN Y REGISTRO */
@@ -126,8 +131,8 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 8px; 
-    min-width: 130px; 
+    gap: 8px;
+    min-width: 130px;
 }
 
 /* Estilo para el botón "Iniciar sesión" (asumiendo que usa .btn-outline-primary de Bootstrap) */
@@ -136,6 +141,7 @@ body {
     border: 2px solid var(--color-botones);
     color: var(--color-botones);
 }
+
 .btn-outline-primary:hover {
     background-color: var(--color-botones);
     color: var(--color-gris-claro);
@@ -147,21 +153,24 @@ body {
     border: 2px solid var(--color-botones);
     color: var(--color-gris-claro);
 }
+
 .btn-primary:hover {
     background-color: var(--color-formularios);
     border-color: var(--color-formularios);
 }
 
 /* Estilos para los íconos dentro de los botones */
-.btn i { /* Aplica a cualquier icono dentro de un botón .btn */
+.btn i {
+    /* Aplica a cualquier icono dentro de un botón .btn */
     margin-right: 5px;
-    color: inherit; 
+    color: inherit;
 }
 
 /* Sobrescribe el color del ícono para botones de contorno (.btn-outline-primary) */
 .btn-outline-primary i {
     color: var(--color-botones);
 }
+
 .btn-outline-primary:hover i {
     color: var(--color-gris-claro);
 }
@@ -170,35 +179,105 @@ body {
 .btn-primary i {
     color: var(--color-gris-claro);
 }
+
 .btn-primary:hover i {
     color: var(--color-gris-claro);
+}
+
+
+
+/* ========================================================================= */
+/* ESTILOS DEL FOOTER (para que los contenidos se alineen)                   */
+/* ========================================================================= */
+/* .footer-wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+    box-sizing: border-box;
+} */
+
+/* Footer */
+
+.containerFooter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footerLogo {
+    display: flex;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--color-footer);
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footerLogo i {
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: var(--color-footer);
+}
+
+.footerLogo span {
+    color: var(--color-botones);
+}
+
+.footerLogo .logo-pro {
+    font-size: 0.9em;
+    margin-left: 4px;
+    color: var(--color-footer);
+}
+
+.fraseFooter {
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+.contacFooter {
+    text-decoration: underline;
+}
+
+.text-contacto {
+    color: rgb(46, 106, 149);
 }
 
 /* ========================================================================= */
 /* MEDIA QUERIES PARA RESPONSIVIDAD DEL NAVBAR                               */
 /* Se activa cuando la pantalla es menor a 1000px*/
 /* ========================================================================= */
+@media (max-width: 1200px) {
+    .fraseFooter {
+        margin-left: 8vw;
+    }
+}
+
 @media (max-width: 1000px) {
     .navbar .container {
-        padding: 15px 20px; 
+        padding: 15px 20px;
     }
 
     /* El menú de navegación colapsado */
     .navbar-nav {
-        margin-right: 0; 
-        gap: 0; 
-        width: 100%; 
-        margin-top: 10px; 
+        margin-right: 0;
+        gap: 0;
+        width: 100%;
+        margin-top: 10px;
     }
 
     .navbar-nav .nav-item {
-        width: 100%; 
-        text-align: center; 
+        width: 100%;
+        text-align: center;
     }
 
     .navbar-nav .nav-link {
-        padding: 12px 15px; 
-        border-bottom: 1px solid rgba(0,0,0,.1); 
+        padding: 12px 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
     }
 
     /* Elimina el borde inferior del último nav-link para evitar un borde extra al final */
@@ -207,21 +286,18 @@ body {
     }
 
     /* Estilos para los botones dentro del menú colapsado (para móvil) */
-    .navbar-collapse .btn { /* Apunta a los botones que están dentro del área colapsable */
-        width: 100%; 
-        display: flex; 
-        justify-content: center; 
-        margin-bottom: 10px; 
+    .navbar-collapse .btn {
+        /* Apunta a los botones que están dentro del área colapsable */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
     }
-}
 
-/* ========================================================================= */
-/* ESTILOS DEL FOOTER (para que los contenidos se alineen)                   */
-/* ========================================================================= */
-.footer-wrapper {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 50px;
-    box-sizing: border-box;
+    /* Footer media */
+    .fraseFooter {
+        display: none;
+        margin-left: 8vw;
+    }
+
 }
