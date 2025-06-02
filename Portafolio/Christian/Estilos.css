@@ -1,4 +1,4 @@
-/* Variables CSS (opcional, pero buena práctica) */
+/* Variables CSS */
 :root {
     --primary-color: #3498db; /* Azul */
     --secondary-color: #2c3e50; /* Azul oscuro */
@@ -15,13 +15,13 @@ body {
     padding: 0;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #fff; /* Fondo blanco por defecto */
+    background-color: #fff; 
 }
 
 .container {
-    width: 80%; /* Ancho del contenido */
-    max-width: 1200px; /* Ancho máximo para pantallas grandes */
-    margin: 0 auto; /* Centrar el contenedor */
+    width: 80%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
     padding: 20px 0;
 }
 
@@ -44,10 +44,21 @@ header p {
 }
 
 header nav ul {
-    list-style: none; /* Quita los puntos de la lista */
+    list-style: none; 
     padding: 0;
     margin: 15px 0 0 0;
-    display: flex; /* Para poner los ítems en fila */
+    display: flex; 
     justify-content: center; /* Centrar ítems */
     flex-wrap: wrap; /* Permite que los ítems se envuelvan en pantallas pequeñas */
+}
+
+/* Estilos para la imagen de perfil */
+.profile-pic {
+    max-width: 200px; 
+    height: auto; /* Mantiene la proporción de la imagen automáticamente */
+    border-radius: 50%; /* circular */
+    display: block; 
+    margin: 20px auto; /
+    border: 4px solid var(--primary-color); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
