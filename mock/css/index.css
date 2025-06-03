@@ -1,57 +1,41 @@
-@import "./switch.css";
-
-@import "./darkmode.css";
-
-.hero-gradient {
-  background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
+.hero {
+  background-color: #EFE4D2;
+  color: #131D4F;
+  padding: 100px 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.dashboard-preview {
-  border-radius: 12px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+.hero h1 {
+  font-size: 3rem;
+  color: #254D70;
+  margin-bottom: 20px;
 }
 
-.animated-arrow {
-  animation: bounce 2s infinite;
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #131D4F;
 }
 
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-
-  40% {
-    transform: translateY(-15px);
-  }
-
-  60% {
-    transform: translateY(-7px);
-  }
+.btn-primary {
+  background-color: #954C2E;
+  color: #EFE4D2;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-.sidebar {
-  transition: all 0.3s ease;
+.btn-primary:hover {
+  background-color: #7a3c22;
 }
-
-.sidebar-collapsed {
-  width: 70px;
-}
-
-.sidebar-expanded {
-  width: 250px;
-}
-
-.main-content {
-  transition: margin-left 0.3s ease;
-}
-
