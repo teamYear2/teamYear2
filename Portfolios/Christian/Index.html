@@ -3,86 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portfolio - Christian</title>
-    <link rel="stylesheet" href="../Christian/Estilos.css">
+    <title>Mi Portfolio - Christian Dagatti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../Christian/estilos.css">
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <h1>Christian Dagatti</h1>
-            <p>Estudiante de Programación | Analista de datos.</p>
-            <nav>
-                <ul>
-                    <li><a href="#Sobre-mi">Sobre Mí</a></li>
-                    <li><a href="#Proyectos">Proyectos</a></li>
-                    <li><a href="#Contacto">Contacto</a></li>
-                </ul>
-            </nav>
+        <div class="container header-content">
+            <div class="header-left">
+                <img src="../Christian/foto_christian.jpg" alt="Tu Foto de Perfil" class="profile-pic header-pic">
+                <h1>Christian Dagatti</h1>
+            </div>
+            <div class="header-right">
+                <p>Estudiante de Desarrollo de Software en ISPC | Analista de Datos</p>
+                <nav>
+                    <ul>
+                        <li><a href="#sobre-mi">Sobre Mí</a></li>
+                        <li><a href="#habilidades">Habilidades</a></li>
+                        <li><a href="#proyectos">Proyectos</a></li>
+                        <li><a href="#contacto-footer">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <section id="Sobre-mi" class="hero">
-        <div class="container">
-            <img src="../../mock/assets/foto_christian.jpg" alt="Tu Foto de Perfil" class="profile-pic">
-            <h2>Sobre Mí</h2>
-            <p>
-                ¡Hola! Soy Christian, estudiante de segundo año de la tecnicatura de Desarrollo de Software del ISPC. Me apasiona el desarrollo de software y estoy siempre buscando aprender nuevas tecnologías. Tengo experiencia básica en Python, Java, HTML, CSS, SQL. Mi objetivo es crecer en el mundo de la tecnología y aportar soluciones creativas.
-            </p>
-            <p>
-                Actualmente, estoy enfocado en mejorar mis habilidades en Desarrollo web front-end.
-            </p>
-        </div>
-    </section>
-
-    <section id="Proyectos" class="projects">
-        <div class="container">
-            <h2>Mis Proyectos</h2>
-
-            <div class="project-card">
-                <h3>Nombre del Proyecto 1</h3>
-                <img src="images/proyecto1.jpg" alt="Captura de Proyecto 1">
+    <main>
+        <section id="sobre-mi" class="hero">
+            <div class="container">
                 <p>
-                    Proyecto 1.
+                    ¡Hola! Soy Christian, estudiante de segundo año de la tecnicatura de Desarrollo de Software del ISPC. Me apasiona el desarrollo de software y estoy siempre buscando aprender nuevas tecnologías. Mi objetivo es crecer en el mundo de la tecnología y aportar soluciones creativas e innovadoras.
                 </p>
                 <p>
-                    **Tecnologías:** HTML, CSS.
+                    Actualmente, estoy enfocado en mejorar mis habilidades en el Desarrollo Web Front-end, explorando nuevas herramientas y frameworks para construir interfaces de usuario atractivas y funcionales.
                 </p>
-                <a href="#" target="_blank" class="btn">Ver Código (GitHub)</a>
+            </div>
+        </section>
+
+        <section id="habilidades" class="skills">
+            <div class="container">
+                <h2>Mis Habilidades</h2>
+                <div class="skill-grid">
+                    <div class="skill-item">
+                        <h3>Lenguajes de Programación</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Herramientas y Plataformas</h3>
+                        <ul>
+                            <li>Git & GitHub</li>
+                            <li>Visual Studio Code</li>
+                            <li>Bases de Datos (MySQL)</li>
+                            <li>Tableau</li>
+                        </ul>
+                    </div>
+                    <div class="skill-item">
+                        <h3>Conceptos y Metodologías</h3>
+                        <ul>
+                            <li>Programación Orientada a Objetos (POO)</li>
+                            <li>Desarrollo Web Responsive</li>
+                            <li>Análisis de Datos </li>
+                            <li>Ciencia de Datos </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="projects">
+            <div class="container">
+                <h2>Mis Proyectos</h2>
+
+                <div class="project-card">
+                    <h3>Proyecto 1: Calculadora Web Básica</h3>
+                    <img src="https://via.placeholder.com/400x250?text=Proyecto+1" alt="Captura de Proyecto 1">
+                    <p>
+                        Una calculadora funcional construida utilizando HTML, CSS y un poco de JavaScript (para la lógica). Demuestra habilidades básicas en el manejo del DOM y la creación de interfaces interactivas.
+                    </p>
+                    <p>
+                        **Tecnologías:** HTML5, CSS3, JavaScript.
+                    </p>
+                    <a href="https://github.com/tu-usuario-github/nombre-del-proyecto-1" target="_blank" class="btn">Ver Código (GitHub)</a>
                 </div>
 
-            <div class="project-card">
-                <h3>Nombre del Proyecto 2</h3>
-                <img src="images/proyecto2.jpg" alt="Captura de Proyecto 2">
-                <p>
-                    Proyecto 2. 
-                </p>
-                <p>
-                    **Tecnologías:**
-                </p>
-                <a href="#" target="_blank" class="btn">Ver Código (GitHub)</a>
+                <div class="project-card">
+                    <h3>Proyecto 2: Landing Page de Servicios</h3>
+                    <img src="https://via.placeholder.com/400x250?text=Proyecto+2" alt="Captura de Proyecto 2">
+                    <p>
+                        Diseño y desarrollo de una landing page responsiva para una empresa ficticia de servicios. Enfocado en la estética, la usabilidad y la adaptación a diferentes tamaños de pantalla.
+                    </p>
+                    <p>
+                        **Tecnologías:** HTML5, CSS3 (Flexbox/Grid).
+                    </p>
+                    <a href="https://github.com/tu-usuario-github/nombre-del-proyecto-2" target="_blank" class="btn">Ver Código (GitHub)</a>
+                </div>
             </div>
+        </section>
 
-            </div>
-    </section>
+    </main>
 
-    <section id="Contacto" class="contact">
-        <div class="container">
-            <h2>Contacto</h2>
-            <p>Puedes contactarme a través de:</p>
-            <ul>
-                <li><a href=dagattichristian@gmail>dagattichristian@gmail</a></li>
-                <li><a href="https://www.linkedin.com/in/christian-dagatti/" target="_blank">LinkedIn</a></li>
-                <li><a href="https://github.com/tu-usuario-github" target="_blank">GitHub</a></li>
+    <footer id="contacto-footer">
+        <div class="container footer-grid-layout">
+            <div class="footer-item footer-motto">
+                <p class="main-phrase">"Hablemos de tu próximo proyecto!"</p>
+                </div>
+
+            <div class="footer-item footer-contact-details">
+                <ul>
+                    <li>Email: <a href="mailto:dagattichristian@gmail.com">dagattichristian@gmail.com</a></li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/christian-dagatti/" target="_blank">linkedin.com/in/christian-dagatti/</a></li>
+                    <li>GitHub: <a href="https://github.com/tu-usuario-github" target="_blank">github.com/tu-usuario-github</a></li>
                 </ul>
-        </div>
-    </section>
+            </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Christian. Todos los derechos reservados.</p>
+            <div class="footer-item footer-address">
+                <p>Río Primero, Córdoba, Argentina.</p>
+            </div>
+
+            <hr class="full-width-divider">
+            <p class="copyright-text">&copy; <span id="current-year"></span> Christian Dagatti. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
