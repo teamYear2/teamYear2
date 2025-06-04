@@ -15,7 +15,7 @@
 
 body {
     background-color: var(--color-fondo);
-    min-height: 100vh; 
+    min-height: 100vh;
     margin: 0;
     font-family: sans-serif;
 }
@@ -25,7 +25,8 @@ body {
     ========================================================================= */
 .main-header {
     background-color: var(--color-fondo-alt);
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Sobrescribe la sombra de Bootstrap */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    /* Sobrescribe la sombra de Bootstrap */
     position: sticky;
     top: 0;
     z-index: 1050;
@@ -40,23 +41,25 @@ main {
     background-color: var(--color-fondo);
     display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    min-height: 100vh; 
-    padding: 20px; 
+    min-height: 100vh;
+    padding: 20px;
     box-sizing: border-box;
 }
 
 .card {
     background-color: #ffffff;
-    padding: 40px; /* Padding original para pantallas más grandes */
+    padding: 40px;
+    /* Padding original para pantallas más grandes */
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
-    margin-top: 0; /* Bootstrap puede manejar el margen, o usar flexbox para centrar */
-    margin-bottom: 20px; 
+    margin-top: 0;
+    /* Bootstrap puede manejar el margen, o usar flexbox para centrar */
+    margin-bottom: 20px;
     border: 10px solid #cccccc;
 }
 
@@ -84,7 +87,7 @@ main {
 
 /* Contenedores de cada campo del formulario */
 .card form div.mb-3 {
-    margin-bottom: 20px !important; 
+    margin-bottom: 20px !important;
 }
 
 /* Etiquetas del formulario */
@@ -156,38 +159,91 @@ main {
    ========================================================================= */
 @media (max-width: 900px) {
     .card {
-        padding: 20px; 
-        border: 5px solid #cccccc; 
-        margin-top: 20px; 
+        padding: 20px;
+        border: 5px solid #cccccc;
+        margin-top: 20px;
     }
 
     .card h2 {
-        font-size: 1.8em; /* Un poco más pequeño en celu */
+        font-size: 1.8em;
+        /* Un poco más pequeño en celu */
     }
 
     .card p:nth-of-type(1) {
-        font-size: 0.9em; 
-        margin-bottom: 20px; 
+        font-size: 0.9em;
+        margin-bottom: 20px;
     }
 
     .form-label {
-        font-size: 0.9em; /* Reduce el tamaño de la etiqueta */
-        margin-bottom: 5px; 
+        font-size: 0.9em;
+        /* Reduce el tamaño de la etiqueta */
+        margin-bottom: 5px;
     }
 
     .form-control {
-        padding: 10px; /* Reduce el padding de los inputs */
-        font-size: 0.9em; /* Reduce el tamaño de la fuente de los inputs */
+        padding: 10px;
+        /* Reduce el padding de los inputs */
+        font-size: 0.9em;
+        /* Reduce el tamaño de la fuente de los inputs */
     }
 
     .card .btn[type="submit"] {
-        padding: 12px 20px; 
-        font-size: 1em; /* Reduce el tamaño de la fuente del botón */
+        padding: 12px 20px;
+        font-size: 1em;
+        /* Reduce el tamaño de la fuente del botón */
     }
 
     .card p.text-muted {
-        font-size: 0.8em; /* Reduce el tamaño del texto "¿No sos usuario?" */
-        margin-top: 15px; /* Reduce el margen */
+        font-size: 0.8em;
+        /* Reduce el tamaño del texto "¿No sos usuario?" */
+        margin-top: 15px;
+        /* Reduce el margen */
     }
 }
 
+.formulario-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 40px 80px;
+    background-color: var(--color-botones);
+    border-radius: 15px;
+    max-width: 1100px;
+    margin: 40px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.textoError {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.imagen-box {
+    flex: 1;
+    max-width: 100%;
+}
+
+.imagen-box img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+.carousel-inner {
+    height: 300px;
+    border-radius: 10px;
+}
+
+.img-carousel {
+    height: 20rem;
+    width: 100vw;
+    object-fit: fill;
+}
+
+@media (max-width: 1000px) {
+    .imagen-box{
+        display: none;
+    }
+}
