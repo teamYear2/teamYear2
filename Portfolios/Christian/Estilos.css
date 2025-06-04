@@ -72,22 +72,25 @@ section h2 {
     color: var(--color_azul_secundario);
     margin-bottom: 30px;
     position: relative;
-    display: inline-block;
+    display: block; 
+    text-align: left; /* Alineamos el texto del h2 a la izquierda */
+    margin-left: 5%; 
 }
 
-/* Subrayado decorativo en títulos de sección */
+/* subrayado  */
 section h2::after {
     content: '';
     display: block;
-    width: 70%;
+    width: 70%; 
     height: 4px;
     background-color: var(--color_detalles_marron);
-    margin: 10px auto 0;
+    margin: 10px auto 0; 
+    margin: 10px 0 0 0; 
     border-radius: 2px;
+    margin-left: 5%;
 }
 
 /* Sección Sobre Mí */
-/* Párrafos dentro de "Sobre Mí" */
 .hero p {
     font-size: 1.15rem;
     margin: 0 auto 20px auto;
@@ -96,14 +99,14 @@ section h2::after {
 }
 
 /* Proyectos */
-/* Contenedor de proyectos (CSS Grid) */
-.projects .container {
+.projects-grid-container { 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    margin-top: 30px; 
 }
 
-/* Tarjeta individual de proyecto */
+/* Tarjeta de proyecto */
 .project-card {
     background-color: var(--color_fondo);
     border: 1px solid var(--color_detalles_marron);
@@ -359,13 +362,7 @@ footer {
     text-align: left;
 }
 
-.footer-address { /* Agregué este comentario que faltaba para footer-address */
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
-    text-align: right;
-}
-
-/* Títulos h3 (ya no aplicarán a "Contacto" y "Ubicación" en el footer) */
+/* Títulos h3 */
 .footer-item h3 {
     font-size: 1.4rem;
     color: var(--color_blanco);
@@ -375,7 +372,8 @@ footer {
 
 /* Frase central */
 .main-phrase {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: var(--color_blanco);
     font-style: italic;
     margin: 0;
     padding: 0;
@@ -430,6 +428,7 @@ hr {
     margin-top: 0;
     padding-top: 0;
     font-size: 0.85rem;
+    line-height: 1.5;
 }
 
 
@@ -482,18 +481,17 @@ hr {
     /* Posicionamiento específico en la cuadrícula para móviles */
     .footer-motto { grid-column: 1 / 2; grid-row: 1 / 2; }
     .footer-contact-details { grid-column: 1 / 2; grid-row: 2 / 3; }
-    .footer-address { grid-column: 1 / 2; grid-row: 3 / 4; }
 
     .full-width-divider {
         grid-column: 1 / 2;
-        grid-row: 4 / 5;
+        grid-row: 3 / 4;
         margin-top: 20px;
         margin-bottom: 10px;
     }
 
     .copyright-text {
         grid-column: 1 / 2;
-        grid-row: 5 / 6;
+        grid-row: 4 / 5;
         margin-top: 0;
     }
 }
@@ -501,18 +499,16 @@ hr {
 /* Media query para tablets o pantallas medianas (769px a 1023px) */
 @media (min-width: 769px) and (max-width: 1023px) {
     .footer-grid-layout {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1.5fr 1fr;
         gap: 15px 20px;
         grid-template-areas:
             "motto contact-details"
-            "address address"
             "divider divider"
             "copyright copyright";
     }
 
     .footer-motto { grid-area: motto; text-align: center; }
     .footer-contact-details { grid-area: contact-details; text-align: left; }
-    .footer-address { grid-area: address; text-align: center; margin-top: 15px; }
 
     .full-width-divider {
         grid-area: divider;
@@ -535,14 +531,13 @@ hr {
 /* Media query para pantallas grandes (1024px en adelante) */
 @media (min-width: 1024px) {
     .footer-grid-layout {
-        grid-template-columns: 1.5fr 1fr 1fr;
+        grid-template-columns: 1.5fr 1fr;
         grid-template-areas: none;
         gap: 0px 30px;
     }
 
     .footer-motto { grid-column: 1 / 2; grid-row: 1 / 2; text-align: center;}
     .footer-contact-details { grid-column: 2 / 3; grid-row: 1 / 2; text-align: left;}
-    .footer-address { grid-column: 3 / 4; grid-row: 1 / 2; text-align: right;}
 
     .full-width-divider { grid-column: 1 / -1; grid-row: 2 / 3; margin-top: 15px; }
     .copyright-text { grid-column: 1 / -1; grid-row: 3 / 4; margin-top: 0; }
