@@ -189,15 +189,6 @@ body {
 /* ========================================================================= */
 /* ESTILOS DEL FOOTER (para que los contenidos se alineen)                   */
 /* ========================================================================= */
-/* .footer-wrapper {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 50px;
-    box-sizing: border-box;
-} */
-
-/* Footer */
 
 .containerFooter {
     display: flex;

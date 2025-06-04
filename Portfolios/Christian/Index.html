@@ -4,149 +4,180 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Portfolio - Christian Dagatti</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="../Christian/estilos.css">
 </head>
 <body>
 
-    <header>
+    <header class="py-4 shadow-sm">
         <div class="container header-content">
-            <div class="header-left">
-                <img src="../Christian/foto_christian.jpg" alt="Tu Foto de Perfil" class="profile-pic header-pic">
-                <h1>Christian Dagatti</h1>
+            <div class="header-left d-flex align-items-center">
+                <img src="../Christian/foto_christian.jpg" alt="Tu Foto de Perfil" class="profile-pic header-pic me-3">
+                <h1 class="d-flex flex-column text-start d-lg-block">
+                    <span class="d-block d-lg-inline fs-2">Christian</span>
+                    <span class="d-block d-lg-inline fs-3 ms-lg-2">Dagatti</span>
+                </h1>
             </div>
             <div class="header-right">
-                <p>Estudiante de Desarrollo de Software en ISPC | Analista de Datos</p>
-                <nav>
-                    <ul>
-                        <li><a href="#sobre-mi">Sobre Mí</a></li>
-                        <li><a href="#habilidades">Habilidades</a></li>
-                        <li><a href="#proyectos">Proyectos</a></li>
-                        <li><a href="#contacto-footer">Contacto</a></li>
-                    </ul>
+                <p class="mb-2 d-none d-md-block">Estudiante de Desarrollo de Software en ISPC | Analista de Datos</p>
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#sobre-mi">Sobre Mí</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#habilidades">Habilidades</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#proyectos">Proyectos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#contacto-footer">Contacto</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </nav>
             </div>
         </div>
     </header>
 
     <main>
-        <section id="sobre-mi" class="hero">
+        <section id="sobre-mi" class="hero py-5 my-3 rounded shadow-sm">
             <div class="container">
-                <p>
-                    ¡Hola! Soy Christian, estudiante de segundo año de la tecnicatura de Desarrollo de Software del ISPC. El mundo del software me atrapó porque me fascina ver cómo la lógica se transforma en algo tangible y funcional. 
+                <p class="fs-5 lh-base text-justify">
+                    ¡Hola! Soy Christian, estudiante de segundo año de la tecnicatura de Desarrollo de Software del ISPC. El mundo del software me atrapó porque me fascina ver cómo la lógica se transforma en algo tangible y funcional.
                     Más allá de dominar una tecnología, me motiva descubrir lo que podemos construir con ella, cómo usarla para resolver problemas y plasmar soluciones reales.
                 </p>
-                <p>
+                <p class="fs-5 lh-base text-justify">
                     Actualmente, estoy enfocado en mejorar mis habilidades en el Desarrollo Web Front-end, explorando nuevas herramientas y frameworks para construir interfaces de usuario atractivas y funcionales.
                 </p>
             </div>
         </section>
 
-        <section id="habilidades" class="skills">
+        <section id="habilidades" class="skills py-5 my-3 rounded shadow-sm">
             <div class="container">
-                <h2>Mis Habilidades</h2>
-                <div class="skill-grid">
-                    <div class="skill-item">
-                        <h3>Lenguajes de Programación</h3>
-                        <ul>
-                            <li>Python</li>
-                            <li>Java</li>
-                            <li>HTML5</li>
-                            <li>CSS3</li>
-                            <li>SQL</li>
-                        </ul>
+                <h2 class="text-start ms-2 ms-md-4 mb-4">Mis Habilidades</h2>
+                <div class="row skill-grid justify-content-center">
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="skill-item p-4 rounded">
+                            <h3>Lenguajes de Programación</h3>
+                            <ul class="list-unstyled">
+                                <li>Python</li>
+                                <li>Java</li>
+                                <li>HTML5</li>
+                                <li>CSS3</li>
+                                <li>SQL</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <h3>Herramientas y Plataformas</h3>
-                        <ul>
-                            <li>Git & GitHub</li>
-                            <li>Visual Studio Code</li>
-                            <li>Bases de Datos (MySQL)</li>
-                            <li>Tableau</li>
-                        </ul>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="skill-item p-4 rounded">
+                            <h3>Herramientas y Plataformas</h3>
+                            <ul class="list-unstyled">
+                                <li>Git & GitHub</li>
+                                <li>Visual Studio Code</li>
+                                <li>Bases de Datos (MySQL)</li>
+                                <li>Tableau</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <h3>Conceptos y Metodologías</h3>
-                        <ul>
-                            <li>Programación Orientada a Objetos (POO)</li>
-                            <li>Desarrollo Web Responsive</li>
-                            <li>Análisis de Datos </li>
-                            <li>Ciencia de Datos </li>
-                        </ul>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="skill-item p-4 rounded">
+                            <h3>Conceptos y Metodologías</h3>
+                            <ul class="list-unstyled">
+                                <li>Programación Orientada a Objetos (POO)</li>
+                                <li>Desarrollo Web Responsive</li>
+                                <li>Análisis de Datos</li>
+                                <li>Ciencia de Datos</li>
+                                <li>Scrum</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="proyectos" class="projects">
+        <section id="proyectos" class="projects py-5 my-3 rounded shadow-sm">
             <div class="container">
-                <h2>Mis Proyectos</h2>
-
-                <div class="projects-grid-container">
-                    <div class="project-card">
-                        <h3><strong>ARGBroker DEMO</strong> </h3>
-                        <img src="../Christian/ISPC.jpg" alt="Captura de Proyecto 1">
-                        <p>
-                            Demo de Brocker que actúa como intermediario entre los inversores y la Bolsa de Valores (MERVAL).
-                        <p>
-                            Tecnologías:Python, MySQL.
-                        </p>
-                        <a href="https://github.com/CodeCrafters8/SoftwareBroker.git" target="_blank" class="btn">Ver Código (GitHub)</a>
+                <h2 class="text-start ms-2 ms-md-4 mb-4">Mis Proyectos</h2>
+                <div class="row projects-grid-container justify-content-center">
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="project-card p-4 rounded border">
+                            <h3 class="fw-bold">ARGBroker DEMO</h3>
+                            <img src="../Christian/ISPC.jpg" alt="Captura de Proyecto 1" class="img-fluid mb-3">
+                            <p>
+                                Software Demo para Brocker que actúa como intermediario entre los inversores y la Bolsa de Valores (MERVAL).
+                            </p>
+                            <p>
+                                Tecnologías: Python, MySQL.
+                            </p>
+                            <a href="https://github.com/CodeCrafters8/SoftwareBroker.git" target="_blank" class="btn btn-primary d-block w-100">Ver Código (GitHub)</a>
+                        </div>
                     </div>
 
-                    <div class="project-card">
-                        <h3><strong>Analisis de datos DEMO</strong></h3>
-                        <img src="../Christian/Deepnote.jpg" alt="Captura de Proyecto 2">
-                        <p>
-                            Analisis, transformación y visualización de datos con dataset DEMO.
-                        </p>
-                        <p>
-                            Tecnologías:Phyton, SQL, Deepnote, Looker Studio.
-                        </p>
-                        <a href= "https://deepnote.com/workspace/CodoaCodo-BigData-06de24ea-5df2-4387-a311-796480a37fc6/project/c23668-Christian-Dagatti-TPintegrador-3513443b-e5c9-4111-b31e-fe849c4d1657/notebook/Consignas-de-trabajo-6-5031b2c6f6aa49d089e35985df125682?utm_content=3513443b-e5c9-4111-b31e-fe849c4d1657" target="_blank" class="btn">Ver Código (Deepnote)</a>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="project-card p-4 rounded border">
+                            <h3 class="fw-bold">Análisis de datos Demo</h3>
+                            <img src="../Christian/Deepnote.jpg" alt="Captura de Proyecto 2" class="img-fluid mb-3">
+                            <p>
+                                Análisis, transformación y visualización de datos con dataset DEMO.
+                            </p>
+                            <p>
+                                Tecnologías: Python, SQL, Deepnote, Looker Studio.
+                            </p>
+                            <a href="https://deepnote.com/workspace/CodoaCodo-BigData-06de24ea-5df2-4387-a311-796480a37fc6/project/c23668-Christian-Dagatti-TPintegrador-3513443b-e5c9-4111-b31e-fe849c4d1657/notebook/Consignas-de-trabajo-6-5031b2c6f6aa49d089e35985df125682?utm_content=3513443b-e5c9-4111-b31e-fe849c4d1657" target="_blank" class="btn btn-primary d-block w-100">Ver Código (Deepnote)</a>
+                        </div>
                     </div>
 
-                    <div class="project-card">
-                        <h3><strong>Estimación de Ventas</strong></h3>
-                        <img src="../Christian/series.jpg" alt="Captura de Proyecto 3">
-                        <p>
-                            Analisis, transformación y visualización de datos + estimación de ventas dataset real.
-                        </p>
-                        <p>
-                            Tecnologías:Phyton, Jupyter, Sarimax, Lstm, Prophet.
-                        </p>
-                        <a href= "https://github.com/CHRISTIANDAGATTI/Mentoria_Series_Temporales.git" target="_blank" class="btn">Ver Código (GitHub)</a>
-                    </div>    
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="project-card p-4 rounded border">
+                            <h3 class="fw-bold">Estimación de Ventas</h3>
+                            <img src="../Christian/series.jpg" alt="Captura de Proyecto 3" class="img-fluid mb-3">
+                            <p>
+                                Análisis, transformación y visualización de datos + estimación de ventas dataset real.
+                            </p>
+                            <p>
+                                Tecnologías: Python, Sarimax, Lstm, Prophet.
+                            </p>
+                            <a href="https://github.com/CHRISTIANDAGATTI/Mentoria_Series_Temporales.git" target="_blank" class="btn btn-primary d-block w-100">Ver Código (GitHub)</a>
+                        </div>
+                    </div>
                 </div>
-                </div>
+            </div>
         </section>
-
     </main>
 
-    <footer id="contacto-footer">
-        <div class="container footer-grid-layout">
-            <div class="footer-item footer-motto">
-                <p class="main-phrase">"Hablemos de tu próximo proyecto!"</p>
+    <footer id="contacto-footer" class="py-4 mt-3">
+        <div class="container footer-grid-layout text-center text-md-start">
+            <div class="footer-item footer-motto col-12 col-md-6 mb-3 mb-md-0 d-flex flex-column justify-content-center align-items-center">
+                <p class="main-phrase fs-4 fw-italic m-0">"Hablemos de tu próximo proyecto!"</p>
             </div>
 
-            <div class="footer-item footer-contact-details">
-                <ul>
-                    <li><strong>Email:</strong>&nbsp; <a href="mailto:dagattichristian@gmail.com">dagattichristian@gmail.com</a></li>
-                    <li><strong>LinkedIn:</strong>&nbsp; <a href="https://www.linkedin.com/in/christian-dagatti/" target="_blank">linkedin.com/in/christian-dagatti/</a></li>
-                    <li><strong>GitHub:</strong>&nbsp; <a href="https://github.com/tu-usuario-github" target="_blank">github.com/tu-usuario-github</a></li>
+            <div class="footer-item footer-contact-details col-12 col-md-6 text-center text-md-start">
+                <ul class="list-unstyled m-0">
+                    <li><strong>Email:</strong>&nbsp; <a href="mailto:dagattichristian@gmail.com" class="text-white">dagattichristian@gmail.com</a></li>
+                    <li><strong>LinkedIn:</strong>&nbsp; <a href="https://www.linkedin.com/in/christian-dagatti/" target="_blank" class="text-white">linkedin.com/in/christian-dagatti/</a></li>
+                    <li><strong>GitHub:</strong>&nbsp; <a href="https://github.com/tu-usuario-github" target="_blank" class="text-white">github.com/tu-usuario-github</a></li>
                 </ul>
             </div>
 
-            <hr class="full-width-divider">
+            <hr class="full-width-divider col-12 my-3">
 
-            <p class="copyright-text">
+            <p class="copyright-text col-12 text-center m-0">
                 &copy; <span id="current-year"></span> Christian Dagatti. Todos los derechos reservados.
                 <br> Río Primero, Córdoba, Argentina.
             </p>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
