@@ -39,8 +39,7 @@ body {
 
 .navbar {
     background-color: var(--color-fondo-alt);
-    padding: 15px 0;
-    /* Sobrescribe el padding vertical de Bootstrap */
+    padding: 5px 0;
     z-index: 1000;
     width: 100%;
 }
@@ -52,7 +51,7 @@ body {
     align-items: center;
     width: 100%;
     max-width: 1400px;
-    padding: 15px 50px;
+    padding: 5px 50px;
     box-sizing: border-box;
 }
 
@@ -189,15 +188,6 @@ body {
 /* ========================================================================= */
 /* ESTILOS DEL FOOTER (para que los contenidos se alineen)                   */
 /* ========================================================================= */
-/* .footer-wrapper {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 50px;
-    box-sizing: border-box;
-} */
-
-/* Footer */
 
 .containerFooter {
     display: flex;

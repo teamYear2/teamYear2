@@ -1,7 +1,7 @@
 /* Variables CSS */
 :root {
     --color_azul_botones: #1e2296dc;
-    --color_azul_secundario: #232f75e3;
+    --color_azul_secundario: #232f75;
     --color_detalles_marron: #694933;
     --color_texto: #272525;
     --color_texto_claro: #efefef;
@@ -23,17 +23,11 @@ body {
     color: var(--color_texto);
     background-color: var(--color_fondo);
     scroll-behavior: smooth;
+    min-width: 320px; /* Tamaño mínimo */
+    max-width: 2560px; /* Tamaño máximo */
 }
 
-/* Contenedor principal */
-.container {
-    width: 90%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-/* Imagen de perfil (general, no usada en header) */
+/* Imagen de perfil general*/
 .profile-pic {
     max-width: 150px;
     height: auto;
@@ -61,10 +55,6 @@ section {
     border-radius: 8px;
 }
 
-/* Secciones alternas (pares) */
-section:nth-of-type(even) {
-    background-color: var(--color_fondo);
-}
 
 /* Títulos de sección */
 section h2 {
@@ -72,22 +62,25 @@ section h2 {
     color: var(--color_azul_secundario);
     margin-bottom: 30px;
     position: relative;
-    display: inline-block;
+    display: block; 
+    text-align: left;
+    margin-left: 5%; 
 }
 
-/* Subrayado decorativo en títulos de sección */
+/* subrayado  */
 section h2::after {
     content: '';
     display: block;
-    width: 70%;
+    width: 70%; 
     height: 4px;
     background-color: var(--color_detalles_marron);
-    margin: 10px auto 0;
+    margin: 10px auto 0; 
+    margin: 10px 0 0 0; 
     border-radius: 2px;
+    margin-left: 5%;
 }
 
 /* Sección Sobre Mí */
-/* Párrafos dentro de "Sobre Mí" */
 .hero p {
     font-size: 1.15rem;
     margin: 0 auto 20px auto;
@@ -95,16 +88,8 @@ section h2::after {
     text-align: justify;
 }
 
-/* Proyectos */
-/* Contenedor de proyectos (CSS Grid) */
-.projects .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-/* Tarjeta individual de proyecto */
-.project-card {
+/* Proyectos - Bootstrap grid handles stacking */
+.projects-grid-container .project-card {
     background-color: var(--color_fondo);
     border: 1px solid var(--color_detalles_marron);
     border-radius: 10px;
@@ -131,15 +116,18 @@ section h2::after {
 /* Imágenes dentro de tarjetas de proyecto */
 .project-card img {
     max-width: 100%;
+    width: 80%; 
+    height: 80px; 
     border-radius: 8px;
     margin-bottom: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover; 
 }
 
 /* Párrafos dentro de tarjetas de proyecto */
 .project-card p {
     font-size: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 /* Texto en negrita en párrafos de proyecto (tecnologías) */
@@ -158,25 +146,18 @@ section h2::after {
     margin-top: 15px;
     transition: background-color 0.3s ease, transform 0.2s ease;
     font-weight: bold;
+    border: none; 
 }
 
 /* Botones al pasar el ratón */
 .btn:hover {
     background-color: var(--hover-color);
     transform: translateY(-2px);
+    color: var(--color_blanco);
 }
 
-/* Cuadrícula de habilidades */
-.skill-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-/* Caja de habilidad (transparente) */
-.skill-item {
+/* Cuadrícula de habilidades - Bootstrap grid handles stacking */
+.skill-grid .skill-item {
     border-radius: 8px;
     padding: 20px;
     background-color: transparent;
@@ -192,8 +173,8 @@ section h2::after {
 
 /* Listas de habilidades */
 .skill-item ul {
-    list-style-type: disc;
-    padding-left: 20px;
+    list-style-type: none; 
+    padding-left: 0;
     margin: 0;
 }
 
@@ -202,6 +183,17 @@ section h2::after {
     margin-bottom: 8px;
     line-height: 1.4;
     padding-left: 0;
+    position: relative; 
+}
+
+/* Custom bullet for skill list items */
+.skill-item ul li::before {
+    content: "\2022"; 
+    color: var(--color_detalles_marron); 
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
 }
 
 
@@ -256,6 +248,7 @@ header h1 {
     font-size: 3.5rem;
     color: var(--color_fondo);
     text-align: left;
+    line-height: 1.2; 
 }
 
 /* Párrafo debajo del título del encabezado (eslogan) */
@@ -274,24 +267,17 @@ header p {
     text-align: right;
 }
 
+/* Custom Navbar Toggler for Bootstrap */
+.custom-toggler {
+    border-color: var(--color_fondo) !important;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23efefef' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
 /* Lista de navegación en el encabezado */
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-/* Elementos de la lista de navegación */
-header nav ul li {
-    margin: 0;
-}
-
-/* Enlaces de navegación */
-header nav ul li a {
+header .navbar-nav .nav-link {
     color: var(--color_fondo);
     text-decoration: none;
     font-weight: bold;
@@ -299,14 +285,16 @@ header nav ul li a {
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
     border: 2px solid var(--color_fondo);
+    margin: 5px 0; 
 }
 
 /* Enlaces de navegación al pasar el ratón */
-header nav ul li a:hover {
+header .navbar-nav .nav-link:hover {
     background-color: var(--color_azul_botones);
     color: var(--color_fondo);
     border-color: var(--color_azul_botones);
 }
+
 
 /*--------------------------------------------------*/
 /* footer.css */
@@ -323,12 +311,8 @@ footer {
     align-items: center;
 }
 
-/* Contenedor principal del footer: CSS Grid */
+/* Contenedor principal del footer: CSS Grid - Adjusted for Bootstrap's row/col */
 .footer-grid-layout {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 0px 30px;
     width: 100%;
     max-width: 1440px;
     padding: 0 20px;
@@ -336,46 +320,10 @@ footer {
     align-items: start;
 }
 
-/* Elementos individuales del footer */
-.footer-item {
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Posicionamiento en la cuadrícula */
-.footer-motto {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-contact-details {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    text-align: left;
-}
-
-.footer-address { /* Agregué este comentario que faltaba para footer-address */
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
-    text-align: right;
-}
-
-/* Títulos h3 (ya no aplicarán a "Contacto" y "Ubicación" en el footer) */
-.footer-item h3 {
-    font-size: 1.4rem;
-    color: var(--color_blanco);
-    margin-top: 0;
-    margin-bottom: 5px;
-}
-
 /* Frase central */
 .main-phrase {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: var(--color_blanco);
     font-style: italic;
     margin: 0;
     padding: 0;
@@ -387,14 +335,6 @@ hr {
     height: 1px;
     background-color: rgba(255, 255, 255, 0.4);
     margin: 10px 0;
-}
-
-.full-width-divider {
-    grid-column: 1 / -1;
-    grid-row: 2 / 3;
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 5px;
 }
 
 /* Listas de enlaces */
@@ -423,13 +363,12 @@ hr {
 
 /* Texto de copyright */
 .copyright-text {
-    grid-column: 1 / -1;
-    grid-row: 3 / 4;
     text-align: center;
     width: 100%;
     margin-top: 0;
     padding-top: 0;
     font-size: 0.85rem;
+    line-height: 1.5;
 }
 
 
@@ -437,120 +376,152 @@ hr {
 /* Responsividad */
 /*--------------------------------------------------*/
 
-/* Media query para pantallas con un ancho máximo de 768px (móviles) */
-@media (max-width: 768px) {
-    /* Header (se deja tal cual) */
+/* ==========================================================================
+   Media query para pantallas grandes (igual o mayor a 992px)
+   Esto corresponde al breakpoint 'lg' de Bootstrap.
+   ========================================================================== */
+@media (min-width: 992px) {
     .header-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        flex-direction: row;
     }
-    .header-left, .header-right {
-        width: 100%;
-        text-align: center;
-        align-items: center;
+    .header-left {
+        width: auto;
+        text-align: left;
     }
-    header h1 { font-size: 2.5rem; }
-    header p { font-size: 1.1rem; }
-    header nav ul { justify-content: center; }
-    .header-pic { max-width: 100px; }
+    .header-right {
+        width: auto;
+        text-align: right;
+        align-items: flex-end;
+    }
 
-    /* Secciones (ajuste de padding y margin para móvil) */
-    section {
-        padding: 30px 0;
-        margin-bottom: 10px;
+    /* Tamaño de fuente para el nombre en desktop --------------------------------------- Antes de boostrap*/
+    header h1 .d-block.d-lg-inline.fs-2 {font-size: 3.5rem !important; /* Tamaño original para "Christian" */
     }
-    section h2 { font-size: 2rem; }
-    .projects .container { grid-template-columns: 1fr; }
+    header h1 .d-block.d-lg-inline.fs-3 {font-size: 3.5rem !important; /* Tamaño original para "Dagatti" */
+    }
+    header h1 span {display: inline !important; /* Mostrar nombre al lado */
+    }
+    header h1 span + span {margin-left: 0.5rem; /* Espacio entre "Christian" y "Dagatti" */
+    }
 
-    /* Footer en pantallas pequeñas: apilar elementos */
-    .footer-grid-layout {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
+    /* Ajustes de la barra de navegación para desktop (si es necesario) */
+    header .navbar-nav {
+        flex-direction: row; 
+    }
+    header .navbar-nav .nav-item {
+        margin: 0 15px; 
+    }
+}
+
+
+/* ==========================================================================
+   Media query para pantallas medianas y pequeñas (menor a 992px)
+   Esto corresponde a  'md', 'sm', y 'xs' de Bootstrap,
+   donde el navbar-expand-lg colapsa.
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .header-content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .header-left {
+        flex-direction: row;
+        align-items: center;
+        display: flex !important;
+        justify-content: flex-start;
+        width: auto;
+        gap: 10px;
+        text-align: left;
+    }
+
+    .header-right {
+        align-items: flex-end;
+        text-align: right;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        margin: 0;
+        text-align: left;
+    }
+
+    header h1 span {
+        display: inline !important;
+        margin-left: 5px;
+    }
+
+    .header-pic {
+        max-width: 100px;
+    }
+    
+    .hero p {
+        font-size: 0.80rem; 
+        line-height: 1.6;
+        padding: 0 10px;
+        text-align: justify;
+    }
+}
+
+/* ==========================================================================
+   Media query para tabletas o pantallas medianas (768px a 991.98px)
+   Esto corresponde al rango entre 'md' y 'lg' de Bootstrap.
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .header-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .header-left {
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
         gap: 15px;
-        padding: 0 15px;
-        text-align: center;
+        text-align: left;
     }
 
-    .footer-item {
-        text-align: center;
+    .header-right {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
+        gap: 10px;
+        text-align: right;
     }
 
-    /* Posicionamiento específico en la cuadrícula para móviles */
-    .footer-motto { grid-column: 1 / 2; grid-row: 1 / 2; }
-    .footer-contact-details { grid-column: 1 / 2; grid-row: 2 / 3; }
-    .footer-address { grid-column: 1 / 2; grid-row: 3 / 4; }
-
-    .full-width-divider {
-        grid-column: 1 / 2;
-        grid-row: 4 / 5;
-        margin-top: 20px;
-        margin-bottom: 10px;
+    header h1 {
+        font-size: 2.2rem;
+        margin: 0;
+        text-align: left;
     }
 
-    .copyright-text {
-        grid-column: 1 / 2;
-        grid-row: 5 / 6;
-        margin-top: 0;
-    }
-}
-
-/* Media query para tablets o pantallas medianas (769px a 1023px) */
-@media (min-width: 769px) and (max-width: 1023px) {
-    .footer-grid-layout {
-        grid-template-columns: 1fr 1fr;
-        gap: 15px 20px;
-        grid-template-areas:
-            "motto contact-details"
-            "address address"
-            "divider divider"
-            "copyright copyright";
+    header h1 span {
+        display: inline !important;
+        margin-left: 5px;
     }
 
-    .footer-motto { grid-area: motto; text-align: center; }
-    .footer-contact-details { grid-area: contact-details; text-align: left; }
-    .footer-address { grid-area: address; text-align: center; margin-top: 15px; }
-
-    .full-width-divider {
-        grid-area: divider;
-        margin-top: 20px;
+    .header-pic {
+        max-width: 100px;
     }
 
-    .copyright-text {
-        grid-area: copyright;
-        margin-top: 0;
+    header p {
+        font-size: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
     }
-
-    .footer-motto {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-/* Media query para pantallas grandes (1024px en adelante) */
-@media (min-width: 1024px) {
-    .footer-grid-layout {
-        grid-template-columns: 1.5fr 1fr 1fr;
-        grid-template-areas: none;
-        gap: 0px 30px;
-    }
-
-    .footer-motto { grid-column: 1 / 2; grid-row: 1 / 2; text-align: center;}
-    .footer-contact-details { grid-column: 2 / 3; grid-row: 1 / 2; text-align: left;}
-    .footer-address { grid-column: 3 / 4; grid-row: 1 / 2; text-align: right;}
-
-    .full-width-divider { grid-column: 1 / -1; grid-row: 2 / 3; margin-top: 15px; }
-    .copyright-text { grid-column: 1 / -1; grid-row: 3 / 4; margin-top: 0; }
-
-    .footer-motto {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    
+    .hero p {
+        font-size: 0.80rem; 
+        line-height: 1.6;
+        padding: 0 10px;
+        text-align: justify;
     }
 }
