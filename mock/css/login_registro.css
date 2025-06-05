@@ -21,19 +21,18 @@ body {
 }
 
 /*  ========================================================================= 
-    ESTILOS DEL HEADER                                                       
+   HEADER                                                       
     ========================================================================= */
 .main-header {
     background-color: var(--color-fondo-alt);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    /* Sobrescribe la sombra de Bootstrap */
     position: sticky;
     top: 0;
     z-index: 1050;
 }
 
 /*  ========================================================================= 
-    ESTILOS DEL LOGIN FORM                                                    
+   FORMULARIOS LOGUEO Y REGISTRO                                                   
     ========================================================================= */
 
 main {
@@ -151,6 +150,12 @@ main {
 
 .card p a.text-decoration-none:hover {
     text-decoration: underline;
+}
+form button.btn-primary {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 10px 40px;
+    width: auto;
 }
 
 /* ========================================================================= 
