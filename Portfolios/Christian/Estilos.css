@@ -1,7 +1,7 @@
 /* Variables CSS */
 :root {
     --color_azul_botones: #1e2296dc;
-    --color_azul_secundario: #232f75e3;
+    --color_azul_secundario: #232f75;
     --color_detalles_marron: #694933;
     --color_texto: #272525;
     --color_texto_claro: #efefef;
@@ -23,13 +23,11 @@ body {
     color: var(--color_texto);
     background-color: var(--color_fondo);
     scroll-behavior: smooth;
-    min-width: 320px; /* Tamaño mínimo del cuerpo */
-    max-width: 2560px; /* Tamaño máximo del cuerpo */
+    min-width: 320px; /* Tamaño mínimo */
+    max-width: 2560px; /* Tamaño máximo */
 }
 
-/* Contenedor principal - Bootstrap's .container is used directly */
-
-/* Imagen de perfil (general, no usada en header) */
+/* Imagen de perfil general*/
 .profile-pic {
     max-width: 150px;
     height: auto;
@@ -57,10 +55,6 @@ section {
     border-radius: 8px;
 }
 
-/* Secciones alternas (pares) */
-section:nth-of-type(even) {
-    background-color: var(--color_fondo);
-}
 
 /* Títulos de sección */
 section h2 {
@@ -69,7 +63,7 @@ section h2 {
     margin-bottom: 30px;
     position: relative;
     display: block; 
-    text-align: left; /* Alineamos el texto del h2 a la izquierda */
+    text-align: left;
     margin-left: 5%; 
 }
 
@@ -122,12 +116,12 @@ section h2::after {
 /* Imágenes dentro de tarjetas de proyecto */
 .project-card img {
     max-width: 100%;
-    width: 80; /* This seems like a typo, should probably be 80% or 80px if fixed size */
-    height: 80px; /* Kept fixed height as per original */
+    width: 80%; 
+    height: 80px; 
     border-radius: 8px;
     margin-bottom: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    object-fit: cover; /* Ensures image covers the area without distortion */
+    object-fit: cover; 
 }
 
 /* Párrafos dentro de tarjetas de proyecto */
@@ -152,14 +146,14 @@ section h2::after {
     margin-top: 15px;
     transition: background-color 0.3s ease, transform 0.2s ease;
     font-weight: bold;
-    border: none; /* Override Bootstrap's button border */
+    border: none; 
 }
 
 /* Botones al pasar el ratón */
 .btn:hover {
     background-color: var(--hover-color);
     transform: translateY(-2px);
-    color: var(--color_blanco); /* Ensure text color remains white on hover */
+    color: var(--color_blanco);
 }
 
 /* Cuadrícula de habilidades - Bootstrap grid handles stacking */
@@ -179,7 +173,7 @@ section h2::after {
 
 /* Listas de habilidades */
 .skill-item ul {
-    list-style-type: none; /* Removed disc to allow custom styling if desired */
+    list-style-type: none; 
     padding-left: 0;
     margin: 0;
 }
@@ -189,13 +183,13 @@ section h2::after {
     margin-bottom: 8px;
     line-height: 1.4;
     padding-left: 0;
-    position: relative; /* For custom bullets */
+    position: relative; 
 }
 
 /* Custom bullet for skill list items */
 .skill-item ul li::before {
-    content: "\2022"; /* Unicode for a bullet point */
-    color: var(--color_detalles_marron); /* Color of the bullet */
+    content: "\2022"; 
+    color: var(--color_detalles_marron); 
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -216,7 +210,7 @@ header {
     text-align: center;
 }
 
-/* Contenedor principal dentro del header - Bootstrap's .container and flex utilities are used */
+/* Contenedor principal dentro del header */
 .header-content {
     display: flex;
     justify-content: space-between;
@@ -254,7 +248,7 @@ header h1 {
     font-size: 3.5rem;
     color: var(--color_fondo);
     text-align: left;
-    line-height: 1.2; /* Adjust line height for stacked name */
+    line-height: 1.2; 
 }
 
 /* Párrafo debajo del título del encabezado (eslogan) */
@@ -284,21 +278,21 @@ header p {
 
 /* Lista de navegación en el encabezado */
 header .navbar-nav .nav-link {
-    color: var(--color_fondo) !important;
+    color: var(--color_fondo);
     text-decoration: none;
     font-weight: bold;
     padding: 8px 18px;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
     border: 2px solid var(--color_fondo);
-    margin: 5px 0; /* Add margin for stacked links on small screens */
+    margin: 5px 0; 
 }
 
 /* Enlaces de navegación al pasar el ratón */
 header .navbar-nav .nav-link:hover {
-    background-color: var(--color_azul_botones) !important;
-    color: var(--color_fondo) !important;
-    border-color: var(--color_azul_botones) !important;
+    background-color: var(--color_azul_botones);
+    color: var(--color_fondo);
+    border-color: var(--color_azul_botones);
 }
 
 
@@ -343,12 +337,6 @@ hr {
     margin: 10px 0;
 }
 
-.full-width-divider {
-    width: 100%;
-    margin-top: 15px;
-    margin-bottom: 5px;
-}
-
 /* Listas de enlaces */
 .footer-contact-details ul {
     list-style: none;
@@ -388,8 +376,10 @@ hr {
 /* Responsividad */
 /*--------------------------------------------------*/
 
-
-/* Media query para pantallas grandes  */
+/* ==========================================================================
+   Media query para pantallas grandes (igual o mayor a 992px)
+   Esto corresponde al breakpoint 'lg' de Bootstrap.
+   ========================================================================== */
 @media (min-width: 992px) {
     .header-content {
         flex-direction: row;
@@ -403,20 +393,20 @@ hr {
         text-align: right;
         align-items: flex-end;
     }
-    header h1 .d-block.d-lg-inline.fs-2 {
-        font-size: 3.5rem !important; /* Tamaño original  "Christian" */
+
+    /* Tamaño de fuente para el nombre en desktop --------------------------------------- Antes de boostrap*/
+    header h1 .d-block.d-lg-inline.fs-2 {font-size: 3.5rem !important; /* Tamaño original para "Christian" */
     }
-    header h1 .d-block.d-lg-inline.fs-3 {
-        font-size: 3.5rem !important; /* Tamaño original  "Dagatti" */
+    header h1 .d-block.d-lg-inline.fs-3 {font-size: 3.5rem !important; /* Tamaño original para "Dagatti" */
     }
-    header h1 span {
-        display: inline !important;
+    header h1 span {display: inline !important; /* Mostrar nombre al lado */
     }
-    header h1 span + span {
-        margin-left: 0.5rem; 
+    header h1 span + span {margin-left: 0.5rem; /* Espacio entre "Christian" y "Dagatti" */
     }
+
+    /* Ajustes de la barra de navegación para desktop (si es necesario) */
     header .navbar-nav {
-        flex-direction: row;
+        flex-direction: row; 
     }
     header .navbar-nav .nav-item {
         margin: 0 15px; 
@@ -424,195 +414,114 @@ hr {
 }
 
 
-/* Media query para pantallas medianas y pequeñas (menor a 992px, donde el navbar colapsa) */
-@media (max-width: 991.98px) { 
+/* ==========================================================================
+   Media query para pantallas medianas y pequeñas (menor a 992px)
+   Esto corresponde a  'md', 'sm', y 'xs' de Bootstrap,
+   donde el navbar-expand-lg colapsa.
+   ========================================================================== */
+@media (max-width: 991.98px) {
     .header-content {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        text-align: center;
+        justify-content: space-between;
+        padding-left: 15px;
+        padding-right: 15px;
     }
-    .header-left, .header-right {
-        width: 100%;
-        text-align: center;
+
+    .header-left {
+        flex-direction: row;
         align-items: center;
+        display: flex !important;
+        justify-content: flex-start;
+        width: auto;
+        gap: 10px;
+        text-align: left;
     }
+
+    .header-right {
+        align-items: flex-end;
+        text-align: right;
+    }
+
     header h1 {
-        font-size: 2.5rem; 
-        text-align: center;
+        font-size: 2rem;
+        margin: 0;
+        text-align: left;
     }
-    header h1 .d-block.d-lg-inline.fs-2 {
-        font-size: 2.5rem !important;
-    }
-    header h1 .d-block.d-lg-inline.fs-3 {
-        font-size: 1.8rem !important; 
-        margin-left: 0 !important; 
-    }
+
     header h1 span {
-        display: block !important; /* Apilar "Christian" y "Dagatti" */
+        display: inline !important;
+        margin-left: 5px;
     }
-    header p {
-        font-size: 1.1rem;
-    }
+
     .header-pic {
         max-width: 100px;
     }
-    .header-right {
-        order: -1; 
-    }
-    .header-left {
-        margin-top: 15px; 
-    }
-    .navbar-collapse {
-        background-color: var(--color_azul_secundario); 
-        border-radius: 8px;
-        margin-top: 10px;
-        padding: 10px;
-    }
     
-    .navbar-nav {
-        flex-direction: column !important; /* Apilar elementos de navegación */
-    }
-    .navbar-nav .nav-item {
-        margin: 5px 0; /* Ajustar espaciado para elementos de navegación apilados */
-    }
-
-    /* Ajustes de la sección "Sobre Mí" */
     .hero p {
-        font-size: 1rem; 
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* Secciones  */
-    section {
-        padding: 30px 0;
-        margin-bottom: 10px;
-    }
-    section h2 {
-        font-size: 2rem;
-        margin-left: 0; 
-        text-align: center;
-    }
-    section h2::after {
-        width: 50%; 
-        margin: 10px auto 0; 
-    }
-
-    /* Proyectos - Bootstrap's col-12 maneja el apilamiento automáticamente */
-    .projects .container {
-        padding: 0 15px; 
-    }
-    .project-card {
-        padding: 20px; 
-    }
-    .project-card img {
-        height: 60px; 
-    }
-
-    /* Cuadrícula de Habilidades */
-    .skill-grid .col-12 {
-        margin-bottom: 15px !important; 
-    }
-    .skill-item h3 {
-        text-align: center; 
-    }
-    .skill-item ul {
-        text-align: center; 
-        padding-left: 0; 
-    }
-    .skill-item ul li::before {
-        display: none; 
-    }
-    .skill-item ul li {
-        margin-left: 0; 
-    }
-
-    /* Pie de página en pantallas pequeñas*/
-    footer {
-        padding: 15px 0; 
-    }
-    .footer-grid-layout {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        padding: 0 15px;
-        text-align: center;
-        align-items: center; 
-    }
-
-    .footer-item {
-        width: 100%; 
-        text-align: center;
-    }
-
-    .main-phrase {
-        font-size: 1.2rem; 
-    }
-
-    .footer-contact-details ul {
-        text-align: center;
-    }
-
-    .full-width-divider {
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
-
-    .copyright-text {
-        margin-top: 0;
+        font-size: 0.80rem; 
+        line-height: 1.6;
+        padding: 0 10px;
+        text-align: justify;
     }
 }
 
-/* Media query para tabletas o pantallas medianas (768px a 991.98px) */
-
+/* ==========================================================================
+   Media query para tabletas o pantallas medianas (768px a 991.98px)
+   Esto corresponde al rango entre 'md' y 'lg' de Bootstrap.
+   ========================================================================== */
 @media (min-width: 768px) and (max-width: 991.98px) {
     .header-content {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
+        padding-left: 15px;
+        padding-right: 15px;
     }
-    .header-left, .header-right {
-        width: 100%;
-        text-align: center;
-        align-items: center;
-    }
-    header h1 .d-block.d-lg-inline.fs-2 {
-        font-size: 2.5rem !important;
-    }
-    header h1 .d-block.d-lg-inline.fs-3 {
-        font-size: 1.8rem !important;
-        margin-left: 0 !important;
-    }
-    header h1 span {
-        display: block !important;
-    }
-    .header-right {
-        order: -1;
-    }
+
     .header-left {
-        margin-top: 15px;
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        text-align: left;
     }
 
-    .footer-grid-layout {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Dos columnas para eslogan y contacto */
-        grid-template-areas:
-            "motto contact-details"
-            "divider divider"
-            "copyright copyright";
-        gap: 15px 20px;
-        padding: 0 20px;
+    .header-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+        text-align: right;
     }
 
-    .footer-motto { grid-area: motto; text-align: center; align-items: center; }
-    .footer-contact-details { grid-area: contact-details; text-align: left; }
-
-    .full-width-divider {
-        grid-area: divider;
-        margin-top: 20px;
+    header h1 {
+        font-size: 2.2rem;
+        margin: 0;
+        text-align: left;
     }
 
-    .copyright-text {
-        grid-area: copyright;
-        margin-top: 0;
+    header h1 span {
+        display: inline !important;
+        margin-left: 5px;
+    }
+
+    .header-pic {
+        max-width: 100px;
+    }
+
+    header p {
+        font-size: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    .hero p {
+        font-size: 0.80rem; 
+        line-height: 1.6;
+        padding: 0 10px;
+        text-align: justify;
     }
 }

@@ -14,13 +14,12 @@
         <div class="container header-content">
             <div class="header-left d-flex align-items-center">
                 <img src="../Christian/foto_christian.jpg" alt="Tu Foto de Perfil" class="profile-pic header-pic me-3">
-                <h1 class="d-flex flex-column text-start d-lg-block">
+                <h1 class="text-start">
                     <span class="d-block d-lg-inline fs-2">Christian</span>
                     <span class="d-block d-lg-inline fs-3 ms-lg-2">Dagatti</span>
                 </h1>
             </div>
             <div class="header-right">
-                <p class="mb-2 d-none d-md-block">Estudiante de Desarrollo de Software en ISPC | Analista de Datos</p>
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
                         <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,6 +44,7 @@
                     </div>
                 </nav>
             </div>
+            <p class="mb-2 d-none d-md-block header-slogan-mobile">Estudiante de Desarrollo de Software en ISPC | Analista de Datos</p>
         </div>
     </header>
 
@@ -144,7 +144,7 @@
                                 Análisis, transformación y visualización de datos + estimación de ventas dataset real.
                             </p>
                             <p>
-                                Tecnologías: Python, Sarimax, Lstm, Prophet.
+                                Tecnologías: Python, Jupyter notebook, Sarimax, Lstm, Prophet.
                             </p>
                             <a href="https://github.com/CHRISTIANDAGATTI/Mentoria_Series_Temporales.git" target="_blank" class="btn btn-primary d-block w-100">Ver Código (GitHub)</a>
                         </div>
@@ -156,30 +156,34 @@
 
     <footer id="contacto-footer" class="py-4 mt-3">
         <div class="container footer-grid-layout text-center text-md-start">
-            <div class="footer-item footer-motto col-12 col-md-6 mb-3 mb-md-0 d-flex flex-column justify-content-center align-items-center">
-                <p class="main-phrase fs-4 fw-italic m-0">"Hablemos de tu próximo proyecto!"</p>
-            </div>
+            <div class="row w-100">
+                <!-- Frase a la izquierda -->
+                <div class="col-12 col-md-6 d-flex align-items-center justify-content-md-start justify-content-center mb-3 mb-md-0">
+                    <p class="main-phrase fs-4 fw-italic m-0">"Hablemos de tu próximo proyecto!"</p>
+                </div>
 
-            <div class="footer-item footer-contact-details col-12 col-md-6 text-center text-md-start">
-                <ul class="list-unstyled m-0">
-                    <li><strong>Email:</strong>&nbsp; <a href="mailto:dagattichristian@gmail.com" class="text-white">dagattichristian@gmail.com</a></li>
-                    <li><strong>LinkedIn:</strong>&nbsp; <a href="https://www.linkedin.com/in/christian-dagatti/" target="_blank" class="text-white">linkedin.com/in/christian-dagatti/</a></li>
-                    <li><strong>GitHub:</strong>&nbsp; <a href="https://github.com/tu-usuario-github" target="_blank" class="text-white">github.com/tu-usuario-github</a></li>
-                </ul>
+                <!-- Enlaces a la derecha -->
+                <div class="col-12 col-md-6 d-flex align-items-center justify-content-md-end justify-content-center">
+                    <ul class="list-unstyled m-0 text-md-end text-center">
+                        <li><strong>Email:</strong> <a href="mailto:dagattichristian@gmail.com" class="text-white">dagattichristian@gmail.com</a></li>
+                        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/christian-dagatti/" target="_blank" class="text-white">linkedin.com/in/christian-dagatti/</a></li>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/tu-usuario-github" target="_blank" class="text-white">github.com/tu-usuario-github</a></li>
+                    </ul>
+                </div>
             </div>
 
             <hr class="full-width-divider col-12 my-3">
 
             <p class="copyright-text col-12 text-center m-0">
-                &copy; <span id="current-year"></span> Christian Dagatti. Todos los derechos reservados.
-                <br> Río Primero, Córdoba, Argentina.
+                &copy; <span id="current-year"></span> Christian Dagatti. Todos los derechos reservados.<br>
+                Río Primero, Córdoba, Argentina.
             </p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
+
 </body>
 </html>
