@@ -1,36 +1,3 @@
-/*   ========================================================================= 
-     ESTILOS GLOBALES
-     ========================================================================= */
-
-:root {
-    --color-fondo: #EFE4D2;
-    --color-fondo-alt: #ffffff;
-    --color-botones: #254D70;
-    --color-formularios: #131D4F;
-    --color-footer: #954C2E;
-    --color-gris-oscuro: #333333;
-    --color-gris-medio: #666666;
-    --color-gris-claro: #cccccc;
-}
-
-body {
-    background-color: var(--color-fondo);
-    min-height: 100vh;
-    margin: 0;
-    font-family: sans-serif;
-}
-
-/*  ========================================================================= 
-   HEADER                                                       
-    ========================================================================= */
-.main-header {
-    background-color: var(--color-fondo-alt);
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    position: sticky;
-    top: 0;
-    z-index: 1050;
-}
-
 /*  ========================================================================= 
    FORMULARIOS LOGUEO Y REGISTRO                                                   
     ========================================================================= */
