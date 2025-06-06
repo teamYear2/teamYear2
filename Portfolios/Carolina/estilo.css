@@ -1,0 +1,87 @@
+/* Estilos personalizados */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #464444;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #B99470; 
+}
+
+/* letra es h2 */
+header {
+  background-color: #F7DCB9;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(126, 16, 16, 0.1);
+}
+
+.perfil-foto {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+section {
+  background-color: #F7DCB9;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+}
+
+footer {
+  font-size: 0.9rem;
+}
+
+/* Navbar personalizado */
+.mi-navbar {
+  background-color: #F7DCB9 !important;
+  color: #464444 !important;
+}
+
+/* Cambiar color de los links dentro del navbar */
+.mi-navbar .navbar-brand,
+.mi-navbar .nav-link {
+  color: #464444 !important;
+}
+
+/* Cambiar color al hacer hover en links navbar */
+.mi-navbar .nav-link:hover {
+  color: #B99470 !important;
+}
+
+/* Footer personalizado */
+.mi-footer {
+  background-color: #F7DCB9 !important;
+  color: #464444 !important;
+}
+
+/* Botones personalizados para que no queden azules */
+.btn-custom {
+  background-color: #B99470; 
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #8c6b4d; 
+  color: #fff;
+}
+
+/* Links en seccion*/
+
+#contacto a {
+  color: #464444;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+#contacto a:hover {
+  color: #B99470;
+  text-decoration: underline;
+}
