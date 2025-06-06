@@ -158,6 +158,11 @@ form button.btn-primary {
     width: auto;
 }
 
+legend{
+    font-size: 2.2em;
+    color: var(--color-botones);
+}
+
 /* ========================================================================= 
    MEDIA QUERIES PARA RESPONSIVIDAD DEL FORMULARIO                          
    Se activa cuando la pantalla es de 900px o menos
