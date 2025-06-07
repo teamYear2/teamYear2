@@ -29,19 +29,6 @@
     z-index: 1;
 }
 
-.custom-btn {
-    background-color: #954C2E;
-    border: none;
-    color: #EFE4D2;
-    padding: 12px 30px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-.custom-btn:hover {
-    background-color: #7a3c22;
-}
-
 @media (max-width: 768px) {
   .hero {
     background-position: left center;
