@@ -17,10 +17,10 @@ El sistema permitirá medir y analizar:
 - Productos más utilizados.
 - Frecuencia de pedidos de reposición.
 
-## 👥 Equipo Responsable
 
-- **Equipo 1:** `teamYear2`
-- **Integrantes:**
+## 👥 Equipo Responsable teamYear2 📦
+ **Integrantes:**
+
 - Areosa Ignacio Gastón – Scrum Master – [Mi GitHub](https://github.com/SrLachy) GitUser: SrLachy
 
 - Caucino Carolina – Programmer – [Mi GitHub](https://github.com/ccauci) - GitUser: ccauci
@@ -30,6 +30,7 @@ El sistema permitirá medir y analizar:
 - Romero Eduardo Emilio – Programmer – [Mi GitHub](https://github.com/EmilioRome) - GitUser: EmilioR
 
 - Dagatti Christian Edgardo – Programmer – [Mi GitHub](https://github.com/CHRISTIANDAGATTI) - GitUser: CHRISTIANDAGATTI
+
 
 ## 🚧 Estado del Proyecto
 
