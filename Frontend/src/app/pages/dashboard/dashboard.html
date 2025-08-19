@@ -1,0 +1,27 @@
+<div class="d-flex min-vh-100">
+    <!-- navbar -->
+    <app-navbar-dashboard></app-navbar-dashboard>
+    <!-- Main Content -->
+    <div class="flex-grow-1 overflow-auto p-3 transition-all" id="main-content">
+        <!-- Hamburger Menu Button for Mobile -->
+        <button class="btn btn-dark d-lg-none mb-3" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <!-- Content Sections -->
+        <main class="p-6">
+            <!-- Dashboard Section -->
+            <div id="dashboard-section">
+                <app-inventario-tarjetas-metricas></app-inventario-tarjetas-metricas>
+                <div class="row g-4 mb-4">
+                    <app-inventario-movimiento></app-inventario-movimiento>
+                    <app-productos-bajo-stock></app-productos-bajo-stock>
+                    <app-productos-mas-vendidos></app-productos-mas-vendidos>
+                </div>
+            </div>
+            <div>
+                <router-outlet></router-outlet>
+
+            </div>
+        </main>
+    </div>
+</div>
