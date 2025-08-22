@@ -4,6 +4,7 @@ import { ProductoList } from './pages/dashboard/shared/producto-list/producto-li
 import { CategoriaList } from './pages/dashboard/shared/categoria-list/categoria-list';
 import { ProductoForm } from './pages/dashboard/shared/producto-form/producto-form';
 import { CategoriaForm } from './pages/dashboard/shared/categoria-form/categoria-form';
+import { Login } from './pages/login/login.component';
 
 export const routes: Routes = [
   {
@@ -16,5 +17,9 @@ export const routes: Routes = [
       { path: 'categoria-form', component: CategoriaForm },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
+  },
+  {
+    path: 'login',
+    component: Login
   }
 ];
