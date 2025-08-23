@@ -4,6 +4,9 @@ import { ProductoList } from './pages/dashboard/shared/producto-list/producto-li
 import { CategoriaList } from './pages/dashboard/shared/categoria-list/categoria-list';
 import { ProductoForm } from './pages/dashboard/shared/producto-form/producto-form';
 import { CategoriaForm } from './pages/dashboard/shared/categoria-form/categoria-form';
+import { Login } from './pages/login/login.component';
+import { Registro } from './pages/registro/registro';
+import { MainLayout } from './layouts/main-layout/main-layout';
 
 export const routes: Routes = [
   {
@@ -15,6 +18,15 @@ export const routes: Routes = [
       { path: 'producto-form', component: ProductoForm },
       { path: 'categoria-form', component: CategoriaForm },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+    ]
+  },
+  {
+    path: '',
+    component: MainLayout,
+    children: [
+      { path: 'login', component: Login },
+      { path: 'registro', component: Registro },
+      { path: '', redirectTo: 'login', pathMatch: 'full' }
     ]
   }
 ];
