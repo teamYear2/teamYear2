@@ -1,1 +1,16 @@
-<p>inventario-movimiento works!</p>
+<div class="card shadow p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h6 fw-semibold">Movimiento de inventario</h2>
+        <select class="form-select form-select-sm w-auto">
+            <option>Últimos 7 días</option>
+            <option>Últimos 30 días</option>
+            <option>Últimos 90 días</option>
+        </select>
+    </div>
+
+    <!-- Observa que usamos #inventoryChart -->
+    <div class="chart-container">
+        <canvas #inventoryChart></canvas>
+    </div>
+
+</div>

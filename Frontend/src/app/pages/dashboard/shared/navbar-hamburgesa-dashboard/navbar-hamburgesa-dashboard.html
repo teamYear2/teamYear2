@@ -1,0 +1,48 @@
+<!-- Botón hamburguesa -->
+<nav class="navbar navbar-dark bg-dark d-xl-none">
+  <div class="container-fluid">
+    <button class="btn btn-outline-light" type="button" (click)="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <span class="navbar-brand ms-2">Inventario Pro</span>
+  </div>
+</nav>
+
+<!-- Sidebar overlay -->
+<div class="sidebar-overlay" [class.active]="isSidebarOpen" (click)="toggleSidebar()"></div>
+
+<!-- Sidebar -->
+<div class="sidebar d-xl-none bg-dark text-white p-3" [class.active]="isSidebarOpen">
+  <div class="border-bottom border-secondary pb-2 mb-3 d-flex align-items-center">
+    <i class="fas fa-boxes fs-4 me-2"></i>
+    <span class="fs-5 fw-bold">Inventario <span class="pro-sidebar">Pro</span></span>
+  </div>
+
+  <nav class="d-flex flex-column">
+    <div class="px-2 py-2 d-flex align-items-center rounded cursor-pointer mb-1"
+      [class.bg-secondary]="activeSection === '/dashboard'" (click)="changeSection('/dashboard'); toggleSidebar()">
+      <i class="fas fa-tachometer-alt me-2"></i>
+      <span>Dashboard</span>
+    </div>
+
+    <div class="px-2 py-2 d-flex align-items-center rounded cursor-pointer mb-1"
+      [class.bg-secondary]="activeSection === 'dashboard/producto-list'"
+      (click)="changeSection('dashboard/producto-list'); toggleSidebar()">
+      <i class="fas fa-box-open me-2"></i>
+      <span>Productos</span>
+    </div>
+
+    <div class="px-2 py-2 d-flex align-items-center rounded cursor-pointer mb-1"
+      [class.bg-secondary]="activeSection === 'dashboard/categoria-list'"
+      (click)="changeSection('dashboard/categoria-list'); toggleSidebar()">
+      <i class="fas fa-tags me-2"></i>
+      <span>Categorías</span>
+    </div>
+  </nav>
+
+  <div class="border-top border-secondary mt-auto pt-3 d-flex align-items-center">
+    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="rounded-circle me-2"
+      style="width:32px; height:32px;">
+    <button class="btn btn-primary" (click)="changeSection('/login'); toggleSidebar()">Cerrar sesión</button>
+  </div>
+</div>
