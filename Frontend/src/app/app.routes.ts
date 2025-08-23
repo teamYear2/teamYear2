@@ -6,6 +6,7 @@ import { ProductoForm } from './pages/dashboard/shared/producto-form/producto-fo
 import { CategoriaForm } from './pages/dashboard/shared/categoria-form/categoria-form';
 import { Login } from './pages/login/login.component';
 import { Registro } from './pages/registro/registro';
+import { QuienesSomos } from './pages/quienes-somos/quienes-somos';
 import { MainLayout } from './layouts/main-layout/main-layout';
 
 export const routes: Routes = [
@@ -26,6 +27,7 @@ export const routes: Routes = [
     children: [
       { path: 'login', component: Login },
       { path: 'registro', component: Registro },
+      { path: 'quienes-somos', component: QuienesSomos },
       { path: '', redirectTo: 'login', pathMatch: 'full' }
     ]
   }
