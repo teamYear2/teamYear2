@@ -1,14 +1,5 @@
 /* Variables CSS solo para login */
-:host {
-	--color-fondo: #EFE4D2;
-	--color-fondo-alt: #ffffff;
-	--color-botones: #254D70;
-	--color-formularios: #131D4F;
-	--color-footer: #954C2E;
-	--color-gris-oscuro: #333333;
-	--color-gris-medio: #666666;
-	--color-gris-claro: #cccccc;
-}
+
 /*  ========================================================================= 
    FORMULARIOS LOGUEO                                             
 	========================================================================= */
