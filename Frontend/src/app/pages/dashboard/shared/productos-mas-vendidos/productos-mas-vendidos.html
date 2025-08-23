@@ -1,1 +1,21 @@
-<p>productos-mas-vendidos works!</p>
+
+    <div class="bg-white rounded rounded-lg shadow p-4 ">
+        <div class="space-y-4 rounded-lg">
+            <h2 class="h6 fw-semibold mb-3">Productos más vendidos</h2>
+            <!-- Pseudo @for -->
+            @for (p of productos; track p.id) {
+            <div class="d-flex flex-row flex-wrap justify-content-between ">
+                <p class="text-sm font-medium">{{ p.nombre }}</p>
+                <p class="text-sm font-medium"> {{ p.unidades }} unidades</p>
+
+            </div>
+            <div class="progress">
+                <div class="progress-bar {{p.color}} {{p.widthClass}}" role="progressbar" aria-valuenow="0"
+                    aria-valuemin="0" aria-valuemax="100">
+                    {{ p.widthClass.replace('w-', '') }}%
+                </div>
+            </div>
+            }
+
+        </div>
+    </div>

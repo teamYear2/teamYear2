@@ -1,27 +1,37 @@
-<div class="d-flex min-vh-100">
-    <!-- navbar -->
+<body class="d-flex flex-column flex-xl-row min-vh-100" >
+  <!-- Dashboard navbar Section -->
+  @if(!isMobile) {
     <app-navbar-dashboard></app-navbar-dashboard>
-    <!-- Main Content -->
-    <div class="flex-grow-1 overflow-auto p-3 transition-all" id="main-content">
-        <!-- Hamburger Menu Button for Mobile -->
-        <button class="btn btn-dark d-lg-none mb-3" onclick="toggleSidebar()">
-            <i class="fas fa-bars"></i>
-        </button>
-        <!-- Content Sections -->
-        <main class="p-6">
-            <!-- Dashboard Section -->
-            <div id="dashboard-section">
-                <app-inventario-tarjetas-metricas></app-inventario-tarjetas-metricas>
-                <div class="row g-4 mb-4">
-                    <app-inventario-movimiento></app-inventario-movimiento>
-                    <app-productos-bajo-stock></app-productos-bajo-stock>
-                    <app-productos-mas-vendidos></app-productos-mas-vendidos>
-                </div>
-            </div>
-            <div>
-                <router-outlet></router-outlet>
+  }
+  @else {
+    <app-navbar-hamburgesa-dashboard></app-navbar-hamburgesa-dashboard>
+  }
 
+  <!-- Main Content -->
+  <div class="flex-grow-1 overflow-auto p-3 transition-all" id="main-content">
+    <main class="p-6">
+      <!-- Dashboard Section -->
+      @if(currentUrl === '/dashboard') {
+        <section class="dashboard-section">
+          <div class="row g-4 mb-4">
+            <app-inventario-tarjetas-metricas></app-inventario-tarjetas-metricas>
+          </div>
+          <div class="row g-4 mb-4 gap-2">
+            <div class="col-lg-12 col-xl-8">
+              <app-inventario-movimiento></app-inventario-movimiento>
             </div>
-        </main>
-    </div>
-</div>
+            <div class="col-lg-12 col-xl-3">
+              <app-productos-bajo-stock></app-productos-bajo-stock>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 col-lg-12 col-xl-8">
+              <app-productos-mas-vendidos></app-productos-mas-vendidos>
+            </div>
+          </div>
+        </section>
+      }
+      <section>
+        <router-outlet></router-outlet>
+      </section>
+    </main>
+  </div>
+</body>

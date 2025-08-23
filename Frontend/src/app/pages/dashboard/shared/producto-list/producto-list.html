@@ -1,1 +1,53 @@
-<p>producto-list works!</p>
+<!-- Sección de productos -->
+<div id="productos-section ">
+  <div class="d-flex justify-content-between align-items-center mb-4 p-2 rounded rounded-lg ">
+    <h2 class="h4 mb-0">Gestión de Productos</h2>
+    <button (click)="changeSection('producto-form')" class="btn btn-primary">
+      <i class="fas fa-plus me-2"></i> Nuevo Producto
+    </button>
+  </div>
+
+  <!-- Contenedor con sombra y bordes redondeados -->
+  <div class="card border-0 shadow-sm">
+    <div class="table-responsive rounded rounded-lg shadow">
+      <table class="table align-middle mb-0">
+        <thead class="bg-light text-uppercase small text-muted">
+          <tr>
+            <th class="fw-bold bg-dark-subtle">Código</th>
+            <th class="fw-bold bg-dark-subtle">Nombre</th>
+            <th class="fw-bold bg-dark-subtle">Categoría</th>
+            <th class="fw-bold bg-dark-subtle">Stock</th>
+            <th class="fw-bold bg-dark-subtle">Precio</th>
+            <th class="fw-bold bg-dark-subtle">Estado</th>
+            <th class="fw-bold text-center bg-dark-subtle" style="width: 120px;">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (p of productos; track p.id) {
+            <tr>
+              <td class="fw-semibold">{{ p.codigo }}</td>
+              <td>{{ p.nombre }}</td>
+              <td class="text-muted">{{ p.categoria }}</td>
+              <td class="text-muted">{{ p.stock }}</td>
+              <td class="text-muted">${{ p.precio }}</td>
+              <td>
+                <span class="badge rounded-pill bg-{{ p.estado === 'Disponible' ? 'success' : 'danger' }}">
+                  {{ p.estado }}
+                </span>
+              </td>
+              <td class="text-center">
+                <button (click)="changeSection('producto-form')"
+                        class="btn btn-sm btn-outline-primary me-1">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-danger">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
