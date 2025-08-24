@@ -8,6 +8,7 @@ import { Login } from './pages/login/login.component';
 import { Registro } from './pages/registro/registro';
 import { QuienesSomos } from './pages/quienes-somos/quienes-somos';
 import { MainLayout } from './layouts/main-layout/main-layout';
+import { Home } from './pages/home/home';
 
 export const routes: Routes = [
   {
@@ -25,10 +26,11 @@ export const routes: Routes = [
     path: '',
     component: MainLayout,
     children: [
+      { path: 'home', component: Home },
       { path: 'login', component: Login },
       { path: 'registro', component: Registro },
       { path: 'quienes-somos', component: QuienesSomos },
-      { path: '', redirectTo: 'login', pathMatch: 'full' }
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
     ]
   }
 ];
