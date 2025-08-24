@@ -1,10 +1,10 @@
-<body class="d-flex flex-column flex-xl-row min-vh-100" >
+<body class="d-flex flex-column flex-xl-row min-vh-100">
   <!-- Dashboard navbar Section -->
   @if(!isMobile) {
-    <app-navbar-dashboard></app-navbar-dashboard>
+  <app-navbar-dashboard></app-navbar-dashboard>
   }
   @else {
-    <app-navbar-hamburgesa-dashboard></app-navbar-hamburgesa-dashboard>
+  <app-navbar-hamburgesa-dashboard></app-navbar-hamburgesa-dashboard>
   }
 
   <!-- Main Content -->
@@ -12,25 +12,42 @@
     <main class="p-6">
       <!-- Dashboard Section -->
       @if(currentUrl === '/dashboard') {
-        <section class="dashboard-section">
-          <div class="row g-4 mb-4">
-            <app-inventario-tarjetas-metricas></app-inventario-tarjetas-metricas>
+      <section class="dashboard-section">
+        <div class="row g-4 mb-4">
+          <app-inventario-tarjetas-metricas></app-inventario-tarjetas-metricas>
+        </div>
+        <div class="row g-4 mb-4 gap-2">
+          <div class="col-lg-12 col-xl-8">
+            <app-inventario-movimiento></app-inventario-movimiento>
           </div>
-          <div class="row g-4 mb-4 gap-2">
-            <div class="col-lg-12 col-xl-8">
-              <app-inventario-movimiento></app-inventario-movimiento>
-            </div>
-            <div class="col-lg-12 col-xl-3">
-              <app-productos-bajo-stock></app-productos-bajo-stock>
-            </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 col-lg-12 col-xl-8">
-              <app-productos-mas-vendidos></app-productos-mas-vendidos>
-            </div>
+          <div class="col-lg-12 col-xl-3">
+            <app-productos-bajo-stock></app-productos-bajo-stock>
           </div>
-        </section>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 col-lg-12 col-xl-8">
+            <app-productos-mas-vendidos></app-productos-mas-vendidos>
+          </div>
+        </div>
+      </section>
       }
       <section>
-        <router-outlet></router-outlet>
+        @if(currentUrl === '/dashboard/producto-form') {
+        <app-producto-form></app-producto-form>
+        }
+      </section>
+      <section>
+        @if(currentUrl === '/dashboard/producto-list') {
+        <app-producto-list></app-producto-list>
+        }
+      </section>
+      <section>
+        @if(currentUrl === '/dashboard/categoria-form') {
+        <app-categoria-form></app-categoria-form>
+        }
+      </section>
+      <section>
+        @if(currentUrl === '/dashboard/categoria-list') {
+        <app-categoria-list></app-categoria-list>
+        }
       </section>
     </main>
   </div>

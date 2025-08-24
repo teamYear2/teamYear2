@@ -1,0 +1,21 @@
+
+/* ng-valid cuando el form está válido y fue tocado */
+.ng-valid:not(form).ng-touched {
+  border-left: 5px solid #42a948; /* verde */
+}
+
+/* ng-invalid cuando el form está inválido y fue tocado */
+.ng-invalid:not(form).ng-touched {
+  border-left: 5px solid #a94442; /* rojo */
+}
+body {
+  background-color: #efe4d2 !important;
+}
+
+button {
+  background-color: #254d70 !important;
+}
+
+a {
+  background-color: #254d70 !important;
+}

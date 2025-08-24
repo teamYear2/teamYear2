@@ -1,7 +1,7 @@
-<div class="d-flex">
+<section class="d-flex">
   <!-- Sidebar -->
   <div class="d-flex flex-column flex-shrink-0 bg-dark text-white shadow vh-100" style="width: 250px;" id="sidebar">
-    
+
     <div class="border-bottom border-secondary p-3 d-flex align-items-center">
       <i class="fas fa-boxes icon-sidebar fs-4 me-2"></i>
       <span class="fs-5 fw-bold">Inventario <span class="pro-sidebar">Pro</span></span>
@@ -11,24 +11,24 @@
 
       <!-- Dashboard -->
       <div class="px-3 py-2 d-flex align-items-center nav-item rounded cursor-pointer mb-1"
-           [ngClass]="{'active bg-secondary bg-opacity-25': activeSection === '/dashboard'}"
-           (click)="changeSection('/dashboard')">
+        [ngClass]="{'active bg-secondary bg-opacity-25': activeSection === '/dashboard'}"
+        (click)="changeSection('/dashboard')">
         <i class="fas fa-tachometer-alt text-light me-2"></i>
         <span>Dashboard</span>
       </div>
 
       <!-- Productos -->
       <div class="px-3 py-2 d-flex align-items-center nav-item rounded cursor-pointer mb-1"
-           [ngClass]="{'active bg-secondary bg-opacity-25': activeSection === '/dashboard/producto-list'}"
-           (click)="changeSection('/dashboard/producto-list')">
+        [ngClass]="{'active bg-secondary bg-opacity-25': activeSection === '/dashboard/producto-list'}"
+        (click)="changeSection('/dashboard/producto-list')">
         <i class="fas fa-box-open text-light me-2"></i>
         <span>Productos</span>
       </div>
 
       <!-- Categorías -->
       <div class="px-3 py-2 d-flex align-items-center nav-item rounded cursor-pointer mb-1"
-           [ngClass]="{'active bg-secondary bg-opacity-25': activeSection === '/dashboard/categoria-list'}"
-           (click)="changeSection('/dashboard/categoria-list')">
+        [ngClass]="{'active bg-secondary bg-opacity-25': activeSection === '/dashboard/categoria-list'}"
+        (click)="changeSection('/dashboard/categoria-list')">
         <i class="fas fa-tags text-light me-2"></i>
         <span>Categorías</span>
       </div>
@@ -39,12 +39,12 @@
     <div class="border-top border-secondary p-3 mt-auto">
       <div class="d-flex align-items-center">
         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="rounded-circle me-2"
-             style="width: 32px; height: 32px;">
+          style="width: 32px; height: 32px;">
         <div>
           <button class="btn btn-primary" (click)="changeSection('/login')">Cerrar sesión</button>
         </div>
       </div>
     </div>
-    
+
   </div>
-</div>
+</section>
