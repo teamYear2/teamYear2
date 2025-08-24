@@ -4,8 +4,12 @@ import { InventarioTarjetasMetricas } from "./shared/inventario-tarjetas-metrica
 import { InventarioMovimiento } from "./shared/inventario-movimiento/inventario-movimiento";
 import { ProductosBajoStock } from "./shared/productos-bajo-stock/productos-bajo-stock";
 import { ProductosMasVendidos } from "./shared/productos-mas-vendidos/productos-mas-vendidos";
-import { Router, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 import { NavbarHamburgesaDashboard } from './shared/navbar-hamburgesa-dashboard/navbar-hamburgesa-dashboard';
+import { ProductoForm } from "./shared/producto-form/producto-form";
+import { ProductoList } from "./shared/producto-list/producto-list";
+import { CategoriaList } from "./shared/categoria-list/categoria-list";
+import { CategoriaForm } from "./shared/categoria-form/categoria-form";
 
 @Component({
   selector: 'app-dashboard',
@@ -16,14 +20,17 @@ import { NavbarHamburgesaDashboard } from './shared/navbar-hamburgesa-dashboard/
     InventarioMovimiento,
     ProductosBajoStock,
     ProductosMasVendidos,
-    RouterOutlet,
-    NavbarHamburgesaDashboard
-  ],
+    NavbarHamburgesaDashboard,
+    ProductoForm,
+    ProductoList,
+    CategoriaList,
+    CategoriaForm
+],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css']
 })
 export class Dashboard {
-  currentUrl = '';
+  currentUrl:string = '';
   isMobile: boolean = false;
 
   constructor(private router: Router) {

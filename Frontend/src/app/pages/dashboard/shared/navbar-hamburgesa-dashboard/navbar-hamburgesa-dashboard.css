@@ -33,3 +33,8 @@
   opacity: 1;
   pointer-events: auto;
 }
+
+.icon-sidebar,
+.pro-sidebar {
+  color: #954c2e;
+}

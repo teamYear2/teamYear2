@@ -2,9 +2,10 @@
 <nav class="navbar navbar-dark bg-dark d-xl-none">
   <div class="container-fluid">
     <button class="btn btn-outline-light" type="button" (click)="toggleSidebar()">
-      <i class="fas fa-bars"></i>
+      <i class="fas fa-bars "></i>
     </button>
-    <span class="navbar-brand ms-2">Inventario Pro</span>
+    <p class="navbar-brand ms-2 fs-5 fw-bold"><i class="fas fa-boxes icon-sidebar fs-4 me-2"></i> Inventario <span
+        class="icon-sidebar">Pro</span></p>
   </div>
 </nav>
 
@@ -14,7 +15,7 @@
 <!-- Sidebar -->
 <div class="sidebar d-xl-none bg-dark text-white p-3" [class.active]="isSidebarOpen">
   <div class="border-bottom border-secondary pb-2 mb-3 d-flex align-items-center">
-    <i class="fas fa-boxes fs-4 me-2"></i>
+    <i class="fas fa-boxes icon-sidebar fs-4 me-2"></i>
     <span class="fs-5 fw-bold">Inventario <span class="pro-sidebar">Pro</span></span>
   </div>
 
