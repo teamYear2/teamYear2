@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,4 +9,21 @@ import { RouterModule } from '@angular/router';
 })
 export class Navbar {
 
+  constructor(private router: Router) {}
+
+  scrollToFooter() {
+    // Navegar a la página principal (si no estamos ya ahí)
+    this.router.navigate(['/']).then(() => {
+      // Esperar un momento para que la navegación se complete
+      setTimeout(() => {
+        const footerElement = document.getElementById('contacto-footer');
+        if (footerElement) {
+          footerElement.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    });
+  }
 }
