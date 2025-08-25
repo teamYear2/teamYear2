@@ -1,0 +1,40 @@
+/* Sidebar oculto por defecto */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  overflow-y: auto;
+  transition: left 0.3s ease;
+  z-index: 1050;
+}
+
+/* Sidebar visible */
+.sidebar.active {
+  left: 0;
+}
+
+/* Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1040;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.icon-sidebar,
+.pro-sidebar {
+  color: #954c2e;
+}

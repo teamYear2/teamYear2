@@ -1,0 +1,60 @@
+<!-- Categorías Section (Bootstrap responsive) -->
+<section id="categorias-section" class="container-fluid">
+  <div class="row align-items-center mb-4 gx-2">
+    <div class="col-12 col-md">
+      <h2 class="h4 mb-0">Gestión de Categorías</h2>
+    </div>
+
+    <div class="col-12 col-md-auto d-flex gap-2 justify-content-md-end mt-2 mt-md-0">
+      <a (click)="changeSection('dashboard/categoria-form')" class="btn btn-primary d-inline-flex align-items-center">
+        <i class="fas fa-plus me-2"></i> Nueva (Formulario)
+      </a>
+    </div>
+  </div>
+
+  <div class="bg-white rounded shadow-sm">
+    <div class="p-4 border-bottom d-flex align-items-center justify-content-between">
+      <h3 class="h6 mb-0">Todas las categorías</h3>
+       <!-- botón visible en md+ (opcional) -->
+      <div class="d-none d-md-block text-muted small">Lista actualizada</div>
+
+    </div>
+
+    <div class="list-group list-group-flush rounded shadow-sm">
+      @for (cat of categories; track cat.id) {
+      <div class="list-group-item list-group-item-action py-3" (click)="selectCategory(cat)" [ngClass]="{
+            'bg-light shadow-sm': selectedCategoryId === cat.id
+          }" [attr.aria-selected]="selectedCategoryId === cat.id" tabindex="0">
+        <div class="row align-items-center gx-3">
+          <!-- Izquierda: nombre y descripción -->
+          <div class="col-12 col-md-8">
+            <h5 class="mb-1 text-truncate"><i class="fas fa-tags me-1"></i>{{ cat.name }}</h5>
+            <p class="mb-0 text-muted small text-truncate-2">{{ cat.description }}</p>
+          </div>
+
+          <!-- Derecha: badge + acciones -->
+          <div class="col-12 col-md-4 d-flex align-items-center justify-content-md-end gap-2 mt-2 mt-md-0">
+            <span class="badge bg-light text-primary rounded-pill">
+              {{ cat.productCount }} productos
+            </span>
+
+            <div class="btn-group" role="group" aria-label="Acciones categoría">
+              <button (click)="editCategory(cat); $event.stopPropagation()" class="btn btn-sm btn-outline-primary me-1"
+                title="Editar" aria-label="Editar categoría">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button (click)="deleteCategory(cat); $event.stopPropagation()" class="btn btn-sm btn-outline-danger"
+                title="Eliminar" aria-label="Eliminar categoría">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+      @if (categories.length === 0) {
+      <div class="p-4 text-center text-muted">No hay categorías aún.</div>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,73 @@
+
+
+/* ========================================================================= */
+/* ESTILOS DEL FOOTER                   */
+/* ========================================================================= */
+
+.containerFooter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footerLogo {
+    display: flex;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--color-footer);
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footerLogo i {
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: var(--color-footer);
+}
+
+.footerLogo span {
+    color: var(--color-botones);
+}
+
+.footerLogo .logo-pro {
+    font-size: 0.9em;
+    margin-left: 4px;
+    color: var(--color-footer);
+}
+
+.fraseFooter {
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+.text-contacto {
+    color: rgb(46, 106, 149);
+}
+
+/* ========================================================================= */
+/* MEDIA QUERIES    */
+/* ========================================================================= */
+@media (max-width: 1200px) {
+    .fraseFooter {
+        margin-left: 8vw;
+    }
+}
+
+@media (max-width: 1000px) {
+    
+    /* Footer media */
+    .fraseFooter {
+        display: none;
+        margin-left: 8vw;
+    }
+}
+
+@media (max-width: 400px) {
+    .footerLogo {
+    font-size: 2em;
+    }
+}

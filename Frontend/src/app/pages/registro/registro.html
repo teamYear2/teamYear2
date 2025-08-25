@@ -1,0 +1,106 @@
+<main>
+
+    <div class="formulario-contenedor">
+        <div class="card p-4 shadow" style="max-width: 400px;">
+            <form [formGroup]="formRegistro" (ngSubmit)="registrar()">
+
+                <fieldset class="border-0 p-0">
+                    <legend class="text-center mb-3">Crea una cuenta</legend>
+
+                    <div class="mb-3">
+                        <label for="reg-nombre" class="form-label fw-semibold">Nombre Completo:</label>
+                        <input type="text" id="reg-nombre" formControlName="nombreCompleto" name="nombre"
+                            class="form-control" placeholder="Nombre y apellido">
+                        @if (formRegistro.get('nombreCompleto')?.touched && formRegistro.get('nombreCompleto')?.invalid)
+                        {
+                        <div class="textoError">El nombre es obligatorio.</div>
+                        }
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="reg-email" class="form-label fw-semibold">Correo Electrónico:</label>
+                        <input type="email" id="reg-email" formControlName="correo" name="email" class="form-control"
+                            placeholder="ejemplo@dominio.com">
+                        @if (formRegistro.get('correo')?.touched && formRegistro.get('correo')?.hasError('required')) {
+                        <div class="textoError">El correo es obligatorio.</div>
+                        }
+                        @else if (formRegistro.get('correo')?.hasError('email')) {
+                        <div class="textoError">El correo no tiene un formato válido.</div>
+                        }
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="reg-password" class="form-label fw-semibold">Contraseña:</label>
+                        <input type="password" id="reg-password" formControlName="contrasena" name="password"
+                            class="form-control">
+                        @if (formRegistro.get('contrasena')?.touched &&
+                        formRegistro.get('contrasena')?.hasError('required')) {
+                        <div class="textoError">La contraseña es obligatoria.</div>
+                        }
+                        @else if (formRegistro.get('contrasena')?.hasError('minlength')) {
+                        <div class="textoError">La contraseña debe tener al menos 6 caracteres.</div>
+                        }
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="reg-confirm-password" class="form-label fw-semibold">Confirmar
+                            Contraseña:</label>
+                        <input type="password" id="reg-confirm-password" formControlName="confirmarContrasena"
+                            name="confirm_password" class="form-control">
+                        @if (formRegistro.get('confirmarContrasena')?.touched &&
+                        formRegistro.get('confirmarContrasena')?.hasError('required')) {
+                        <div class="textoError">Debe confirmar la contraseña.</div>
+                        }
+                        @else if (formRegistro.hasError('contrasenasNoCoinciden')) {
+                        <div class="textoError">Las contraseñas no coinciden.</div>
+                        }
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 fw-bold">
+                        Crear Cuenta
+                    </button>
+                </fieldset>
+<!-- Mensaje emergente -->
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                    @if (mostrarToast) {
+                    <div class="toast show align-items-center text-bg-{{tipoToast}} border-0">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                {{ mensajeToast }}
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                (click)="mostrarToast=false"></button>
+                        </div>
+                    </div>
+                    }
+                </div>
+                <p class="text-center text-muted small mt-4">
+                    ¿Ya tienes una cuenta?
+                    <a routerLink="/login" class="text-decoration-none fw-bold">Inicia sesión aquí</a>.
+                </p>
+            </form>
+        </div>
+
+        <div class="imagen-box">
+            <div id="carouselRegistro" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/inventarioRegistro.jpg" class="img-carousel" alt="Imagen 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/inventario2.jpg" class="img-carousel" alt="Imagen 2">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselRegistro"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselRegistro"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</main>
