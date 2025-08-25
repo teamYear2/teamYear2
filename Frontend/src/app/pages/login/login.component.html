@@ -54,6 +54,20 @@
 					¿No sos usuario?
 					<a routerLink="/registro" class="text-decoration-none fw-bold">Creá tu cuenta</a>.
 				</p>
+
+				<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                    @if (mostrarToast) {
+                    <div class="toast show align-items-center text-bg-{{tipoToast}} border-0">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                {{ mensajeToast }}
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                                (click)="mostrarToast=false"></button>
+                        </div>
+                    </div>
+                    }
+                </div>
 			</form>
 		</div>
 

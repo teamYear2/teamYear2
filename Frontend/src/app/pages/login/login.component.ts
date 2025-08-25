@@ -11,6 +11,9 @@ import { CommonModule } from '@angular/common';
 })
 export class Login {
   loginForm: FormGroup;
+  mostrarToast: boolean = false;
+  mensajeToast: string = '';
+  tipoToast: 'success' | 'danger' = 'success';
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
@@ -22,10 +25,18 @@ export class Login {
   onSubmit() {
     if (this.loginForm.valid) {
       console.log('Formulario válido:', this.loginForm.value);
+      this.mensajeToast = '¡Bienvenido!';
+      this.tipoToast = 'success';
     } else {
       console.log('Formulario inválido');
+      this.mensajeToast = 'Por favor revisa los campos.';
+      this.tipoToast = 'danger';
       this.markFormGroupTouched();
     }
+
+    this.mostrarToast = true;
+
+    setTimeout(() => this.mostrarToast = false, 3000);
   }
 
   private markFormGroupTouched() {

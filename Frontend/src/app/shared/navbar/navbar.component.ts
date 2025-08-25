@@ -12,9 +12,7 @@ export class Navbar {
   constructor(private router: Router) {}
 
   scrollToFooter() {
-    // Navegar a la página principal (si no estamos ya ahí)
     this.router.navigate(['/']).then(() => {
-      // Esperar un momento para que la navegación se complete
       setTimeout(() => {
         const footerElement = document.getElementById('contacto-footer');
         if (footerElement) {
