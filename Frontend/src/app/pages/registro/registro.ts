@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-registro',
@@ -8,7 +10,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './registro.html',
   styleUrl: './registro.css'
 })
-export class Registro {
+export class Registro implements AfterViewInit{
 
   formRegistro!: FormGroup;
   mostrarToast: boolean = false;
@@ -48,5 +50,15 @@ export class Registro {
     this.mostrarToast = true;
 
     setTimeout(() => this.mostrarToast = false, 3000);
+  }
+
+  ngAfterViewInit(): void {
+    const myCarousel = document.querySelector('#carouselRegistro');
+    if (myCarousel) {
+      new bootstrap.Carousel(myCarousel, {
+        interval: 3000,
+        ride: 'carousel'
+      });
+    }
   }
 }
