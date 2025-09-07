@@ -22,6 +22,7 @@ export class Registro implements AfterViewInit{
     this.formRegistro = this.formbuilder.group(
       {
         nombreCompleto: ['', [Validators.required, Validators.minLength(3)]],
+        apellido: ['', [Validators.required, Validators.minLength(3)]],
         correo: ['', [Validators.required, Validators.email]],
         contrasena: ['', [Validators.required, Validators.minLength(6)]],
         confirmarContrasena: ['', [Validators.required]]

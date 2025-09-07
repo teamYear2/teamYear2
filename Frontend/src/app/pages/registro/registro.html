@@ -18,6 +18,16 @@
                     </div>
 
                     <div class="mb-3">
+                        <label for="reg-apellido" class="form-label fw-semibold">Apellido:</label>
+                        <input type="text" id="reg-apellido" formControlName="apellido" name="apellido"
+                            class="form-control" placeholder="Apellido">
+                        @if (formRegistro.get('apellido')?.touched && formRegistro.get('apellido')?.invalid)
+                        {
+                        <div class="textoError">El apellido es obligatorio.</div>
+                        }
+                    </div>
+
+                    <div class="mb-3">
                         <label for="reg-email" class="form-label fw-semibold">Correo Electrónico:</label>
                         <input type="email" id="reg-email" formControlName="correo" name="email" class="form-control"
                             placeholder="ejemplo@dominio.com">
