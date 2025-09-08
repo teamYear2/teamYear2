@@ -1,0 +1,21 @@
+.cta-section {
+  background-color: #EFE4D2;
+  color: #131D4F;
+  padding: 4rem 1rem;
+}
+
+.btn-success {
+  background-color: #954C2E;
+  border-color: #954C2E;
+}
+
+.btn-success:hover {
+  background-color: #131D4F;
+  border-color: #131D4F;
+}
+
+@media (max-width: 768px) {
+  .cta-section {
+    padding: 2rem 1rem;
+  }
+}
