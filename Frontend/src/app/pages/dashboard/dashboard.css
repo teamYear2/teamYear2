@@ -6,15 +6,16 @@
   box-sizing: border-box;
 }
 
-
-body {
-  background-color: #efe4d2 !important;
+/* Para pantallas grandes (>=1200px) */
+@media (min-width: 1200px) {
+  #main-content {
+    margin-left: 250px; /* ancho del sidebar */
+  }
 }
 
-button {
-  background-color: #254d70 !important;
-}
-
-a {
-  background-color: #254d70 !important;
+/* Para pantallas menores a 1200px */
+@media (max-width: 1199px) {
+  #main-content {
+    margin-left: 0; /* sin margen en mobile/tablet */
+  }
 }

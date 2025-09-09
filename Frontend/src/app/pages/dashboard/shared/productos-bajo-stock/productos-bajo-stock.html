@@ -1,19 +1,22 @@
-<section class="card shadow p-4 w-100">
-    <h2 class="h6 fw-semibold mb-3">Productos con bajo stock</h2>
-    <!-- Pseudo @for -->
-    @for (p of productos; track p.id) {
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div class="d-flex align-items-center">
-            <div
-                class="bg-{{p.color}} bg-opacity-10 text-{{p.color}} item-producto rounded-circle d-flex align-items-center justify-content-center me-3">
-                <i class="{{p.icono}}"></i>
-            </div>
-            <div>
-                <p class="mb-0 fw-medium">{{ p.nombre }}</p>
-                <small class="text-muted">Código: {{ p.codigo }}</small>
-            </div>
-        </div>
-        <span class="text-{{p.color}} fw-medium">{{ p.stock }}</span>
-    </div>
-    }
+<section class="bg-white rounded shadow p-4 w-100">
+  <h2 class="h6 fw-semibold mb-3">Productos con bajo stock</h2>
+  <!-- Pseudo @for -->
+  @for (producto of productos; track producto.id) {
+  <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="d-flex align-items-center">
+          <div
+              class="bg-{{getColor(producto)}} bg-opacity-10 text-{{getColor(producto)}} item-producto rounded-circle d-flex align-items-center justify-content-center me-3">
+              <i class="{{getIcono(producto)}}"></i>
+          </div>
+          <div>
+              <p class="mb-0 fw-medium">{{ producto.nombre }}</p>
+              <small class="text-muted">Código: {{ producto.codigo }}</small>
+          </div>
+      </div>
+      <span class="text-{{getColor(producto)}} fw-medium">{{ producto.stock }}</span>
+  </div>
+  }
+  @if (productos.length === 0) {
+  <div class="text-center text-muted">No hay productos con stock bajo.</div>
+  }
 </section>

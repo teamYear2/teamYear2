@@ -1,23 +1,45 @@
-import { Component } from '@angular/core';
-
-interface Producto {
-  id:number,
-  nombre: string;
-  codigo: string;
-  stock: number;
-  icono: string; // para el icono de FontAwesome
-  color: string; // para bg-success, bg-warning, etc.
-}
+import { Component, OnInit } from '@angular/core';
+import { Producto } from '../../../../models/producto.model';
+import { ProductoService } from '../../../../service/producto/producto.service';
 
 @Component({
   selector: 'app-productos-bajo-stock',
   templateUrl: './productos-bajo-stock.html',
   styleUrls: ['./productos-bajo-stock.css']
 })
-export class ProductosBajoStock {
-  productos: Producto[] = [
-    { id:1, nombre: 'Monitor 24"', codigo: 'MON-012', stock: 5, icono: 'fas fa-headphones', color: 'success' },
-    { id:2, nombre: 'Teclado Mecánico', codigo: 'TEC-034', stock: 3, icono: 'fas fa-keyboard', color: 'danger' },
-    { id:3, nombre: 'Mouse Gamer', codigo: 'MOU-056', stock: 2, icono: 'fas fa-mouse', color: 'warning' }
-  ];
+export class ProductosBajoStock implements OnInit {
+
+  productos: Producto[] = [];
+  threshold: number = 10; // stock mínimo para considerar bajo
+
+  constructor(private productoService: ProductoService) {}
+
+  ngOnInit(): void {
+    this.loadProductosBajoStock();
+  }
+
+  loadProductosBajoStock(): void {
+    this.productoService.getBajoStock(this.threshold).subscribe({
+      next: (data) => this.productos = data,
+      error: (err) => console.error('Error cargando productos bajo stock:', err)
+    });
+  }
+
+  // Método opcional para mostrar un color según el stock
+  getColor(producto: Producto): string {
+    if (producto.stock === 0) return 'danger';
+    if (producto.stock <= 5) return 'warning';
+    return 'success';
+  }
+
+  // Método opcional para asignar iconos según categoría
+  getIcono(producto: Producto): string {
+    switch (producto.categoria.toLowerCase()) {
+      case 'periféricos': return 'fas fa-keyboard';
+      case 'almacenamiento': return 'fas fa-hdd';
+      case 'monitores': return 'fas fa-desktop';
+      case 'audio': return 'fas fa-headphones';
+      default: return 'fas fa-box';
+    }
+  }
 }
