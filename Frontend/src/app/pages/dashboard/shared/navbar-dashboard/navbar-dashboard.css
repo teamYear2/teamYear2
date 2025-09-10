@@ -2,14 +2,16 @@
 .pro-sidebar {
   color: #954c2e;
 }
-body {
-  background-color: #efe4d2 !important;
-}
 
-button {
+button, a {
   background-color: #254d70 !important;
 }
 
-a {
-  background-color: #254d70 !important;
+#sidebar {
+  width: 250px;
+}
+
+#img-user {
+  width: 32px;
+  height: 32px;
 }

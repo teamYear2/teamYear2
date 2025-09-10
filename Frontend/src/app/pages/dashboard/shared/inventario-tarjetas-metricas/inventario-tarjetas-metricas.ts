@@ -1,28 +1,35 @@
-import { Component } from '@angular/core';
-
-interface Stat {
-  id: number,
-  title: string;
-  value: string | number;
-  iconClass?: string;    // ejemplo: "fas fa-boxes"
-  colorClass?: string;   // ejemplo: "text-primary"
-}
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Producto } from '../../../../models/producto.model';
+import { ProductoService } from '../../../../service/producto/producto.service';
 
 @Component({
   selector: 'app-inventario-tarjetas-metricas',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './inventario-tarjetas-metricas.html',
-  styleUrl: './inventario-tarjetas-metricas.css'
+  styleUrls: ['./inventario-tarjetas-metricas.css']
 })
+export class InventarioTarjetasMetricas implements OnInit {
+  
+  productos: Producto[] = [];
+  total: number = 0;
+  disponibles: number = 0;
+  bajoStock: number = 0;
+  agotados: number = 0;
 
+  constructor(private productoService: ProductoService) {}
 
-export class InventarioTarjetasMetricas {
-
-  stats: Stat[] = [
-    { id: 1, title: 'Productos', value: '1,248', iconClass: 'fas fa-boxes', colorClass: 'text-primary' },
-    { id: 2, title: 'Disponibles', value: '956', iconClass: 'fas fa-check-circle', colorClass: 'text-success' },
-    { id: 3, title: 'Bajo stock', value: '42', iconClass: 'fas fa-exclamation-triangle', colorClass: 'text-warning' },
-    { id: 4, title: 'Agotados', value: '15', iconClass: 'fas fa-times-circle', colorClass: 'text-danger' },
-  ];
-
+  ngOnInit(): void {
+    this.productoService.getProductos().subscribe({
+      next: (data) => {
+        this.productos = data;
+        this.total = data.length;
+        this.disponibles = data.filter(producto => producto.estado === 'Disponible').length;
+        this.bajoStock = data.filter(producto => producto.stock <= 10 && producto.stock > 0).length;
+        this.agotados = data.filter(producto => producto.estado === 'Agotado' || producto.stock === 0).length;
+      },
+      error: (err) => console.error('Error cargando productos:', err)
+    });
+  }
 }

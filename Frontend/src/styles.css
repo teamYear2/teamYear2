@@ -161,3 +161,14 @@ form button.btn-primary {
     width: 100vw;
     object-fit: fill;
 }
+
+/*FORMULARIO*/
+/* ng-valid cuando el form está válido y fue tocado */
+.ng-valid:not(form).ng-touched {
+  border-left: 5px solid #42a948; /* verde */
+}
+
+/* ng-invalid cuando el form está inválido y fue tocado */
+.ng-invalid:not(form).ng-touched {
+  border-left: 5px solid #a94442; /* rojo */
+}
