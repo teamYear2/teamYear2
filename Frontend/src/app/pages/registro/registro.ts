@@ -23,9 +23,12 @@ export class Registro implements AfterViewInit{
       {
         nombreCompleto: ['', [Validators.required, Validators.minLength(3)]],
         apellido: ['', [Validators.required, Validators.minLength(3)]],
+        dni: ['', [Validators.required, Validators.minLength(8), Validators.pattern('^[0-9]+$')]],
+        telefono: ['', [Validators.required, Validators.minLength(10), Validators.pattern('^[0-9]+$')]],
         correo: ['', [Validators.required, Validators.email]],
         contrasena: ['', [Validators.required, Validators.minLength(6)]],
-        confirmarContrasena: ['', [Validators.required]]
+        confirmarContrasena: ['', [Validators.required]],
+        referido: [{ value: '', disabled: true }, [Validators.required, Validators.email]]
       },
       {
         validators: this.passwordsIgualesValidator
@@ -62,4 +65,16 @@ export class Registro implements AfterViewInit{
       });
     }
   }
+
+  CheckReferido(event: Event) {
+  const input = event.target as HTMLInputElement; 
+  const referidoCtrl = this.formRegistro.get('referido');
+
+  if (input.checked) {
+    referidoCtrl?.enable();
+  } else {
+    referidoCtrl?.disable();
+    referidoCtrl?.reset();
+  }
+}
 }
