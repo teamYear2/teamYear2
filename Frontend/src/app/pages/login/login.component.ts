@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class Login {
+export class Login implements AfterViewInit {
   loginForm: FormGroup;
   mostrarToast: boolean = false;
   mensajeToast: string = '';
@@ -53,5 +55,15 @@ export class Login {
 
   get password() {
     return this.loginForm.get('password');
+  }
+
+  ngAfterViewInit(): void {
+    const myCarousel = document.querySelector('#carouselLogin');
+    if (myCarousel) {
+      new bootstrap.Carousel(myCarousel, {
+        interval: 3000,
+        ride: 'carousel'
+      });
+    }
   }
 }
