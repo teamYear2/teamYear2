@@ -1,5 +1,3 @@
-/* Variables CSS solo para login */
-
 /*  ========================================================================= 
    FORMULARIOS LOGUEO                                             
 	========================================================================= */
@@ -12,7 +10,15 @@
 	color: var(--color-botones);
 }
 
-
+/* ========================================================================= 
+   MEDIA QUERIES PARA RESPONSIVIDAD DEL FORMULARIO                          
+   Se activa cuando la pantalla es de 1000px o menos
+   ========================================================================= */
+@media (max-width: 1000px) {
+	.imagen-box {
+		display: none;
+	}
+}
 
 /* ========================================================================= 
    MEDIA QUERIES PARA RESPONSIVIDAD DEL FORMULARIO                          
@@ -21,13 +27,13 @@
 @media (max-width: 900px) {
 	.card {
 		padding: 20px;
-		border: 5px solid #cccccc;
+		border: 5px solid var(--color-gris-claro);
 		margin-top: 20px;
 	}
 
 	.card h2 {
 		font-size: 1.8em;
-		/* Un poco más pequeño en celu */
+		/* Un poco más pequeño en móviles */
 	}
 
 	.card p:nth-of-type(1) {
@@ -59,12 +65,5 @@
 		/* Reduce el tamaño del texto "¿No sos usuario?" */
 		margin-top: 15px;
 		/* Reduce el margen */
-	}
-}
-
-
-@media (max-width: 1000px) {
-	.imagen-box{
-		display: none;
 	}
 }

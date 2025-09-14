@@ -32,59 +32,16 @@
     }
   ],
   "Movimientos": [
-    {
-      "id": "1",
-      "productoId": 1,
-      "tipo": "entrada",
-      "cantidad": 5,
-      "fecha": "2025-09-03T10:00:00"
-    },
-    {
-      "id": "2",
-      "productoId": 1,
-      "tipo": "salida",
-      "cantidad": 2,
-      "fecha": "2025-09-04T12:00:00"
-    },
-    {
-      "id": "3",
-      "productoId": 1,
-      "tipo": "entrada",
-      "cantidad": 8,
-      "fecha": "2025-09-05T09:00:00"
-    },
-    {
-      "id": "4",
-      "productoId": 1,
-      "tipo": "salida",
-      "cantidad": 3,
-      "fecha": "2025-09-06T11:00:00"
-    },
-    {
-      "id": "5",
-      "productoId": 1,
-      "tipo": "entrada",
-      "cantidad": 10,
-      "fecha": "2025-09-07T14:00:00"
-    },
-    {
-      "id": "6",
-      "productoId": 1,
-      "tipo": "salida",
-      "cantidad": 1,
-      "fecha": "2025-09-08T16:00:00"
-    }
+    {"id":1,"productoId":1,"tipo":"entrada","cantidad":5,"fecha":"2025-09-03T10:00:00"},
+    {"id":2,"productoId":1,"tipo":"salida","cantidad":2,"fecha":"2025-09-04T12:00:00"},
+    {"id":3,"productoId":1,"tipo":"entrada","cantidad":8,"fecha":"2025-09-05T09:00:00"},
+    {"id":4,"productoId":1,"tipo":"salida","cantidad":3,"fecha":"2025-09-06T11:00:00"},
+    {"id":5,"productoId":1,"tipo":"entrada","cantidad":10,"fecha":"2025-09-07T14:00:00"},
+    {"id":6,"productoId":1,"tipo":"salida","cantidad":1,"fecha":"2025-09-08T16:00:00"}
   ],
-  "usuarios": [
-    {
-      "id": "1588",
-      "nombreCompleto": "aaaa",
-      "apellido": "aaaa",
-      "dni": "111111111111111",
-      "telefono": "11111111111",
-      "correo": "emiliosoad@gmail.com",
-      "contrasena": "111111",
-      "confirmarContrasena": "111111"
-    }
+  "Usuarios": [
+    {"id":1,"nombreCompleto":"Administrador Sistema","correo":"admin@inventario.com","contrasena":"admin123"},
+    {"id":2,"nombreCompleto":"Usuario Demo","correo":"usuario@inventario.com","contrasena":"user123"},
+    {"id":3,"nombreCompleto":"Juan Perez","correo":"juan@inventario.com","contrasena":"juan123"}
   ]
 }
