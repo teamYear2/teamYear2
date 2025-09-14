@@ -9,9 +9,9 @@
 
                     <div class="mb-3">
                         <label for="reg-nombre" class="form-label fw-semibold">Nombre:</label>
-                        <input type="text" id="reg-nombre" formControlName="nombreCompleto" name="nombre"
+                        <input type="text" id="reg-nombre" formControlName="nombre" name="nombre"
                             class="form-control" placeholder="Nombre">
-                        @if (formRegistro.get('nombreCompleto')?.touched && formRegistro.get('nombreCompleto')?.invalid)
+                        @if (formRegistro.get('nombre')?.touched && formRegistro.get('nombre')?.invalid)
                         {
                         <div class="textoError">El nombre es obligatorio.</div>
                         }

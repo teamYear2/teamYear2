@@ -2,6 +2,7 @@ import { AfterViewInit, Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UsuariosService } from '../../service/usuarios/usuarios.service';
+import { UsuarioRegistro } from '../../models/usuariosRegistro.model';
 
 declare var bootstrap: any;
 
@@ -22,7 +23,7 @@ export class Registro implements AfterViewInit {
 
     this.formRegistro = this.formbuilder.group(
       {
-        nombreCompleto: ['', [Validators.required, Validators.minLength(3)]],
+        nombre: ['', [Validators.required, Validators.minLength(3)]],
         apellido: ['', [Validators.required, Validators.minLength(3)]],
         dni: ['', [Validators.required, Validators.minLength(8), Validators.pattern('^[0-9]+$')]],
         telefono: ['', [Validators.required, Validators.minLength(10), Validators.pattern('^[0-9]+$')]],
@@ -56,7 +57,17 @@ export class Registro implements AfterViewInit {
         if (respuesta.existe) {
           this.mostrarMensaje('El DNI ya está en uso.', 'danger');
         } else {
-          this.usuariosService.registrarUsuario(this.formRegistro.value).subscribe({
+          const usuario: UsuarioRegistro = {
+          nombre: this.formRegistro.get('nombre')?.value,
+          apellido: this.formRegistro.get('apellido')?.value,
+          dni: Number(this.formRegistro.get('dni')?.value),
+          telefono: Number(this.formRegistro.get('telefono')?.value),
+          correo: this.formRegistro.get('correo')?.value,
+          contrasena: this.formRegistro.get('contrasena')?.value,
+          referido: this.formRegistro.get('referido')?.value
+        };
+
+          this.usuariosService.registrarUsuario(usuario).subscribe({
             next: () => {
               this.mostrarMensaje('¡Registro exitoso!', 'success');
               this.formRegistro.reset();

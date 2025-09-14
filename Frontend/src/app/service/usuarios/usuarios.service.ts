@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { UsuarioRegistro } from '../../models/usuariosRegistro.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +14,12 @@ export class UsuariosService {
   }
 
   verificarDni(dni: string): Observable<{ existe: boolean }> {
-    return this.http.get<any[]>(`${this.apiUrl}?dni=${dni}`).pipe(
+    return this.http.get<UsuarioRegistro[]>(`${this.apiUrl}?dni=${dni}`).pipe(
       map(usuarios => ({ existe: usuarios.length > 0 }))
     );
   }
 
-  registrarUsuario(data: any): Observable<any> {
-    return this.http.post(this.apiUrl, data);
+  registrarUsuario(data: UsuarioRegistro): Observable<UsuarioRegistro> {
+    return this.http.post<UsuarioRegistro>(this.apiUrl, data);
   }
 }
