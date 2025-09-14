@@ -11,5 +11,10 @@
     {"id":4,"productoId":1,"tipo":"salida","cantidad":3,"fecha":"2025-09-06T11:00:00"},
     {"id":5,"productoId":1,"tipo":"entrada","cantidad":10,"fecha":"2025-09-07T14:00:00"},
     {"id":6,"productoId":1,"tipo":"salida","cantidad":1,"fecha":"2025-09-08T16:00:00"}
+  ],
+  "Usuarios": [
+    {"id":1,"nombreCompleto":"Administrador Sistema","correo":"admin@inventario.com","contrasena":"admin123"},
+    {"id":2,"nombreCompleto":"Usuario Demo","correo":"usuario@inventario.com","contrasena":"user123"},
+    {"id":3,"nombreCompleto":"Juan Perez","correo":"juan@inventario.com","contrasena":"juan123"}
   ]
 }
