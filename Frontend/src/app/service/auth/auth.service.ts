@@ -8,7 +8,7 @@ import { Usuario, LoginRequest, LoginResponse } from '../../models/usuario.model
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:3001';
+  private apiUrl = 'http://localhost:3000';
   private currentUserSubject = new BehaviorSubject<Usuario | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
 

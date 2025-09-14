@@ -8,7 +8,7 @@ import { UsuarioRegistro } from '../../models/usuariosRegistro.model';
 })
 export class UsuariosService {
 
-  private apiUrl = 'http://localhost:3000/usuarios';
+  private apiUrl = 'http://localhost:3000/usuariosRegistro';
   
   constructor(private http:HttpClient){
   }
