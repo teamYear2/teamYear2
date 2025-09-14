@@ -8,12 +8,52 @@
                     <legend class="text-center mb-3">Crea una cuenta</legend>
 
                     <div class="mb-3">
-                        <label for="reg-nombre" class="form-label fw-semibold">Nombre Completo:</label>
+                        <label for="reg-nombre" class="form-label fw-semibold">Nombre:</label>
                         <input type="text" id="reg-nombre" formControlName="nombreCompleto" name="nombre"
-                            class="form-control" placeholder="Nombre y apellido">
+                            class="form-control" placeholder="Nombre">
                         @if (formRegistro.get('nombreCompleto')?.touched && formRegistro.get('nombreCompleto')?.invalid)
                         {
                         <div class="textoError">El nombre es obligatorio.</div>
+                        }
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="reg-apellido" class="form-label fw-semibold">Apellido:</label>
+                        <input type="text" id="reg-apellido" formControlName="apellido" name="apellido"
+                            class="form-control" placeholder="Apellido">
+                        @if (formRegistro.get('apellido')?.touched && formRegistro.get('apellido')?.invalid)
+                        {
+                        <div class="textoError">El apellido es obligatorio.</div>
+                        }
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="reg-apellido" class="form-label fw-semibold">Dni:</label>
+                        <input type="text" id="reg-dni" formControlName="dni" name="dni" class="form-control"
+                            placeholder="Dni">
+                        @if (formRegistro.get('dni')?.touched) {
+                        @if (formRegistro.get('dni')?.hasError('required')) {
+                        <div class="textoError">El DNI es obligatorio.</div>
+                        }
+                        @else if (formRegistro.get('dni')?.hasError('minlength') ||
+                        formRegistro.get('dni')?.hasError('pattern')) {
+                        <div class="textoError">El DNI debe tener al menos 8 caracteres numericos.</div>
+                        }
+                        }
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="reg-apellido" class="form-label fw-semibold">Telefono:</label>
+                        <input type="text" id="reg-telefono" formControlName="telefono" name="telefono"
+                            class="form-control" placeholder="Telefono">
+                        @if (formRegistro.get('telefono')?.touched) {
+                        @if (formRegistro.get('telefono')?.hasError('required')) {
+                        <div class="textoError">El telefono es obligatorio.</div>
+                        }
+                        @else if (formRegistro.get('telefono')?.hasError('minlength') ||
+                        formRegistro.get('telefono')?.hasError('pattern')) {
+                        <div class="textoError">El telefono debe tener al menos 10 caracteres numericos.</div>
+                        }
                         }
                     </div>
 
@@ -56,11 +96,31 @@
                         }
                     </div>
 
+                    <div class="mb-3 form-check" id="contenedor-referido">
+                        <input type="checkbox" id="chk-referido" class="form-check-input"
+                            (change)="CheckReferido($event)">
+                        <label for="chk-referido" class="form-check-label">Referido</label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="reg-referido" class="form-label fw-semibold">Correo del referido:</label>
+                        <input type="email" id="reg-referido" formControlName="referido" class="form-control"
+                            placeholder="ejemplo@dominio.com" [readonly]="formRegistro.get('referido')?.disabled">
+
+                        @if (formRegistro.get('referido')?.touched &&
+                        formRegistro.get('referido')?.hasError('required')) {
+                        <div class="textoError">El correo del referido es obligatorio.</div>
+                        }
+                        @else if (formRegistro.get('referido')?.hasError('email')) {
+                        <div class="textoError">El correo del referido no tiene un formato válido.</div>
+                        }
+                    </div>
+
                     <button type="submit" class="btn btn-primary w-100 fw-bold">
                         Crear Cuenta
                     </button>
                 </fieldset>
-<!-- Mensaje emergente -->
+                <!-- Mensaje emergente -->
                 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
                     @if (mostrarToast) {
                     <div class="toast show align-items-center text-bg-{{tipoToast}} border-0">

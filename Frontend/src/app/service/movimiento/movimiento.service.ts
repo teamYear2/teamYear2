@@ -8,7 +8,7 @@ import { Movimiento } from '../../models/movimiento.model';
 })
 export class MovimientoService {
 
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3001';
 
   constructor(private http: HttpClient) { }
 
