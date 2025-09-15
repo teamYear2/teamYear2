@@ -1,0 +1,38 @@
+<section class="contact-section">
+  <div class="container">
+    <h2 class="text-center mb-4">📩 Contáctanos</h2>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="needs-validation">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" id="name" formControlName="name" class="form-control"
+          [ngClass]="{'is-invalid': submitted && contactForm.controls['name'].invalid}">
+        <div class="invalid-feedback">
+          El nombre es obligatorio (mínimo 3 caracteres).
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" id="email" formControlName="email" class="form-control" 
+        [ngClass]="{'is-invalid': submitted && contactForm.controls['email'].invalid}">
+        <div class="invalid-feedback">
+          Ingresa un correo válido.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="message" class="form-label">Mensaje</label>
+        <textarea id="message" formControlName="message" rows="4" class="form-control"
+          [ngClass]="{'is-invalid': submitted && contactForm.controls['message'].invalid}"></textarea>
+        <div class="invalid-feedback">
+          El mensaje es obligatorio (mínimo 10 caracteres).
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+    </form>
+  </div>
+</section>
