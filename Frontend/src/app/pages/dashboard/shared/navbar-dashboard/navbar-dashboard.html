@@ -1,6 +1,7 @@
 <section class="d-flex">
   <!-- Sidebar -->
-  <div class="d-flex flex-column flex-shrink-0 bg-dark text-white shadow vh-100" style="width: 250px;" id="sidebar">
+<div class="d-flex flex-column flex-shrink-0 bg-dark text-white shadow vh-100 position-fixed top-0 start-0" 
+      id="sidebar">
 
     <div class="border-bottom border-secondary p-3 d-flex align-items-center">
       <i class="fas fa-boxes icon-sidebar fs-4 me-2"></i>
@@ -38,8 +39,7 @@
     <!-- Footer fijo al fondo -->
     <div class="border-top border-secondary p-3 mt-auto">
       <div class="d-flex align-items-center">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="rounded-circle me-2"
-          style="width: 32px; height: 32px;">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="rounded-circle me-2" id="img-user">
         <div>
           <button class="btn btn-primary" (click)="changeSection('/login')">Cerrar sesión</button>
         </div>

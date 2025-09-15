@@ -1,0 +1,12 @@
+.carousel-item {
+  padding: 3rem;
+  background-color: #EFE4D2;
+  color: #131D4F;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    padding: 2rem 1rem;
+  }
+}
