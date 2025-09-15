@@ -1,17 +1,49 @@
-<section class="row g-3 mb-4">
-  <!-- Pseudo @for -->
-  @for (s of stats; track s.id) {
+<section class="row g-2 mb-2">
   <div class="col-12 col-md-6 col-lg-3">
-    <div class="card shadow p-3 d-flex flex-row align-items-center">
-      <div class="bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center {{ s.colorClass }}"
-        style="width: 40px; height: 40px;">
-        <i class="{{ s.iconClass }} fs-5"></i>
+    <div class=" bg-white rounded shadow p-3 d-flex flex-row align-items-center">
+      <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" id="card-metricas">
+        <i class="fas fa-boxes fs-5 text-primary"></i>
       </div>
       <div class="ms-3">
-        <p class="text-muted mb-0">{{ s.title }}</p>
-        <h3 class="fw-bold mb-0">{{ s.value }}</h3>
+        <p class="text-muted mb-0">Productos</p>
+        <h3 class="fw-bold mb-0">{{ total }}</h3>
       </div>
     </div>
   </div>
-  }
+
+  <div class="col-12 col-md-6 col-lg-3">
+    <div class="bg-white rounded shadow p-3 d-flex flex-row align-items-center">
+      <div class="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" id="card-metricas">
+        <i class="fas fa-check-circle fs-5 text-success"></i>
+      </div>
+      <div class="ms-3">
+        <p class="text-muted mb-0">Disponibles</p>
+        <h3 class="fw-bold mb-0">{{ disponibles }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6 col-lg-3">
+    <div class="bg-white rounded shadow p-3 d-flex flex-row align-items-center">
+      <div class="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" id="card-metricas">
+        <i class="fas fa-exclamation-triangle fs-5 text-warning"></i>
+      </div>
+      <div class="ms-3">
+        <p class="text-muted mb-0">Bajo stock</p>
+        <h3 class="fw-bold mb-0">{{ bajoStock }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-6 col-lg-3">
+    <div class="bg-white rounded shadow p-3 d-flex flex-row align-items-center">
+      <div class="bg-danger bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" id="card-metricas">
+        <i class="fas fa-times-circle fs-5 text-danger"></i>
+      </div>
+      <div class="ms-3">
+        <p class="text-muted mb-0">Agotados</p>
+        <h3 class="fw-bold mb-0">{{ agotados }}</h3>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,6 +1,8 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { UsuariosService } from '../../service/usuarios/usuarios.service';
+import { UsuarioRegistro } from '../../models/usuariosRegistro.model';
 
 declare var bootstrap: any;
 
@@ -10,21 +12,25 @@ declare var bootstrap: any;
   templateUrl: './registro.html',
   styleUrl: './registro.css'
 })
-export class Registro implements AfterViewInit{
+export class Registro implements AfterViewInit {
 
   formRegistro!: FormGroup;
   mostrarToast: boolean = false;
   mensajeToast: string = '';
   tipoToast: 'success' | 'danger' = 'success';
 
-  constructor(private formbuilder: FormBuilder) {
+  constructor(private formbuilder: FormBuilder, private usuariosService:UsuariosService) {
 
     this.formRegistro = this.formbuilder.group(
       {
-        nombreCompleto: ['', [Validators.required, Validators.minLength(3)]],
+        nombre: ['', [Validators.required, Validators.minLength(3)]],
+        apellido: ['', [Validators.required, Validators.minLength(3)]],
+        dni: ['', [Validators.required, Validators.minLength(8), Validators.pattern('^[0-9]+$')]],
+        telefono: ['', [Validators.required, Validators.minLength(10), Validators.pattern('^[0-9]+$')]],
         correo: ['', [Validators.required, Validators.email]],
         contrasena: ['', [Validators.required, Validators.minLength(6)]],
-        confirmarContrasena: ['', [Validators.required]]
+        confirmarContrasena: ['', [Validators.required]],
+        referido: [{ value: '', disabled: true }, [Validators.required, Validators.email]]
       },
       {
         validators: this.passwordsIgualesValidator
@@ -38,18 +44,54 @@ export class Registro implements AfterViewInit{
     return pass === confirm ? null : { contrasenasNoCoinciden: true };
   }
 
-  registrar() {
-    if (this.formRegistro.valid) {
-      this.mensajeToast = '¡Registro exitoso!';
-      this.tipoToast = 'success';
-    } else {
-      this.mensajeToast = 'Formulario inválido. Por favor revisa los campos.';
-      this.tipoToast = 'danger';
+    registrar() {
+    if (this.formRegistro.invalid) {
+      this.mostrarMensaje('Formulario inválido. Por favor revisa los campos.', 'danger');
+      return;
     }
 
+    const dni = this.formRegistro.get('dni')?.value;
+
+    this.usuariosService.verificarDni(dni).subscribe({
+      next: (respuesta) => {
+        if (respuesta.existe) {
+          this.mostrarMensaje('El DNI ya está en uso.', 'danger');
+        } else {
+          const usuario: UsuarioRegistro = {
+          nombre: this.formRegistro.get('nombre')?.value,
+          apellido: this.formRegistro.get('apellido')?.value,
+          dni: Number(this.formRegistro.get('dni')?.value),
+          telefono: Number(this.formRegistro.get('telefono')?.value),
+          correo: this.formRegistro.get('correo')?.value,
+          contrasena: this.formRegistro.get('contrasena')?.value,
+          referido: this.formRegistro.get('referido')?.value
+        };
+
+          this.usuariosService.registrarUsuario(usuario).subscribe({
+            next: () => {
+              this.mostrarMensaje('¡Registro exitoso!', 'success');
+              this.formRegistro.reset();
+            },
+            error: () => {
+              this.mostrarMensaje('Error al registrar usuario.', 'danger');
+            }
+          });
+        }
+      },
+      error: () => {
+        this.mostrarMensaje('Error al verificar el DNI.', 'danger');
+      }
+    });
+  }
+
+  private mostrarMensaje(mensaje: string, tipo: Registro['tipoToast']) {
+    this.mensajeToast = mensaje;
+    this.tipoToast = tipo;
     this.mostrarToast = true;
 
-    setTimeout(() => this.mostrarToast = false, 3000);
+    setTimeout(() => {
+      this.mostrarToast = false;
+    }, 3000);
   }
 
   ngAfterViewInit(): void {
@@ -59,6 +101,18 @@ export class Registro implements AfterViewInit{
         interval: 3000,
         ride: 'carousel'
       });
+    }
+  }
+
+  CheckReferido(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const referidoCtrl = this.formRegistro.get('referido');
+
+    if (input.checked) {
+      referidoCtrl?.enable();
+    } else {
+      referidoCtrl?.disable();
+      referidoCtrl?.reset();
     }
   }
 }

@@ -1,11 +1,3 @@
-body {
-  background-color: #efe4d2 !important;
-}
-
-button {
-  background-color: #254d70 !important;
-}
-
-a {
+button, a {
   background-color: #254d70 !important;
 }

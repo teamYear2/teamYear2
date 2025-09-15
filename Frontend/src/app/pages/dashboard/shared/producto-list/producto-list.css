@@ -1,14 +1,7 @@
-body {
-  background-color: #efe4d2 !important;
-}
-
-button {
+button, a {
   background-color: #254d70 !important;
 }
 
-a {
-  background-color: #254d70 !important;
-}
 
 .text-truncate-2 {
   display: -webkit-box;
