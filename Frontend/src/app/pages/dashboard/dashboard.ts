@@ -15,7 +15,7 @@ import { CategoriaForm } from "./shared/categoria-form/categoria-form";
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    NavbarDashboard,
+  NavbarDashboard,
     InventarioTarjetasMetricas,
     InventarioMovimiento,
     ProductosBajoStock,
@@ -24,7 +24,7 @@ import { CategoriaForm } from "./shared/categoria-form/categoria-form";
     ProductoForm,
     ProductoList,
     CategoriaList,
-    CategoriaForm
+    CategoriaForm,
 ],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css']

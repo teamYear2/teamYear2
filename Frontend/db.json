@@ -1,0 +1,152 @@
+{
+  "Productos": [
+    {
+      "id": "1",
+      "codigo": "DIS-008",
+      "nombre": "Disco Duro 1TB",
+      "categoria": "Almacenamiento",
+      "stock": 10,
+      "precio": 49.99,
+      "estado": "Disponible",
+      "unidadesVendidas": 20
+    },
+    {
+      "id": "2",
+      "codigo": "TEC-002",
+      "nombre": "Mouse Inalámbrico",
+      "categoria": "Periféricos",
+      "stock": 5,
+      "precio": 19.99,
+      "estado": "Disponible",
+      "unidadesVendidas": 50
+    },
+    {
+      "id": "3",
+      "codigo": "TEC-003",
+      "nombre": "Teclado Mecánico",
+      "categoria": "Periféricos",
+      "stock": 0,
+      "precio": 89.99,
+      "estado": "Agotado",
+      "unidadesVendidas": 100
+    }
+  ],
+  "Movimientos": [
+    {
+      "id": 1,
+      "productoId": 1,
+      "tipo": "entrada",
+      "cantidad": 5,
+      "fecha": "2025-09-03T10:00:00"
+    },
+    {
+      "id": 2,
+      "productoId": 1,
+      "tipo": "salida",
+      "cantidad": 2,
+      "fecha": "2025-09-04T12:00:00"
+    },
+    {
+      "id": 3,
+      "productoId": 1,
+      "tipo": "entrada",
+      "cantidad": 8,
+      "fecha": "2025-09-05T09:00:00"
+    },
+    {
+      "id": 4,
+      "productoId": 1,
+      "tipo": "salida",
+      "cantidad": 3,
+      "fecha": "2025-09-06T11:00:00"
+    },
+    {
+      "id": 5,
+      "productoId": 1,
+      "tipo": "entrada",
+      "cantidad": 10,
+      "fecha": "2025-09-07T14:00:00"
+    },
+    {
+      "id": 6,
+      "productoId": 1,
+      "tipo": "salida",
+      "cantidad": 1,
+      "fecha": "2025-09-08T16:00:00"
+    }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "nombre": "Electrónica",
+      "descripcion": "Dispositivos y accesorios electrónicos",
+      "productCount": 12
+    },
+    {
+      "id": 2,
+      "nombre": "Muebles",
+      "descripcion": "Muebles para el hogar y la oficina",
+      "productCount": 8
+    },
+    {
+      "id": 3,
+      "nombre": "Papelería",
+      "descripcion": "Artículos de oficina y escolares",
+      "productCount": 15
+    },
+    {
+      "id": 4,
+      "nombre": "Limpieza",
+      "descripcion": "Productos de higiene y limpieza",
+      "productCount": 5
+    },
+    {
+      "id": 5,
+      "nombre": "Alimentos",
+      "descripcion": "Alimentos y bebidas envasadas",
+      "productCount": 20
+    }
+  ],
+  "Usuarios": [
+    {
+      "id": 1,
+      "nombreCompleto": "Administrador Sistema",
+      "correo": "admin@inventario.com",
+      "contrasena": "admin123"
+    },
+    {
+      "id": 2,
+      "nombreCompleto": "Usuario Demo",
+      "correo": "usuario@inventario.com",
+      "contrasena": "user123"
+    },
+    {
+      "id": 3,
+      "nombreCompleto": "Juan Perez",
+      "correo": "juan@inventario.com",
+      "contrasena": "juan123"
+    }
+  ],
+  "usuariosRegistro": [
+    {
+      "id": "06c5",
+      "nombre": "Jose",
+      "apellido": "Lopez",
+      "dni": 12345678,
+      "telefono": 1234567890,
+      "correo": "jose@google.com",
+      "contrasena": "123456",
+      "referido": null
+    },
+    {
+      "id": "281e",
+      "nombre": "Juan",
+      "apellido": "Rodriguez",
+      "dni": 87654321,
+      "telefono": 1234567890,
+      "correo": "juan@yahoo.com",
+      "contrasena": "123456",
+      "referido": "ejemplo@dominio.com"
+    }
+  ]
+}

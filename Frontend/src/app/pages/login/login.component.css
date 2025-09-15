@@ -1,35 +1,6 @@
-/* Variables CSS solo para login */
-
 /*  ========================================================================= 
    FORMULARIOS LOGUEO                                             
 	========================================================================= */
-
-main {
-	/* Mantenemos estos estilos generales */
-	background-color: var(--color-fondo);
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	padding: 20px;
-	box-sizing: border-box;
-}
-
-.card {
-	background-color: #ffffff;
-	padding: 40px;
-	/* Padding original para pantallas más grandes */
-	border-radius: 8px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-	width: 100%;
-	max-width: 400px;
-	box-sizing: border-box;
-	margin-top: 0;
-	/* Bootstrap puede manejar el margen, o usar flexbox para centrar */
-	margin-bottom: 20px;
-	border: 10px solid #cccccc;
-}
 
 /* Título "Bienvenido" */
 .card h2 {
@@ -39,97 +10,14 @@ main {
 	color: var(--color-botones);
 }
 
-/* Párrafo "Inicia sesión" dentro del formulario */
-.card p:nth-of-type(1) {
-	text-align: left;
-	color: #666666;
-	margin-bottom: 30px;
-	font-size: 1em;
-}
-
-/* Candado dentro del párrafo "Inicia sesión" */
-.card p i {
-	margin-right: 8px;
-	color: var(--color-formularios);
-}
-
-/* Contenedores de cada campo del formulario */
-.card form div.mb-3 {
-	margin-bottom: 20px !important;
-}
-
-/* Etiquetas del formulario */
-.form-label {
-	color: var(--color-formularios);
-	display: block;
-	margin-bottom: 10px;
-	font-weight: bold;
-}
-
-/* Campos de entrada de texto y contraseña */
-.form-control {
-	width: 100%;
-	padding: 12px;
-	border: 1px solid #cccccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-	font-size: 1em;
-}
-
-/* Estilo al enfocar los campos de entrada */
-.form-control:focus {
-	border-color: var(--color-formularios);
-	outline: none;
-	box-shadow: 0 0 0 3px rgba(19, 29, 79, 0.2);
-}
-
-/* Botón de "Entrar" (dentro del formulario) */
-.card .btn[type="submit"] {
-	background-color: var(--color-botones);
-	color: white;
-	padding: 15px 25px;
-	border: none;
-	border-radius: 4px;
-	width: 100%;
-	font-size: 1.1em;
-	font-weight: bold;
-	cursor: pointer;
-	margin-top: 10px;
-	transition: background-color 0.3s ease;
-}
-
-.card .btn[type="submit"]:hover {
-	background-color: #031221;
-}
-
-/* ¿No sos usuario? */
-.card p.text-muted {
-	text-align: center;
-	color: #666666;
-	font-size: 0.9em;
-	margin-top: 25px;
-}
-
-/* "Creá tu cuenta" */
-.card p a.text-decoration-none {
-	color: var(--color-botones);
-	text-decoration: none;
-	font-weight: bold;
-}
-
-.card p a.text-decoration-none:hover {
-	text-decoration: underline;
-}
-form button.btn-primary {
-	display: block;
-	margin: 20px auto 0 auto;
-	padding: 10px 40px;
-	width: auto;
-}
-
-legend{
-	font-size: 2.2em;
-	color: var(--color-botones);
+/* ========================================================================= 
+   MEDIA QUERIES PARA RESPONSIVIDAD DEL FORMULARIO                          
+   Se activa cuando la pantalla es de 1000px o menos
+   ========================================================================= */
+@media (max-width: 1000px) {
+	.imagen-box {
+		display: none;
+	}
 }
 
 /* ========================================================================= 
@@ -139,13 +27,13 @@ legend{
 @media (max-width: 900px) {
 	.card {
 		padding: 20px;
-		border: 5px solid #cccccc;
+		border: 5px solid var(--color-gris-claro);
 		margin-top: 20px;
 	}
 
 	.card h2 {
 		font-size: 1.8em;
-		/* Un poco más pequeño en celu */
+		/* Un poco más pequeño en móviles */
 	}
 
 	.card p:nth-of-type(1) {
@@ -177,52 +65,5 @@ legend{
 		/* Reduce el tamaño del texto "¿No sos usuario?" */
 		margin-top: 15px;
 		/* Reduce el margen */
-	}
-}
-
-.formulario-contenedor {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 60px;
-	padding: 40px 80px;
-	background-color: var(--color-botones);
-	border-radius: 15px;
-	max-width: 1100px;
-	margin: 40px auto;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.textoError {
-	color: red;
-	font-size: 12px;
-	margin-top: 5px;
-}
-
-.imagen-box {
-	flex: 1;
-	max-width: 100%;
-}
-
-.imagen-box img {
-	max-width: 100%;
-	max-height: 100%;
-	border-radius: 10px;
-}
-
-.carousel-inner {
-	height: 300px;
-	border-radius: 10px;
-}
-
-.img-carousel {
-	height: 20rem;
-	width: 100vw;
-	object-fit: fill;
-}
-
-@media (max-width: 1000px) {
-	.imagen-box{
-		display: none;
 	}
 }
