@@ -7,5 +7,5 @@ router.register(r'inventarios', InventarioViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('<int:idInventario>/contenido/', contenido_inventario),
+    path('inventarios/<int:idInventario>/contenido/', contenido_inventario),
 ]
