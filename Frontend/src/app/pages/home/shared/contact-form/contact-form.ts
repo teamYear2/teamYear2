@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-form',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './contact-form.html',
   styleUrl: './contact-form.css',
 })
@@ -25,7 +24,7 @@ export class ContactForm {
     this.submitted = true;
     if (this.contactForm.valid) {
       console.log('Datos enviados:', this.contactForm.value);
-      alert('✅ Mensaje enviado correctamente (simulado)');
+      alert('Mensaje enviado correctamente');
       this.contactForm.reset();
       this.submitted = false;
     }
