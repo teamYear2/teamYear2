@@ -7,7 +7,7 @@ class ProductoAdmin(admin.ModelAdmin):
     """
     Configuración del panel de administración para Producto
     """
-    list_display = ('idProducto', 'codigo', 'nombre', 'descripcion')
+    list_display = ('idProducto', 'codigo', 'nombre', 'descripcion', 'precio')
     search_fields = ('codigo', 'nombre', 'descripcion')
     list_filter = ('codigo',)
     ordering = ('nombre',)
@@ -21,7 +21,7 @@ class ProductoAdmin(admin.ModelAdmin):
             'fields': ('idProducto', 'codigo', 'nombre')
         }),
         ('Detalles', {
-            'fields': ('descripcion',)
+            'fields': ('descripcion', 'precio')
         }),
         # ('Categoría', {
         #     'fields': ('categoria',)

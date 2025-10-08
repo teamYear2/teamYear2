@@ -46,6 +46,15 @@ class ProductoSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("El nombre no puede estar vacío")
         return value.strip()
 
+    def validate_precio(self, value):
+        """
+        Validar que el precio sea positivo
+        """
+        if value < 0:
+            raise serializers.ValidationError(
+                "El precio no puede ser negativo")
+        return value
+
     def validate(self, data):
         """
         Validaciones adicionales a nivel de objeto
