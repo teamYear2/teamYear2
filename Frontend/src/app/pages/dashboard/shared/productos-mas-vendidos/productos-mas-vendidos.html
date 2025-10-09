@@ -8,9 +8,14 @@
       <p class="text-sm font-medium">{{ producto.nombre }}</p>
       <p class="text-sm font-medium">{{ producto.unidadesVendidas }} unidades</p>
     </div>
-    <div class="progress mb-3">
+    <div class="progress mb-3" [attr.aria-label]="'Progreso de ventas de ' + producto.nombre">
       <div class="progress-bar {{getColor(producto)}}" role="progressbar"
-           [style.width]="getWidth(producto)">
+           title="Progreso de ventas"
+           [style.width]="getWidth(producto)"
+           [attr.aria-valuenow]="producto.unidadesVendidas"
+           aria-valuemin="0"
+           [attr.aria-valuemax]="maxUnidades"
+           [attr.aria-label]="producto.nombre + ': ' + producto.unidadesVendidas + ' unidades'">
         {{ getWidth(producto) }}
       </div>
     </div>

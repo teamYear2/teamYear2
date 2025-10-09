@@ -1,7 +1,7 @@
-button, a {
+button,
+a {
   background-color: #254d70 !important;
 }
-
 
 .text-truncate-2 {
   display: -webkit-box;
@@ -10,10 +10,19 @@ button, a {
   overflow: hidden;
 }
 
-@media (max-width: 768px) {
-  .responsive-btn {
-    padding: .25rem .5rem; /* como btn-sm */
-    font-size: .675rem;    /* como btn-sm */
-  }
+/* Estilos para la fila de encabezados */
+.header-titles {
+  letter-spacing: 0.04em;
 }
 
+/* Estilo para el título del producto */
+.product-title {
+  font-size: 1.13rem;
+}
+
+@media (max-width: 768px) {
+  .responsive-btn {
+    padding: 0.25rem 0.5rem; /* como btn-sm */
+    font-size: 0.675rem; /* como btn-sm */
+  }
+}

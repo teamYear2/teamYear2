@@ -21,8 +21,8 @@
     </div>
 
     <!-- Row de títulos -->
-    <div class="d-none d-md-flex px-4 py-2 border-bottom small text-uppercase text-muted align-items-center"
-      style="letter-spacing: .04em;">
+    <div
+      class="d-none d-md-flex px-4 py-2 border-bottom small text-uppercase text-muted align-items-center header-titles">
       <div class="col-md-3">Nombre / Código</div>
       <div class="col-md-2">Categoría</div>
       <div class="col-md-1 text-center">Stock</div>
@@ -35,15 +35,14 @@
     <div class="list-group list-group-flush">
       @for (p of productos; track p.id) {
       <div class="list-group-item list-group-item-action py-3 px-4 product-row" (click)="selectProduct(p)"
-        [class.bg-light]="selectedProduct?.id === p.id"
-        [class.shadow-sm]="selectedProduct?.id === p.id"
+        [class.bg-light]="selectedProduct?.id === p.id" [class.shadow-sm]="selectedProduct?.id === p.id"
         [attr.aria-selected]="selectedProduct?.id === p.id" tabindex="0">
 
         <div class="row align-items-center gx-3">
           <!-- Nombre + código -->
           <div class="col-12 col-md-3 d-flex flex-column flex-md-row align-items-md-center gap-2">
             <div class="d-flex align-items-center">
-              <h5 class="mb-0 text-truncate" style="font-size: 1.13rem;">
+              <h5 class="mb-0 text-truncate product-title">
                 <i class="fas fa-box-open me-1"></i>
                 {{ p.nombre }}
               </h5>
@@ -81,8 +80,8 @@
                 class="btn btn-sm btn-outline-primary" title="Editar">
                 <i class="fas fa-edit"></i>
               </button>
-              <button (click)="deleteProducto(p.id); $event.stopPropagation()"
-                class="btn btn-sm btn-outline-danger" title="Eliminar">
+              <button (click)="deleteProducto(p.id); $event.stopPropagation()" class="btn btn-sm btn-outline-danger"
+                title="Eliminar">
                 <i class="fas fa-trash"></i>
               </button>
             </div>

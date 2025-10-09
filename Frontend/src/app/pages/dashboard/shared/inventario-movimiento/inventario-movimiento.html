@@ -1,7 +1,8 @@
 <section class="bg-white rounded shadow p-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h2 class="h6 fw-semibold">Movimiento de inventario</h2>
-    <select class="form-select form-select-sm w-auto" (change)="onChangeDias($event)">
+    <select class="form-select form-select-sm w-auto" (change)="onChangeDias($event)" 
+            aria-label="Seleccionar período de tiempo">
       <option value="7">Últimos 7 días</option>
       <option value="30">Últimos 30 días</option>
       <option value="90">Últimos 90 días</option>
