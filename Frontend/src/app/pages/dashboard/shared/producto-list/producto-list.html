@@ -21,14 +21,16 @@
     </div>
 
     <!-- Row de títulos -->
-    <div
-      class="d-none d-md-flex px-4 py-2 border-bottom small text-uppercase text-muted align-items-center header-titles">
-      <div class="col-md-3">Nombre / Código</div>
-      <div class="col-md-2">Categoría</div>
-      <div class="col-md-1 text-center">Stock</div>
-      <div class="col-md-2 text-center">Precio</div>
-      <div class="col-md-2 text-center">Estado</div>
-      <div class="col-md-2 text-end">Acciones</div>
+    <div class="px-4 py-2 border-bottom d-none d-md-block">
+      <div class="row gx-3 small text-uppercase text-muted align-items-center">
+        <div class="col-md-2">Nombre / Código</div>
+        <div class="col-md-2">Categoría</div>
+        <div class="col-md-1 text-center">Stock</div>
+        <div class="col-md-1 text-center">Precio</div>
+        <div class="col-md-2 text-center">Estado</div>
+        <div class="col-md-2 text-center">Stock</div>
+        <div class="col-md-2 text-center">Acciones</div>
+      </div>
     </div>
 
     <!-- Lista de productos -->
@@ -40,14 +42,14 @@
 
         <div class="row align-items-center gx-3">
           <!-- Nombre + código -->
-          <div class="col-12 col-md-3 d-flex flex-column flex-md-row align-items-md-center gap-2">
-            <div class="d-flex align-items-center">
+          <div class="col-12 col-md-2">
+            <div class="d-flex flex-column">
               <h5 class="mb-0 text-truncate product-title">
                 <i class="fas fa-box-open me-1"></i>
                 {{ p.nombre }}
               </h5>
+              <small class="text-muted">{{ p.codigo }}</small>
             </div>
-            <small class="text-muted ms-md-3">{{ p.codigo }}</small>
           </div>
 
           <!-- Categoría -->
@@ -57,34 +59,45 @@
 
           <!-- Stock -->
           <div class="col-12 col-md-1 text-center">
-            <div class="small">{{ p.stock }}</div>
+            <div class="small fw-bold">{{ p.stock }}</div>
           </div>
 
           <!-- Precio -->
-          <div class="col-12 col-md-2 text-center">
+          <div class="col-12 col-md-1 text-center">
             <div class="small"><i class="fas fa-dollar-sign me-1"></i>{{ p.precio }}</div>
           </div>
 
           <!-- Estado -->
-          <div class="col-12 col-md-2 text-center">
-            <span class="badge estado-badge" [class.bg-success]="p.estado === 'Disponible'"
-              [class.bg-danger]="p.estado !== 'Disponible'">
-              {{ p.estado }}
-            </span>
+          <div class="col-12 col-md-2 d-flex justify-content-center gap-2 mt-2 mt-md-0">
+            <button class="btn btn-sm estado-btn" [class.btn-success]="p.estado === 'Disponible'"
+              [class.btn-danger]="p.estado !== 'Disponible'" title="Estado del producto">
+              <i class="fas" [class.fa-check-circle]="p.estado === 'Disponible'"
+                [class.fa-times-circle]="p.estado !== 'Disponible'"></i>
+            </button>
+          </div>
+
+          <!-- Botones de Stock -->
+          <div class="col-12 col-md-2 d-flex justify-content-center gap-2 mt-2 mt-md-0">
+            <button (click)="incrementStock(p); $event.stopPropagation()" class="btn btn-sm btn-success stock-btn"
+              title="Ingreso de stock (+1)">
+              <i class="fas fa-plus"></i>
+            </button>
+            <button (click)="decrementStock(p); $event.stopPropagation()" class="btn btn-sm btn-warning stock-btn"
+              [disabled]="p.stock <= 0" title="Egreso de stock (-1)">
+              <i class="fas fa-minus"></i>
+            </button>
           </div>
 
           <!-- Acciones -->
-          <div class="col-12 col-md-2 d-flex justify-content-md-end gap-2 mt-2 mt-md-0">
-            <div class="btn-group" role="group" aria-label="Acciones producto">
-              <button (click)="changeSection('dashboard/producto-form', p); $event.stopPropagation()"
-                class="btn btn-sm btn-outline-primary" title="Editar">
-                <i class="fas fa-edit"></i>
-              </button>
-              <button (click)="deleteProducto(p.id); $event.stopPropagation()" class="btn btn-sm btn-outline-danger"
-                title="Eliminar">
-                <i class="fas fa-trash"></i>
-              </button>
-            </div>
+          <div class="col-12 col-md-2 d-flex justify-content-center gap-2 mt-2 mt-md-0">
+            <button (click)="changeSection('dashboard/producto-form', p); $event.stopPropagation()"
+              class="btn btn-sm btn-primary action-btn" title="Editar">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button (click)="deleteProducto(p.id); $event.stopPropagation()" class="btn btn-sm btn-danger action-btn"
+              title="Eliminar">
+              <i class="fas fa-trash"></i>
+            </button>
           </div>
 
         </div>
