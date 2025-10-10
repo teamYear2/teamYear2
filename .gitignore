@@ -1,1 +1,43 @@
 .qodo
+
+# Entorno virtual
+entorno/
+venv/
+env/
+ENV/
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+Backend/__pycache__/
+Backend/*/__pycache__/
+Backend/*/*/__pycache__/
+*.pyc
+
+
+# Variables de entorno
+.env
+.env.local
+.env.production
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Archivos temporales
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+
