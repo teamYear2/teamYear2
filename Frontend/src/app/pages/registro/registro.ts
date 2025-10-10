@@ -1,8 +1,8 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { UsuariosService } from '../../service/usuarios/usuarios.service';
-import { UsuarioRegistro } from '../../models/usuariosRegistro.model';
+import { Usuario } from '../../models/usuario.model';
 
 declare var bootstrap: any;
 
@@ -19,7 +19,7 @@ export class Registro implements AfterViewInit {
   mensajeToast: string = '';
   tipoToast: 'success' | 'danger' = 'success';
 
-  constructor(private formbuilder: FormBuilder, private usuariosService:UsuariosService) {
+  constructor(private formbuilder: FormBuilder, private usuariosService: UsuariosService, private router: Router) {
 
     this.formRegistro = this.formbuilder.group(
       {
@@ -50,36 +50,35 @@ export class Registro implements AfterViewInit {
       return;
     }
 
-    const dni = this.formRegistro.get('dni')?.value;
+    // Crear objeto usuario con la estructura correcta para Django
+    const usuario: Usuario = {
+      dni: Number(this.formRegistro.get('dni')?.value),
+      idInventario: 1, // Por ahora hardcodeado, después se puede hacer dinámico
+      nombre: this.formRegistro.get('nombre')?.value,
+      apellido: this.formRegistro.get('apellido')?.value,
+      email: this.formRegistro.get('correo')?.value,
+      telefono: Number(this.formRegistro.get('telefono')?.value),
+      contrasena: this.formRegistro.get('contrasena')?.value,
+      referido: this.formRegistro.get('referido')?.value
+    };
 
-    this.usuariosService.verificarDni(dni).subscribe({
-      next: (respuesta) => {
-        if (respuesta.existe) {
-          this.mostrarMensaje('El DNI ya está en uso.', 'danger');
+    // Usar UsuariosService unificado para registro
+    this.usuariosService.registro(usuario).subscribe({
+      next: (response) => {
+        if (response.success) {
+          this.mostrarMensaje('¡Registro exitoso! Redirigiendo al login...', 'success');
+          this.formRegistro.reset();
+          
+          // Redireccionar al login después de 2 segundos
+          setTimeout(() => {
+            this.router.navigate(['/login']);
+          }, 2000);
         } else {
-          const usuario: UsuarioRegistro = {
-          nombre: this.formRegistro.get('nombre')?.value,
-          apellido: this.formRegistro.get('apellido')?.value,
-          dni: Number(this.formRegistro.get('dni')?.value),
-          telefono: Number(this.formRegistro.get('telefono')?.value),
-          correo: this.formRegistro.get('correo')?.value,
-          contrasena: this.formRegistro.get('contrasena')?.value,
-          referido: this.formRegistro.get('referido')?.value
-        };
-
-          this.usuariosService.registrarUsuario(usuario).subscribe({
-            next: () => {
-              this.mostrarMensaje('¡Registro exitoso!', 'success');
-              this.formRegistro.reset();
-            },
-            error: () => {
-              this.mostrarMensaje('Error al registrar usuario.', 'danger');
-            }
-          });
+          this.mostrarMensaje(response.message || 'Error al registrar usuario.', 'danger');
         }
       },
       error: () => {
-        this.mostrarMensaje('Error al verificar el DNI.', 'danger');
+        this.mostrarMensaje('Error del servidor al registrar usuario.', 'danger');
       }
     });
   }
