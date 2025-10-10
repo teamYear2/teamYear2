@@ -77,8 +77,20 @@ export class Registro implements AfterViewInit {
           this.mostrarMensaje(response.message || 'Error al registrar usuario.', 'danger');
         }
       },
-      error: () => {
-        this.mostrarMensaje('Error del servidor al registrar usuario.', 'danger');
+      error: (error) => {
+        // Manejar errores específicos del servidor
+        if (error.error && error.error.message) {
+          const errorMessage = error.error.message;
+          
+          // Verificar si es error de referido inexistente
+          if (errorMessage.includes('referido no existe')) {
+            this.mostrarMensaje('Referido inexistente - verifique email', 'danger');
+          } else {
+            this.mostrarMensaje(errorMessage, 'danger');
+          }
+        } else {
+          this.mostrarMensaje('Error del servidor al registrar usuario.', 'danger');
+        }
       }
     });
   }
