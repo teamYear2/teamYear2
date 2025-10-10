@@ -33,15 +33,15 @@ Este sistema tiene como propósito:
 
 El proyecto requiere **2 terminales** ejecutándose simultáneamente:
 
-#### **Terminal 1 - Backend simulado (JSON Server):**
+#### **Terminal 1 - Backend Django:**
 ```bash
-cd Frontend
-npm run api
+cd Backend
+python manage.py runserver
 ```
-- ✅ Inicia **JSON Server** en puerto **3001**
-- ✅ Simula una API REST usando `db.json` como base de datos
-- ✅ Proporciona endpoints automáticos para productos, movimientos y usuarios
-- ✅ **Tecnología:** JSON Server (herramienta de simulación, no Node.js tradicional)
+- ✅ Inicia **Django** en puerto **8000**
+- ✅ API REST real con **Django REST Framework**
+- ✅ Base de datos **SQLite** persistente
+- ✅ **Panel de administración** en http://localhost:8000/admin/
 
 #### **Terminal 2 - Frontend (Angular):**
 ```bash
@@ -58,10 +58,11 @@ Para probar el sistema de login:
 - **Desarrollador:** `juan@inventario.com` / `juan123`
 
 ### **📡 Endpoints API**
-Una vez iniciado `npm run api`, están disponibles:
-- **Productos:** http://localhost:3001/Productos
-- **Movimientos:** http://localhost:3001/Movimientos
-- **Usuarios:** http://localhost:3001/Usuarios
+Una vez iniciado Django, están disponibles:
+- **Productos:** http://localhost:8000/api/productos/
+- **Inventarios:** http://localhost:8000/api/inventarios/
+- **Operaciones:** http://localhost:8000/api/detalleoperaciones/
+- **Admin Panel:** http://localhost:8000/admin/
 
 ## �📊 Métricas
 

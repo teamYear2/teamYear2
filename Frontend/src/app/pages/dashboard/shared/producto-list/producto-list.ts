@@ -17,7 +17,10 @@ export class ProductoList implements OnInit {
   productos: Producto[] = [];
   selectedProduct: Producto | null = null;
 
-  constructor(private router: Router, private productoService: ProductoService) {}
+  constructor(
+    private router: Router, 
+    private productoService: ProductoService
+  ) {}
 
   ngOnInit(): void {
     this.loadProductos();
@@ -52,6 +55,41 @@ export class ProductoList implements OnInit {
       },
       error: (err) => console.error('Error eliminando producto:', err)
     });
+  }
+
+  incrementStock(producto: Producto): void {
+    producto.stock += 1;
+    
+    // TODO: Implementar llamada al servicio de DetalleOperaciones cuando esté disponible
+    console.log('Ingreso de stock:', {
+      producto: producto.nombre,
+      tipo: 'entrada',
+      cantidad: 1,
+      nuevoStock: producto.stock
+    });
+
+    // Actualizar en el backend (opcional por ahora)
+    // this.productoService.updateProducto(producto).subscribe();
+  }
+
+  decrementStock(producto: Producto): void {
+    if (producto.stock <= 0) {
+      alert('No hay stock disponible para egresar');
+      return;
+    }
+
+    producto.stock -= 1;
+    
+    // TODO: Implementar llamada al servicio de DetalleOperaciones cuando esté disponible
+    console.log('Egreso de stock:', {
+      producto: producto.nombre,
+      tipo: 'salida',
+      cantidad: 1,
+      nuevoStock: producto.stock
+    });
+
+    // Actualizar en el backend (opcional por ahora)
+    // this.productoService.updateProducto(producto).subscribe();
   }
 
   trackById(_: number, item: Producto): number {
