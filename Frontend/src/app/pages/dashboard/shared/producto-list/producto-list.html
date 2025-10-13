@@ -1,6 +1,13 @@
 <!-- Sección de productos -->
 <section id="productos-section" class="container-fluid">
   <div class="row align-items-center mb-4 gx-2">
+    @if (alerta; as a) {
+    <div class="alert alert-{{ a.tipo }} alert-dismissible fade show mt-3 mx-3" role="alert">
+      {{ a.mensaje }}
+      <button type="button" class="btn-close" (click)="alerta = null" aria-label="Cerrar"></button>
+    </div>
+    }
+
     <div class="col-12 col-md">
       <h2 class="h4 mb-0">Gestión de Productos</h2>
     </div>
@@ -42,7 +49,8 @@
     <div class="list-group list-group-flush">
       @for (p of productos; track p.productoId) {
       <div class="list-group-item list-group-item-action py-3 px-4 product-row" (click)="selectProduct(p)"
-        [class.productSelect]="selectedProduct?.productoId === p.productoId" [class.shadow-sm]="selectedProduct?.productoId === p.productoId"
+        [class.productSelect]="selectedProduct?.productoId === p.productoId"
+        [class.shadow-sm]="selectedProduct?.productoId === p.productoId"
         [attr.aria-selected]="selectedProduct?.productoId === p.productoId" tabindex="0">
 
         <div class="row align-items-center gx-3">
@@ -82,10 +90,20 @@
               class="btn btn-sm btn-primary action-btn" title="Editar">
               <i class="fas fa-edit"></i>
             </button>
-            <button (click)="deleteProducto(p.productoId); $event.stopPropagation()" class="btn btn-sm btn-danger action-btn"
-              title="Eliminar">
+            <button (click)="confirmarEliminacion(p.productoId); $event.stopPropagation()"
+              class="btn btn-sm btn-danger action-btn" title="Eliminar">
               <i class="fas fa-trash"></i>
             </button>
+          </div>
+
+          <div class="col-12 col-md-2 d-flex justify-content-center gap-2 mt-2 mt-md-0">
+            @if (confirmacionId === p.productoId) {
+            <div class="alert alert-warning mt-2 w-100">
+              ¿Confirmás la eliminación?
+              <button class="btn btn-danger btn-sm ms-2" (click)="eliminarProductoConfirmado()">Sí</button>
+              <button class="btn btn-secondary btn-sm ms-1" (click)="cancelarEliminacion()">No</button>
+            </div>
+            }
           </div>
 
         </div>

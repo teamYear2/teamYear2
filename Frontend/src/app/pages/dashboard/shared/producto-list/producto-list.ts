@@ -51,17 +51,31 @@ export class ProductoList implements OnInit {
     this.selectedProduct = p;
   }
 
-  deleteProducto(id: number): void {
-    if (!confirm('¿Eliminar este producto?')) return;
+  confirmarEliminacion(id: number): void {
+    this.confirmacionId = id;
+  }
 
-    this.productoService.deleteProducto(id).subscribe({
+  cancelarEliminacion(): void {
+    this.confirmacionId = null;
+  }
+
+  eliminarProductoConfirmado(): void {
+    if (!this.confirmacionId) return;
+
+    this.productoService.deleteProducto(this.confirmacionId).subscribe({
       next: () => {
-        this.productos = this.productos.filter(p => p.productoId !== id);
-        if (this.selectedProduct?.productoId === id) this.selectedProduct = null;
+        this.productos = this.productos.filter(p => p.productoId !== this.confirmacionId);
+        if (this.selectedProduct?.productoId === this.confirmacionId) this.selectedProduct = null;
+        this.mostrarAlerta('success', 'Producto eliminado correctamente');
+        this.confirmacionId = null;
       },
-      error: (err) => console.error('Error eliminando producto:', err)
+      error: (err) => {
+        this.mostrarAlerta('danger', 'Error eliminando producto: ' + err.message);
+        this.confirmacionId = null;
+      }
     });
   }
+
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
@@ -71,5 +85,14 @@ export class ProductoList implements OnInit {
       this.selectedProduct = null;
     }
   }
+
+  alerta: { tipo: 'success' | 'danger', mensaje: string } | null = null;
+  confirmacionId: number | null = null;
+
+  mostrarAlerta(tipo: 'success' | 'danger', mensaje: string) {
+    this.alerta = { tipo, mensaje };
+    setTimeout(() => this.alerta = null, 4000);
+  }
+
 
 }
