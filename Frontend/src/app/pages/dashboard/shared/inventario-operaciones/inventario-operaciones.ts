@@ -68,15 +68,26 @@ export class InventarioOperaciones {
 
     this.movimientoService.createMovimiento(movimiento).subscribe({
       next: () => {
+        this.mostrarAlerta('success', 'Movimiento generado correctamente');
         console.log('Movimiento registrado con éxito');
         this.movimientoForm.reset();
       },
-      error: (err) => console.error('Error al registrar movimiento', err),
+      error: (err) => {console.error('Error al registrar movimiento', err);
+        this.mostrarAlerta('danger', 'Error generando movimiento: ' + err.message);
+      }
     });
   }
 
   goBack() {
     this.location.back();
   }
+
+  alerta: { tipo: 'success' | 'danger', mensaje: string } | null = null;
+
+mostrarAlerta(tipo: 'success' | 'danger', mensaje: string) {
+  this.alerta = { tipo, mensaje };
+  setTimeout(() => this.alerta = null, 4000);
+}
+
 
 }
