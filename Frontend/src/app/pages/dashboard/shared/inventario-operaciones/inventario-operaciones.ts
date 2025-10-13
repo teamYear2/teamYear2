@@ -17,7 +17,7 @@ export class InventarioOperaciones {
   productos: Producto[] = [];
 
   // Este valor puede venir de un servicio, route param, o contexto compartido
-  inventarioId: number = 1;
+  inventarioId: number = Number(localStorage.getItem('idInventario'));
 
   constructor(
     private location: Location,

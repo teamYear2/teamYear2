@@ -27,12 +27,13 @@ export class ProductoList implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadProductos();
+    const idInventario = localStorage.getItem('idInventario');
+    const rol = localStorage.getItem('rol');
+    this.loadProductos(Number(idInventario));
   }
 
-  loadProductos(): void {
-    const inventarioId = 1; // O el ID dinámico que recibas
-    this.inventarioService.getContenidoInventario(inventarioId).subscribe({
+  loadProductos(inventarioActual:number): void {
+    this.inventarioService.getContenidoInventario(inventarioActual).subscribe({
       next: (data) => this.productos = data,
       error: (err) => console.error('Error cargando contenido del inventario:', err)
     });

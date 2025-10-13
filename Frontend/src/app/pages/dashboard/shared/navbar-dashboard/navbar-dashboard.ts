@@ -18,4 +18,10 @@ export class NavbarDashboard {
     this.activeSection = section.startsWith('/') ? section : '/' + section;
     this.router.navigate([this.activeSection]);
   }
+
+  cerrarSesion(): void {
+  localStorage.clear(); // o removeItem si querés ser más específico
+  this.router.navigate(['/login']);
+}
+
 }
