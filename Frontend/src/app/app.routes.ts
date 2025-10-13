@@ -9,6 +9,7 @@ import { Registro } from './pages/registro/registro';
 import { QuienesSomos } from './pages/quienes-somos/quienes-somos';
 import { MainLayout } from './layouts/main-layout/main-layout';
 import { Home } from './pages/home/home';
+import { InventarioOperaciones } from './pages/dashboard/shared/inventario-operaciones/inventario-operaciones';
 
 export const routes: Routes = [
   {
@@ -18,7 +19,9 @@ export const routes: Routes = [
       { path: 'producto-list', component: ProductoList },
       { path: 'categoria-list', component: CategoriaList },
       { path: 'producto-form', component: ProductoForm },
+      { path: 'producto-form/:id', component: ProductoForm },
       { path: 'categoria-form', component: CategoriaForm },
+      { path: 'inventario-operaciones', component: InventarioOperaciones },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },

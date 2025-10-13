@@ -8,7 +8,14 @@
     <div class="col-12 col-md-auto d-flex gap-2 justify-content-md-end mt-2 mt-md-0">
       <button (click)="changeSection('dashboard/producto-form')"
         class="btn btn-primary d-inline-flex align-items-center">
-        <i class="fas fa-plus me-2"></i> Nueva (Formulario)
+        <i class="fas fa-plus me-2"></i> Nuevo Producto
+      </button>
+    </div>
+
+    <div class="col-12 col-md-auto d-flex gap-2 justify-content-md-end mt-2 mt-md-0">
+      <button (click)="changeSection('dashboard/inventario-operaciones')"
+        class="btn btn-success d-inline-flex align-items-center">
+        Ingreso/Egreso Stock
       </button>
     </div>
   </div>
@@ -26,19 +33,17 @@
         <div class="col-md-2">Nombre / Código</div>
         <div class="col-md-2">Categoría</div>
         <div class="col-md-1 text-center">Stock</div>
-        <div class="col-md-1 text-center">Precio</div>
         <div class="col-md-2 text-center">Estado</div>
-        <div class="col-md-2 text-center">Stock</div>
         <div class="col-md-2 text-center">Acciones</div>
       </div>
     </div>
 
     <!-- Lista de productos -->
     <div class="list-group list-group-flush">
-      @for (p of productos; track p.id) {
+      @for (p of productos; track p.productoId) {
       <div class="list-group-item list-group-item-action py-3 px-4 product-row" (click)="selectProduct(p)"
-        [class.bg-light]="selectedProduct?.id === p.id" [class.shadow-sm]="selectedProduct?.id === p.id"
-        [attr.aria-selected]="selectedProduct?.id === p.id" tabindex="0">
+        [class.productSelect]="selectedProduct?.productoId === p.productoId" [class.shadow-sm]="selectedProduct?.productoId === p.productoId"
+        [attr.aria-selected]="selectedProduct?.productoId === p.productoId" tabindex="0">
 
         <div class="row align-items-center gx-3">
           <!-- Nombre + código -->
@@ -62,11 +67,6 @@
             <div class="small fw-bold">{{ p.stock }}</div>
           </div>
 
-          <!-- Precio -->
-          <div class="col-12 col-md-1 text-center">
-            <div class="small"><i class="fas fa-dollar-sign me-1"></i>{{ p.precio }}</div>
-          </div>
-
           <!-- Estado -->
           <div class="col-12 col-md-2 d-flex justify-content-center gap-2 mt-2 mt-md-0">
             <button class="btn btn-sm estado-btn" [class.btn-success]="p.estado === 'Disponible'"
@@ -76,25 +76,13 @@
             </button>
           </div>
 
-          <!-- Botones de Stock -->
-          <div class="col-12 col-md-2 d-flex justify-content-center gap-2 mt-2 mt-md-0">
-            <button (click)="incrementStock(p); $event.stopPropagation()" class="btn btn-sm btn-success stock-btn"
-              title="Ingreso de stock (+1)">
-              <i class="fas fa-plus"></i>
-            </button>
-            <button (click)="decrementStock(p); $event.stopPropagation()" class="btn btn-sm btn-warning stock-btn"
-              [disabled]="p.stock <= 0" title="Egreso de stock (-1)">
-              <i class="fas fa-minus"></i>
-            </button>
-          </div>
-
           <!-- Acciones -->
           <div class="col-12 col-md-2 d-flex justify-content-center gap-2 mt-2 mt-md-0">
             <button (click)="changeSection('dashboard/producto-form', p); $event.stopPropagation()"
               class="btn btn-sm btn-primary action-btn" title="Editar">
               <i class="fas fa-edit"></i>
             </button>
-            <button (click)="deleteProducto(p.id); $event.stopPropagation()" class="btn btn-sm btn-danger action-btn"
+            <button (click)="deleteProducto(p.productoId); $event.stopPropagation()" class="btn btn-sm btn-danger action-btn"
               title="Eliminar">
               <i class="fas fa-trash"></i>
             </button>

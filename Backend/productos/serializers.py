@@ -5,18 +5,16 @@ from productos.models import Producto
 
 
 class ProductoSerializer(serializers.ModelSerializer):
-    """
-    Serializer para el modelo Producto
-    Maneja la serialización y deserialización de productos
-    """
     # categoria = CategoriaSerializer(read_only=True)
     # categoria_id = serializers.PrimaryKeyRelatedField(
     #    queryset=Categoria.objects.all(), source='categoria', write_only=True
     # )
 
+    id = serializers.IntegerField(source='idProducto', read_only=True)
+
     class Meta:
         model = Producto
-        fields = '__all__'
+        fields = ['id', 'codigo', 'nombre', 'descripcion']
         read_only_fields = ('idProducto',)
 
     def validate_codigo(self, value):
@@ -45,18 +43,3 @@ class ProductoSerializer(serializers.ModelSerializer):
         if not value or value.strip() == '':
             raise serializers.ValidationError("El nombre no puede estar vacío")
         return value.strip()
-
-    def validate_precio(self, value):
-        """
-        Validar que el precio sea positivo
-        """
-        if value < 0:
-            raise serializers.ValidationError(
-                "El precio no puede ser negativo")
-        return value
-
-    def validate(self, data):
-        """
-        Validaciones adicionales a nivel de objeto
-        """
-        return data

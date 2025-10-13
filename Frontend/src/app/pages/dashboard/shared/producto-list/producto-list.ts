@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductoService } from '../../../../service/producto/producto.service';
-import { Producto } from '../../../../models/producto.model';
+import { InventarioService } from '../../../../service/inventario/inventario.service';
+import { ProductoInventario } from '../../../../models/producto-inventario.models';
 import { FormsModule } from '@angular/forms';
+import { ProductoService } from '../../../../service/producto/producto.service';
+import { HostListener } from '@angular/core';
+
 
 @Component({
   selector: 'app-producto-list',
@@ -14,34 +17,37 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductoList implements OnInit {
 
-  productos: Producto[] = [];
-  selectedProduct: Producto | null = null;
+  productos: ProductoInventario[] = [];
+  selectedProduct: ProductoInventario | null = null;
 
   constructor(
-    private router: Router, 
+    private router: Router,
+    private inventarioService: InventarioService,
     private productoService: ProductoService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadProductos();
   }
 
   loadProductos(): void {
-    this.productoService.getProductos().subscribe({
+    const inventarioId = 1; // O el ID dinámico que recibas
+    this.inventarioService.getContenidoInventario(inventarioId).subscribe({
       next: (data) => this.productos = data,
-      error: (err) => console.error('Error cargando productos:', err)
+      error: (err) => console.error('Error cargando contenido del inventario:', err)
     });
   }
 
-  changeSection(section: string, producto?: Producto): void {
+
+  changeSection(section: string, producto?: ProductoInventario): void {
     if (producto) {
-      this.router.navigate([`/${section}`, producto.id]);
+      this.router.navigate([`/${section}`, producto.productoId]);
     } else {
       this.router.navigate([`/${section}`]);
     }
   }
 
-  selectProduct(p: Producto): void {
+  selectProduct(p: ProductoInventario): void {
     this.selectedProduct = p;
   }
 
@@ -50,49 +56,20 @@ export class ProductoList implements OnInit {
 
     this.productoService.deleteProducto(id).subscribe({
       next: () => {
-        this.productos = this.productos.filter(p => p.id !== id);
-        if (this.selectedProduct?.id === id) this.selectedProduct = null;
+        this.productos = this.productos.filter(p => p.productoId !== id);
+        if (this.selectedProduct?.productoId === id) this.selectedProduct = null;
       },
       error: (err) => console.error('Error eliminando producto:', err)
     });
   }
 
-  incrementStock(producto: Producto): void {
-    producto.stock += 1;
-    
-    // TODO: Implementar llamada al servicio de DetalleOperaciones cuando esté disponible
-    console.log('Ingreso de stock:', {
-      producto: producto.nombre,
-      tipo: 'entrada',
-      cantidad: 1,
-      nuevoStock: producto.stock
-    });
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
 
-    // Actualizar en el backend (opcional por ahora)
-    // this.productoService.updateProducto(producto).subscribe();
-  }
-
-  decrementStock(producto: Producto): void {
-    if (producto.stock <= 0) {
-      alert('No hay stock disponible para egresar');
-      return;
+    if (!target.closest('.product-row')) {
+      this.selectedProduct = null;
     }
-
-    producto.stock -= 1;
-    
-    // TODO: Implementar llamada al servicio de DetalleOperaciones cuando esté disponible
-    console.log('Egreso de stock:', {
-      producto: producto.nombre,
-      tipo: 'salida',
-      cantidad: 1,
-      nuevoStock: producto.stock
-    });
-
-    // Actualizar en el backend (opcional por ahora)
-    // this.productoService.updateProducto(producto).subscribe();
   }
 
-  trackById(_: number, item: Producto): number {
-    return item.id;
-  }
 }

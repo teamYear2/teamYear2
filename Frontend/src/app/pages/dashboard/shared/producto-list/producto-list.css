@@ -116,6 +116,10 @@
   font-size: 0.875rem;
 }
 
+.productSelect {
+  background-color: #4f8ff25c !important
+}
+
 @media (max-width: 768px) {
   .responsive-btn {
     padding: 0.25rem 0.5rem; /* como btn-sm */

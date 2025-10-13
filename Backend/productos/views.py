@@ -40,43 +40,7 @@ class ProductoViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(nombre__icontains=nombre)
 
         return queryset.order_by('nombre')
-
-    def create(self, request, *args, **kwargs):
-        """
-        Crear un nuevo producto
-        """
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(
-            serializer.data,
-            status=status.HTTP_201_CREATED,
-            headers=headers
-        )
-
-    def update(self, request, *args, **kwargs):
-        """
-        Actualizar un producto existente (PUT)
-        """
-        partial = kwargs.pop('partial', False)
-        instance = self.get_object()
-        serializer = self.get_serializer(
-            instance, data=request.data, partial=partial)
-        serializer.is_valid(raise_exception=True)
-        self.perform_update(serializer)
-        return Response(serializer.data)
-
-    def destroy(self, request, *args, **kwargs):
-        """
-        Eliminar un producto
-        """
-        instance = self.get_object()
-        self.perform_destroy(instance)
-        return Response(
-            {"message": "Producto eliminado exitosamente"},
-            status=status.HTTP_204_NO_CONTENT
-        )
+    
 
     @action(detail=False, methods=['get'])
     def buscar(self, request):
