@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar-dashboard',
@@ -8,10 +9,17 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './navbar-dashboard.html',
   styleUrls: ['./navbar-dashboard.css']
 })
-export class NavbarDashboard {
+export class NavbarDashboard implements OnInit {
   activeSection: string = '/dashboard'; // sección inicial activa
+  esAdmin: boolean = false;
 
   constructor(private router: Router) {}
+
+  ngOnInit(): void {
+  const rol = localStorage.getItem('rol');
+  this.esAdmin = rol === 'adm';
+}
+
 
   changeSection(section: string) {
     // Garantiza que la sección siempre tenga barra inicial

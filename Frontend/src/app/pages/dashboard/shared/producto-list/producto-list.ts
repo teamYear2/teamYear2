@@ -19,6 +19,8 @@ export class ProductoList implements OnInit {
 
   productos: ProductoInventario[] = [];
   selectedProduct: ProductoInventario | null = null;
+  esAdmin: boolean = false;
+
 
   constructor(
     private router: Router,
@@ -29,6 +31,7 @@ export class ProductoList implements OnInit {
   ngOnInit(): void {
     const idInventario = localStorage.getItem('idInventario');
     const rol = localStorage.getItem('rol');
+    this.esAdmin = rol === 'adm';
     this.loadProductos(Number(idInventario));
   }
 

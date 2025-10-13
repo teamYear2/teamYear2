@@ -3,10 +3,8 @@
   <div class="d-flex flex-column flex-shrink-0 bg-dark text-white shadow vh-100 position-fixed top-0 start-0"
     id="sidebar">
 
-    <div class="border-bottom border-secondary p-3 d-flex align-items-center"
-      role="button"
-      [routerLink]="['/dashboard']"
-      style="cursor: pointer;">
+    <div class="border-bottom border-secondary p-3 d-flex align-items-center" role="button"
+      [routerLink]="['/dashboard']" style="cursor: pointer;">
       <i class="fas fa-boxes icon-sidebar fs-4 me-2"></i>
       <span class="fs-5 fw-bold">Inventario <span class="pro-sidebar">Pro</span></span>
     </div>
@@ -30,12 +28,14 @@
       </div>
 
       <!-- Categorías -->
+      @if (esAdmin) {
       <div class="px-3 py-2 d-flex align-items-center nav-item rounded cursor-pointer mb-1"
         [ngClass]="{'active bg-secondary bg-opacity-25': activeSection === '/dashboard/categoria-list'}"
         (click)="changeSection('/dashboard/categoria-list')" style="cursor: pointer;">
         <i class="fas fa-tags text-light me-2"></i>
         <span>Categorías</span>
       </div>
+      }
 
     </nav>
 
