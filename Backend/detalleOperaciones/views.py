@@ -1,7 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from django.db.models import Sum, Q
+from django.db.models import Sum, Q, Count
 from detalleOperaciones.models import DetalleOperaciones
 from detalleOperaciones.serializers import DetalleOperacionesSerializer
 
@@ -118,3 +118,45 @@ class DetalleOperacionesViewSet(viewsets.ModelViewSet):
 
         serializer = self.get_serializer(operaciones, many=True)
         return Response(serializer.data)
+    
+    @action(detail=False, methods=['get'])
+    def productos_mas_salida(self, request):
+        top = int(request.query_params.get('top', 10))
+        productos = (
+            DetalleOperaciones.objects
+            .filter(tipo_operacion='salida')
+            .values('producto_id', 'producto__nombre')
+            .annotate(total_salidas=Sum('cantidad'))
+            .order_by('-total_salidas')[:top]
+        )
+        return Response(list(productos))
+    
+    @action(detail=False, methods=['get'])
+    def productos_bajo_stock(self, request):
+        umbral = int(request.query_params.get('umbral', 5))
+        productos = (
+            DetalleOperaciones.objects
+            .values('producto_id', 'producto__nombre')
+            .annotate(
+                entradas=Sum('cantidad', filter=Q(tipo_operacion='entrada')),
+                salidas=Sum('cantidad', filter=Q(tipo_operacion='salida')),
+                stock=Sum('cantidad', filter=Q(tipo_operacion='entrada')) - Sum('cantidad', filter=Q(tipo_operacion='salida'))
+            )
+            .filter(stock__lte=umbral)
+            .order_by('stock')
+        )
+        return Response(list(productos))
+    
+    @action(detail=False, methods=['get'])
+    def frecuencia_pedido(self, request):
+        top = int(request.query_params.get('top', 10))
+        productos = (
+            DetalleOperaciones.objects
+            .filter(tipo_operacion='entrada')
+            .values('producto_id', 'producto__nombre')
+            .annotate(frecuencia=Count('idOperaciones'))
+            .order_by('-frecuencia')[:top]
+        )
+        return Response(list(productos))
+    
+    
