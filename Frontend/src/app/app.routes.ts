@@ -19,6 +19,7 @@ export const routes: Routes = [
       { path: 'categoria-list', component: CategoriaList },
       { path: 'producto-form', component: ProductoForm },
       { path: 'categoria-form', component: CategoriaForm },
+      { path: 'categoria-form', component: CategoriaForm },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },

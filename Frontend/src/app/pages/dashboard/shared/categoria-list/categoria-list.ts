@@ -21,15 +21,11 @@ export class CategoriaList implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
-    // Los datos se cargan desde el db.json
-    this.categoriaService.getCategorias().subscribe({
-      next: (data) => {
-        this.categories = data;
-      },
-      error: (err) => {
-        console.error('Error al cargar categorías', err);
-      }
+   ngOnInit(): void {
+    // 👇 AGREGAMOS ESTO TEMPORALMENTE
+    this.categoriaService.getCategorias().subscribe(data => {
+      console.log('Categorías recibidas desde el backend:', data);
+      this.categories = data;
     });
   }
 
