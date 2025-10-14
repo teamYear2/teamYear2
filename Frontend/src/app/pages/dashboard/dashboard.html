@@ -20,20 +20,20 @@
         <div class="row g-4 mb-4 gap-2">
           <!-- Columna izquierda -->
           <div class="col-12 col-xl-8 d-flex flex-column">
-            <app-inventario-movimiento class="mb-2"></app-inventario-movimiento>
-            <app-productos-mas-vendidos></app-productos-mas-vendidos>
+            <!-- <app-inventario-movimiento class="mb-2"></app-inventario-movimiento> -->
+            <!-- <app-productos-mas-vendidos></app-productos-mas-vendidos> -->
           </div>
 
           <!-- Columna derecha -->
           <div class="col-12 col-xl-3">
-            <app-productos-bajo-stock></app-productos-bajo-stock>
+            <!-- <app-productos-bajo-stock></app-productos-bajo-stock> -->
           </div>
         </div>
 
       </section>
       }
       <section>
-        @if(currentUrl === '/dashboard/producto-form') {
+        @if(currentUrl.startsWith('/dashboard/producto-form')) {
         <app-producto-form></app-producto-form>
         }
       </section>
@@ -50,6 +50,11 @@
       <section>
         @if(currentUrl === '/dashboard/categoria-list') {
         <app-categoria-list></app-categoria-list>
+        }
+      </section>
+      <section>
+        @if(currentUrl === '/dashboard/inventario-operaciones') {
+        <app-inventario-operaciones></app-inventario-operaciones>
         }
       </section>
     </div>

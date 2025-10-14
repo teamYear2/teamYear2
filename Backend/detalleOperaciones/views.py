@@ -7,10 +7,6 @@ from detalleOperaciones.serializers import DetalleOperacionesSerializer
 
 
 class DetalleOperacionesViewSet(viewsets.ModelViewSet):
-    """
-    ViewSet para el modelo DetalleOperaciones
-    Gestiona las operaciones de entrada y salida de productos
-    """
     queryset = DetalleOperaciones.objects.all()
     serializer_class = DetalleOperacionesSerializer
 
@@ -37,19 +33,6 @@ class DetalleOperacionesViewSet(viewsets.ModelViewSet):
 
         return queryset.order_by('-fecha')  # Más recientes primero
 
-    def create(self, request, *args, **kwargs):
-        """
-        Crear una nueva operación
-        """
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(
-            serializer.data,
-            status=status.HTTP_201_CREATED,
-            headers=headers
-        )
 
     @action(detail=False, methods=['get'])
     def historial_producto(self, request):
