@@ -9,7 +9,7 @@
         (click)="changeSection('dashboard/categoria-form')"
         class="btn btn-primary d-inline-flex align-items-center"
       >
-        <i class="fas fa-plus me-2"></i> Nueva (Formulario)
+        <i class="fas fa-plus me-2"></i> Nueva Categoria
       </a>
     </div>
   </div>
@@ -22,55 +22,63 @@
 
     <div class="list-group list-group-flush rounded shadow-sm">
       <!-- Lista de categorías -->
-      <div
-        *ngFor="let cat of categories; trackBy: trackById"
-        class="list-group-item list-group-item-action py-3"
-        (click)="selectCategory(cat)"
-        [ngClass]="{ 'bg-light shadow-sm': selectedCategoryId === cat.id }"
-        [attr.aria-selected]="selectedCategoryId === cat.id"
-        tabindex="0"
-      >
-        <div class="row align-items-center gx-3">
-          <!-- Izquierda: nombre y descripción -->
-          <div class="col-12 col-md-8">
-            <h5 class="mb-1 text-truncate"><i class="fas fa-tags me-1"></i>{{ cat.nombre }}</h5>
-            <p class="mb-0 text-muted small text-truncate-2">{{ cat.descripcion }}</p>
-          </div>
+      @for (cat of categories; track trackById($index, cat)) {
+        <div
+          class="list-group-item list-group-item-action py-3"
+          (click)="selectCategory(cat)"
+          [ngClass]="{ 'bg-light shadow-sm': selectedCategoryId === cat.id }"
+          [attr.aria-selected]="selectedCategoryId === cat.id"
+          tabindex="0"
+        >
+          <div class="row align-items-center gx-3">
+            <!-- Izquierda: nombre y descripción -->
+            <div class="col-12 col-md-8">
+              <h5 class="mb-1 text-truncate">
+                <i class="fas fa-tags me-1"></i>{{ cat.nombre }}
+              </h5>
+              <p class="mb-0 text-muted small text-truncate-2">
+                {{ cat.descripcion }}
+              </p>
+            </div>
 
-          <!-- Derecha: badge + acciones -->
-          <div
-            class="col-12 col-md-4 d-flex align-items-center justify-content-md-end gap-2 mt-2 mt-md-0"
-          >
-            <span class="badge bg-light text-primary rounded-pill">
-              {{ cat.productCount }} productos
-            </span>
+            <!-- Derecha: badge + acciones -->
+            <div
+              class="col-12 col-md-4 d-flex align-items-center justify-content-md-end gap-2 mt-2 mt-md-0"
+            >
+              <span class="badge bg-light text-primary rounded-pill">
+                {{ cat.productCount }} productos
+              </span>
 
-            <div class="btn-group" role="group" aria-label="Acciones categoría">
-              <button
-                (click)="editCategory(cat); $event.stopPropagation()"
-                class="btn btn-sm btn-outline-primary"
-                title="Editar"
-                aria-label="Editar categoría"
-              >
-                <i class="fas fa-edit"></i>
-              </button>
-              <button
-                (click)="deleteCategory(cat); $event.stopPropagation()"
-                class="btn btn-sm btn-outline-danger"
-                title="Eliminar"
-                aria-label="Eliminar categoría"
-              >
-                <i class="fas fa-trash"></i>
-              </button>
+              <div class="btn-group" role="group" aria-label="Acciones categoría">
+                <button
+                  (click)="editCategory(cat); $event.stopPropagation()"
+                  class="btn btn-sm btn-outline-primary"
+                  title="Editar"
+                  aria-label="Editar categoría"
+                >
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button
+                  (click)="deleteCategory(cat); $event.stopPropagation()"
+                  class="btn btn-sm btn-outline-danger"
+                  title="Eliminar"
+                  aria-label="Eliminar categoría"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      }
 
       <!-- Mensaje si no hay categorías -->
-      <div *ngIf="categories.length === 0" class="p-4 text-center text-muted">
-        No hay categorías aún.
-      </div>
+      @if (categories.length === 0) {
+        <div class="p-4 text-center text-muted">
+          No hay categorías aún.
+        </div>
+      }
     </div>
   </div>
 </section>
+
