@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { CategoriaService } from '../../../../service/categorias/categoria.service';
 import { Categoria } from '../../../../models/categoria.models';
 
-
 @Component({
   selector: 'app-categoria-list',
   standalone: true,
@@ -21,8 +20,7 @@ export class CategoriaList implements OnInit {
     private router: Router
   ) {}
 
-   ngOnInit(): void {
-    // 👇 AGREGAMOS ESTO TEMPORALMENTE
+  ngOnInit(): void {
     this.categoriaService.getCategorias().subscribe(data => {
       console.log('Categorías recibidas desde el backend:', data);
       this.categories = data;
@@ -33,15 +31,27 @@ export class CategoriaList implements OnInit {
     this.router.navigate([`/${section}`]);
   }
 
-  editCategory(cat: Categoria) {
-    this.router.navigate([`/dashboard/categoria-form`, cat.id]);
-  }
+ editCategory(cat: Categoria) {
+  console.log('✏️ Editar categoría con ID:', cat.id);
+  this.router.navigate([`/dashboard/categoria-form`, cat.id]);
+}
+
 
   deleteCategory(cat: Categoria) {
-    const ok = window.confirm(`¿Eliminar la categoría "${cat.nombre}"?`);
-    if (!ok) return;
-    this.categories = this.categories.filter(c => c.id !== cat.id);
-    if (this.selectedCategoryId === cat.id) this.selectedCategoryId = null;
+    const confirmar = confirm(`¿Eliminar la categoría "${cat.nombre}"?`);
+    if (!confirmar) return;
+
+    this.categoriaService.deleteCategoria(cat.id!).subscribe({
+      next: () => {
+        // Si se elimina correctamente del backend
+        this.categories = this.categories.filter(c => c.id !== cat.id);
+        alert(`Categoría "${cat.nombre}" eliminada correctamente`);
+      },
+      error: (err) => {
+        console.error('Error eliminando categoría:', err);
+        alert('❌ No se pudo eliminar la categoría');
+      }
+    });
   }
 
   selectCategory(cat: Categoria) {
@@ -52,3 +62,4 @@ export class CategoriaList implements OnInit {
     return item.id;
   }
 }
+
