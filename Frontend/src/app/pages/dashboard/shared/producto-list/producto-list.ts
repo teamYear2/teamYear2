@@ -32,12 +32,15 @@ export class ProductoList implements OnInit {
     const idInventario = localStorage.getItem('idInventario');
     const rol = localStorage.getItem('rol');
     this.esAdmin = rol === 'adm';
+    console.log(idInventario, rol)
     this.loadProductos(Number(idInventario));
   }
 
   loadProductos(inventarioActual:number): void {
     this.inventarioService.getContenidoInventario(inventarioActual).subscribe({
-      next: (data) => this.productos = data,
+      next: (data) => {this.productos = data;
+        console.log(data)
+      },
       error: (err) => console.error('Error cargando contenido del inventario:', err)
     });
   }
