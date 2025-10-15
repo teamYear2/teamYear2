@@ -21,8 +21,8 @@ export class Login implements AfterViewInit {
   cargando: boolean = false;
 
   constructor(
-    private fb: FormBuilder, 
-    private usuariosService: UsuariosService, 
+    private fb: FormBuilder,
+    private usuariosService: UsuariosService,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
@@ -35,7 +35,7 @@ export class Login implements AfterViewInit {
     if (this.loginForm.valid) {
       this.cargando = true;
       const loginData: LoginRequest = this.loginForm.value;
-      
+
       this.usuariosService.login(loginData).subscribe({
         next: (response) => {
           this.cargando = false;
@@ -43,7 +43,10 @@ export class Login implements AfterViewInit {
             this.mensajeToast = `¡Bienvenido ${response.usuario?.nombre} ${response.usuario?.apellido || 'Usuario'}!`;
             this.tipoToast = 'success';
             this.mostrarToast = true;
-            
+
+            localStorage.setItem('idInventario', response.usuario?.idInventario?.toString() || '');
+            localStorage.setItem('rol', response.usuario?.referido?.trim() ? 'ref' : 'adm');
+
             // Redirigir al dashboard después de 1 segundo
             setTimeout(() => {
               this.router.navigate(['/dashboard']);

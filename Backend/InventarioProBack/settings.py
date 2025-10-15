@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'productos',
     'inventarios',
     'detalleOperaciones',
-    'usuarios',  
+    'usuarios',
+    'categorias',  
 ]
 
 MIDDLEWARE = [
@@ -144,6 +145,6 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
         'rest_framework.renderers.JSONRenderer',
     ],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': None,
     'PAGE_SIZE': 100
 }
