@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CategoriaService } from '../../../../service/categorias/categoria.service';
 import { Categoria } from '../../../../models/categoria.models';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-categoria-form',
-  imports: [ReactiveFormsModule],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './categoria-form.html',
   styleUrls: ['./categoria-form.css']
 })
+
 export class CategoriaForm implements OnInit {
   categoriaForm: FormGroup;
   idCategoria: number | null = null;
@@ -20,6 +24,7 @@ export class CategoriaForm implements OnInit {
     private location: Location,
     private fb: FormBuilder,
     private router: Router,
+    private route: ActivatedRoute, // 👈 agregado
     private categoriaService: CategoriaService
   ) {
     this.categoriaForm = this.fb.group({
@@ -28,25 +33,52 @@ export class CategoriaForm implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    const url = this.router.url;
-    const idMatch = url.match(/categoria-form\/(\d+)/);
-    const id = idMatch ? Number(idMatch[1]) : null;
-    this.idCategoria = id;
+ngOnInit(): void {
+  console.log('🟢 CategoriaForm iniciado');
 
-    if (id !== null) {
-      // 🔄 Editar categoría existente
-      this.categoriaService.getCategoria(id).subscribe({
+  this.route.paramMap.subscribe(params => {
+    const id = params.get('id');
+    console.log('📦 ID recibido:', id); // 👈 importante para debug
+
+    if (id) {
+      this.idCategoria = Number(id);
+      console.log('📤 Cargando categoría con ID:', this.idCategoria);
+
+      this.categoriaService.getCategoria(this.idCategoria).subscribe({
         next: (categoria) => {
+          console.log('✅ Categoría recibida:', categoria);
           this.categoriaForm.patchValue({
             nombre: categoria.nombre ?? '',
             descripcion: categoria.descripcion ?? ''
           });
         },
-        error: (err) => this.mostrarAlerta('danger', 'Error cargando categoría: ' + err.message)
+        error: (err) =>
+          this.mostrarAlerta('danger', 'Error cargando categoría: ' + err.message)
       });
     }
-  }
+  });
+}
+
+
+
+private cargarCategoria(id: number): void {
+  console.log('📤 Cargando categoría con ID:', id); // 👈
+  this.categoriaService.getCategoria(id).subscribe({
+    next: (categoria) => {
+      console.log('✅ Categoría recibida:', categoria); // 👈
+      this.categoriaForm.patchValue({
+        nombre: categoria.nombre ?? '',
+        descripcion: categoria.descripcion ?? ''
+      });
+    },
+    error: (err) =>
+      this.mostrarAlerta('danger', 'Error cargando categoría: ' + err.message)
+  });
+}
+
+
+
+  
 
   onSubmit(): void {
     if (this.categoriaForm.invalid) {
@@ -58,8 +90,7 @@ export class CategoriaForm implements OnInit {
 
     if (this.idCategoria) {
       // 🟡 Editar categoría existente
-      const categoriaEditada = { ...categoria, id: this.idCategoria };
-      this.categoriaService.updateCategoria(this.idCategoria, categoriaEditada).subscribe({
+      this.categoriaService.updateCategoria(this.idCategoria, categoria).subscribe({
         next: () => {
           this.mostrarAlerta('success', 'Categoría actualizada correctamente', () => this.goBack());
           this.categoriaForm.reset();
@@ -90,4 +121,3 @@ export class CategoriaForm implements OnInit {
     }, 3000);
   }
 }
-

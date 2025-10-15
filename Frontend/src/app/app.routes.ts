@@ -21,6 +21,7 @@ export const routes: Routes = [
       { path: 'producto-form', component: ProductoForm },
       { path: 'producto-form/:id', component: ProductoForm },
       { path: 'categoria-form', component: CategoriaForm },
+      { path: 'categoria-form/:id', component: CategoriaForm },
       { path: 'inventario-operaciones', component: InventarioOperaciones },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
