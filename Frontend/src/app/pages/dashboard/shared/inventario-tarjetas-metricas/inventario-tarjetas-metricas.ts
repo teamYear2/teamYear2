@@ -25,9 +25,9 @@ export class InventarioTarjetasMetricas implements OnInit {
       next: (data) => {
         this.productos = data;
         this.total = data.length;
-        this.disponibles = data.filter(producto => producto.estado === 'Disponible').length;
-        this.bajoStock = data.filter(producto => producto.stock <= 10 && producto.stock > 0).length;
-        this.agotados = data.filter(producto => producto.estado === 'Agotado' || producto.stock === 0).length;
+        // this.disponibles = data.filter(producto => producto.estado === 'Disponible').length;
+        // this.bajoStock = data.filter(producto => producto.stock <= 10 && producto.stock > 0).length;
+        // this.agotados = data.filter(producto => producto.estado === 'Agotado' || producto.stock === 0).length;
       },
       error: (err) => console.error('Error cargando productos:', err)
     });
