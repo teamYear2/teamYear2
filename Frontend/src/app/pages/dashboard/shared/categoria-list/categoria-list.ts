@@ -32,7 +32,7 @@ export class CategoriaList implements OnInit {
   }
 
  editCategory(cat: Categoria) {
-  console.log('✏️ Editar categoría con ID:', cat.id);
+  console.log('Editar categoría con ID:', cat.id);
   this.router.navigate([`/dashboard/categoria-form`, cat.id]);
 }
 
@@ -49,7 +49,7 @@ export class CategoriaList implements OnInit {
       },
       error: (err) => {
         console.error('Error eliminando categoría:', err);
-        alert('❌ No se pudo eliminar la categoría');
+        alert('No se pudo eliminar la categoría');
       }
     });
   }
