@@ -33,8 +33,8 @@ Este sistema tiene como propósito:
    cd Backend
    pip install -r requirements.txt
    ```
-   > [!WARNING]
-   > **No ejecutes este comando sin tener activo el entorno virtual.**
+[!WARNING]
+**No ejecutes este comando sin tener activo el entorno virtual.**
 
 
 ### **🔧 Ejecución en Desarrollo**
