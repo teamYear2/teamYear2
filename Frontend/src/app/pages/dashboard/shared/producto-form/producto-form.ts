@@ -3,6 +3,8 @@ import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductoService } from '../../../../service/producto/producto.service';
+import { CategoriaService } from '../../../../service/categorias/categoria.service';
+import { Categoria } from '../../../../models/categoria.models';
 
 @Component({
   selector: 'app-producto-form',
@@ -14,16 +16,17 @@ export class ProductoForm {
   productoForm: FormGroup;
 
   constructor(private location: Location, private fb: FormBuilder, private router: Router,
-    private productoService: ProductoService) {
+    private productoService: ProductoService, private categoriaService: CategoriaService) {
     this.productoForm = this.fb.group({
       codigo: ['', Validators.required],
       nombre: ['', Validators.required],
-      categoria: [''],
+      categoria: ['', Validators.required],
       descripcion: ['']
     });
   }
 
   idProducto: number | null = null;
+  categorias: Categoria[] = [];
 
 
   ngOnInit(): void {
@@ -40,13 +43,26 @@ export class ProductoForm {
           this.productoForm.patchValue({
             codigo: producto.codigo ?? '',
             nombre: producto.nombre ?? '',
-            categoria: producto.categoria ?? 'Sin categoría',
+            categoria: producto.categoria,
             descripcion: producto.descripcion ?? ''
           });
         },
         error: (err) => console.error('Error cargando producto:', err)
       });
     }
+
+    this.cargarProductos()
+  }
+
+  cargarProductos(): void {
+    this.categoriaService.getCategorias().subscribe({
+      next: (data) => {
+        console.log('Categorias:', data);
+        this.categorias = data;
+        console.log(this.categorias);
+      },
+      error: (err) => console.error('Error al cargar productos', err),
+    });
   }
 
 
@@ -57,7 +73,7 @@ export class ProductoForm {
     }
 
     const producto = this.productoForm.value;
-
+    console.log(this.productoForm.value)
     if (this.idProducto) {
       // Editar producto existente
       const productoEditado = { ...producto, id: this.idProducto };
@@ -73,9 +89,7 @@ export class ProductoForm {
       });
     } else {
       // Crear nuevo producto
-      if (!producto.categoria || producto.categoria.trim() === '') {
-        delete producto.categoria;
-      }
+    
 
       console.log('Objeto limpio para crear:', producto);
 
@@ -83,7 +97,7 @@ export class ProductoForm {
       this.productoService.createProducto(producto).subscribe({
         next: () => {
           this.mostrarAlerta('success', 'Producto creado correctamente', () => {
-            
+
           });
           console.log('Producto creado correctamente');
           this.productoForm.reset();

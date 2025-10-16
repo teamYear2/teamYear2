@@ -51,7 +51,9 @@ def contenido_inventario(request, idInventario):
             'producto__idProducto',
             'producto__nombre',
             'producto__codigo',
-            'producto__descripcion'
+            'producto__descripcion',
+            'producto__categoria__idCategoria',
+            'producto__categoria__nombre'
         ).annotate(
             entradas=Sum(
                 Case(

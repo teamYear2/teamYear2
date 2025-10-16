@@ -26,14 +26,16 @@
               <input type="text" class="form-control" id="nombre" formControlName="nombre">
             </div>
             <div class="mb-3">
-              <label for="categoria" class="form-label">Categoría</label>
-              <select class="form-select" id="categoria" formControlName="categoria">
-                <option value="">Seleccionar categoría</option>
-                <option value="Periféricos">Periféricos</option>
-                <option value="Monitores">Monitores</option>
-                <option value="Almacenamiento">Almacenamiento</option>
-              </select>
-            </div>
+                            <label for="categoria" class="form-label">Categoria</label>
+                            <select formControlName="categoria" id="categoria" class="form-select" required>
+                                <option value="" disabled selected>Seleccionar categoria</option>
+                                @for (p of categorias; track p.id) {
+                                <option [value]="p.id">
+                                    {{ p.nombre }}
+                                </option>
+                                }
+                            </select>
+                        </div>
 
             <div class="mb-3">
               <label for="descripcion" class="form-label">Descripción</label>

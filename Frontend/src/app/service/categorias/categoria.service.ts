@@ -12,27 +12,27 @@ export class CategoriaService {
 
   constructor(private http: HttpClient) {}
 
-  // 🟢 Listar todas las categorías
+  // Listar todas las categorías
   getCategorias(): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(this.apiUrl);
   }
 
-  // 🟢 Obtener una categoría por ID
+  // Obtener una categoría por ID
   getCategoria(id: number): Observable<Categoria> {
     return this.http.get<Categoria>(`${this.apiUrl}${id}/`);
   }
 
-  // 🟢 Crear nueva categoría
+  // Crear nueva categoría
   createCategoria(categoria: Categoria): Observable<Categoria> {
     return this.http.post<Categoria>(this.apiUrl, categoria);
   }
 
-  // 🟡 Editar categoría existente
+  // Editar categoría existente
   updateCategoria(id: number, categoria: Categoria): Observable<Categoria> {
     return this.http.put<Categoria>(`${this.apiUrl}${id}/`, categoria);
   }
 
-  // 🔴 Eliminar categoría
+  // Eliminar categoría
   deleteCategoria(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}${id}/`);
   }

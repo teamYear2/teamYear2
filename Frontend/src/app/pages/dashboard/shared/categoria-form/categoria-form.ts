@@ -24,7 +24,7 @@ export class CategoriaForm implements OnInit {
     private location: Location,
     private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute, // 👈 agregado
+    private route: ActivatedRoute, // agregado
     private categoriaService: CategoriaService
   ) {
     this.categoriaForm = this.fb.group({
@@ -33,20 +33,29 @@ export class CategoriaForm implements OnInit {
     });
   }
 
+
+
+    
+
+idCategoriaEdit: number | null = null;
 ngOnInit(): void {
-  console.log('🟢 CategoriaForm iniciado');
+
+  const url = this.router.url;
+    const idMatch = url.match(/categoria-form\/(\d+)/);
+    const id = idMatch ? Number(idMatch[1]) : null;
+    this.idCategoriaEdit = id;
+    console.log('ID recibido:', id);
 
   this.route.paramMap.subscribe(params => {
     const id = params.get('id');
-    console.log('📦 ID recibido:', id); // 👈 importante para debug
+    console.log('ID recibido:', id); // importante para debug
 
-    if (id) {
-      this.idCategoria = Number(id);
-      console.log('📤 Cargando categoría con ID:', this.idCategoria);
+    if (this.idCategoriaEdit) {
+      this.idCategoria = Number(this.idCategoriaEdit);
 
       this.categoriaService.getCategoria(this.idCategoria).subscribe({
         next: (categoria) => {
-          console.log('✅ Categoría recibida:', categoria);
+          console.log('Categoría recibida:', categoria);
           this.categoriaForm.patchValue({
             nombre: categoria.nombre ?? '',
             descripcion: categoria.descripcion ?? ''
@@ -62,10 +71,10 @@ ngOnInit(): void {
 
 
 private cargarCategoria(id: number): void {
-  console.log('📤 Cargando categoría con ID:', id); // 👈
+  console.log('Cargando categoría con ID:', id); 
   this.categoriaService.getCategoria(id).subscribe({
     next: (categoria) => {
-      console.log('✅ Categoría recibida:', categoria); // 👈
+      console.log('Categoría recibida:', categoria); 
       this.categoriaForm.patchValue({
         nombre: categoria.nombre ?? '',
         descripcion: categoria.descripcion ?? ''
@@ -89,7 +98,7 @@ private cargarCategoria(id: number): void {
     const categoria = this.categoriaForm.value;
 
     if (this.idCategoria) {
-      // 🟡 Editar categoría existente
+      // Editar categoría existente
       this.categoriaService.updateCategoria(this.idCategoria, categoria).subscribe({
         next: () => {
           this.mostrarAlerta('success', 'Categoría actualizada correctamente', () => this.goBack());
@@ -98,7 +107,7 @@ private cargarCategoria(id: number): void {
         error: (err) => this.mostrarAlerta('danger', 'Error actualizando: ' + err.message)
       });
     } else {
-      // 🟢 Crear nueva categoría
+      // Crear nueva categoría
       this.categoriaService.createCategoria(categoria).subscribe({
         next: () => {
           this.mostrarAlerta('success', 'Categoría creada correctamente', () => this.goBack());
