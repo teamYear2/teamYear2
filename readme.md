@@ -28,6 +28,14 @@ Este sistema tiene como propósito:
    ```bash
    npm install
    ```
+3. **Instalar requisitos:**
+   ```bash
+   cd Backend
+   pip install -r requirements.txt
+   ```
+   > [!WARNING]
+   > **No ejecutes este comando sin tener activo el entorno virtual.**
+
 
 ### **🔧 Ejecución en Desarrollo**
 
@@ -46,10 +54,10 @@ python manage.py runserver
 #### **Terminal 2 - Frontend (Angular):**
 ```bash
 cd Frontend
-npm start
+ng serve -o
 ```
 - ✅ Inicia Angular en puerto **4200**
-- ✅ Abre automáticamente http://localhost:4200
+- ✅ Abre automáticamente el navegador en la dirección http://localhost:4200
 
 ### **🔐 Credenciales de Prueba**
 Para probar el sistema de login:
@@ -61,15 +69,16 @@ Para probar el sistema de login:
 Una vez iniciado Django, están disponibles:
 - **Productos:** http://localhost:8000/api/productos/
 - **Inventarios:** http://localhost:8000/api/inventarios/
-- **Operaciones:** http://localhost:8000/api/detalleoperaciones/
+- **Operaciones:** http://localhost:8000/api/detalle-operaciones/
 - **Admin Panel:** http://localhost:8000/admin/
 
 ## �📊 Métricas
 
 El sistema permitirá medir y analizar:
-- Niveles de stock bajo.
-- Productos más utilizados.
-- Frecuencia de pedidos de reposición.
+- Total de Productos.
+- Productos Disponibles.
+- Productos bajos de stock.
+- Productos Agotados.
 
 ## 👥 Equipo Responsable teamYear2 📦
  **Integrantes:**
