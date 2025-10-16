@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovimientoService } from '../../../../service/movimiento/movimiento.service';
-
-interface ProductoVendido {
-  producto_id: number;
-  producto__nombre: string;
-  total_salidas: number;
-}
+import { ProductoVendido } from '../../../../models/inventario.model';
 
 @Component({
   selector: 'app-productos-mas-vendidos',

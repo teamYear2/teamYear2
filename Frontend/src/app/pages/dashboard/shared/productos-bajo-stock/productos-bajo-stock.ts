@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MovimientoService } from '../../../../service/movimiento/movimiento.service';
-
-interface ProductoBajoStock {
-  producto_id: number;
-  producto__nombre: string;
-  entradas: number;
-  salidas: number;
-  stock: number;
-}
+import { ProductoStock } from '../../../../models/inventario.model';
 
 @Component({
   selector: 'app-productos-bajo-stock',
@@ -19,7 +12,7 @@ interface ProductoBajoStock {
 })
 export class ProductosBajoStock implements OnInit {
 
-  productos: ProductoBajoStock[] = [];
+  productos: ProductoStock[] = [];
   threshold: number = 10; // stock mínimo para considerar bajo
 
   constructor(private movimientoService: MovimientoService) {}
@@ -33,7 +26,7 @@ export class ProductosBajoStock implements OnInit {
     this.movimientoService.getMovimientos().subscribe({
       next: (movimientos: any[]) => {
         // Agrupar por producto y calcular stock
-        const productosMap = new Map<number, ProductoBajoStock>();
+        const productosMap = new Map<number, ProductoStock>();
         
         movimientos.forEach(mov => {
           const productoId = mov.producto.idProducto;
@@ -52,12 +45,12 @@ export class ProductosBajoStock implements OnInit {
           const producto = productosMap.get(productoId)!;
           
           if (mov.tipo_operacion === 'entrada') {
-            producto.entradas += mov.cantidad;
+            producto.entradas! += mov.cantidad;
           } else if (mov.tipo_operacion === 'salida') {
-            producto.salidas += mov.cantidad;
+            producto.salidas! += mov.cantidad;
           }
           
-          producto.stock = producto.entradas - producto.salidas;
+          producto.stock = producto.entradas! - producto.salidas!;
         });
         
         // Filtrar productos con stock bajo el umbral y ordenar por stock

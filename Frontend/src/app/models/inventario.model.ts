@@ -25,3 +25,9 @@ export interface ProductoStock {
     entradas?: number;
     salidas?: number;
 }
+
+export interface ProductoVendido {
+    producto_id: number;
+    producto__nombre: string;
+    total_salidas: number;
+}
