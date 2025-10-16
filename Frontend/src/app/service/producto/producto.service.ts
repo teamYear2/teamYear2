@@ -8,7 +8,7 @@ import { Producto } from '../../models/producto.model';
 })
 export class ProductoService {
 
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://127.0.0.1:8000/';
 
   constructor(private http: HttpClient) { }
 
@@ -16,40 +16,27 @@ export class ProductoService {
 
   // Obtener todos los productos
   getProductos(): Observable<Producto[]> {
-    return this.http.get<Producto[]>(`${this.apiUrl}/Productos`);
+    return this.http.get<Producto[]>(`${this.apiUrl}/api/productos/`);
   }
 
   // Obtener producto por ID
   getProductoPorId(id: number): Observable<Producto> {
-    return this.http.get<Producto>(`${this.apiUrl}/Productos/${id}`);
+    return this.http.get<Producto>(`${this.apiUrl}/api/productos/${id}`);
   }
 
   // Crear un producto
   createProducto(producto: Producto): Observable<Producto> {
-    return this.http.post<Producto>(`${this.apiUrl}/Productos`, producto);
+    return this.http.post<Producto>(`${this.apiUrl}/api/productos/`, producto);
   }
 
   // Editar un producto
   updateProducto(producto: Producto): Observable<Producto> {
-    return this.http.put<Producto>(`${this.apiUrl}/Productos/${producto.id}`, producto);
+    return this.http.put<Producto>(`${this.apiUrl}/api/productos/${producto.id}/`, producto);
   }
 
   // Eliminar un producto
   deleteProducto(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/Productos/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/api/productos/${id}/`);
   }
 
-  // Productos más vendidos (ordenados por unidadesVendidas desc)
-  getMasVendidos(): Observable<Producto[]> {
-    return this.getProductos().pipe(
-      map(products => products.sort((a, b) => b.unidadesVendidas - a.unidadesVendidas))
-    );
-  }
-
-  // Productos con stock bajo (threshold = 10 por defecto)
-  getBajoStock(threshold: number = 10): Observable<Producto[]> {
-    return this.getProductos().pipe(
-      map(products => products.filter(p => p.stock <= threshold))
-    );
-  }
 }  

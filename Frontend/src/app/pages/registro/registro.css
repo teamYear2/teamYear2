@@ -27,10 +27,6 @@ input#reg-confirm-password.ng-invalid.ng-touched {
         margin-top: 20px;
     }
 
-    .card h2 {
-        font-size: 1.8em;
-    }
-
     .card p:nth-of-type(1) {
         font-size: 0.9em;
         margin-bottom: 20px;

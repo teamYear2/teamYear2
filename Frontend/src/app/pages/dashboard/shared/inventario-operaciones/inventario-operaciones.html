@@ -1,0 +1,68 @@
+<!-- Sección de movimientos -->
+<section id="movimientos-section" class="container-fluid">
+    <div class="row justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="bg-white rounded-3 shadow-sm overflow-hidden">
+                <!-- Cabecera -->
+                <div class="card-header bg-primary p-0">
+                    <a (click)="goBack()" class="btn btn-primary w-100 rounded-0">
+                        <i class="fas fa-arrow-left"></i> Volver
+                    </a>
+                </div>
+
+                <div class="p-4 border-bottom d-flex align-items-center justify-content-between">
+                    <h3 class="mb-0">Nuevo movimiento de inventario</h3>
+                </div>
+
+                @if (alerta; as a) {
+                <div class="alert alert-{{ a.tipo }} alert-dismissible fade show" role="alert">
+                    {{ a.mensaje }}
+                    <button type="button" class="btn-close" (click)="alerta = null" aria-label="Cerrar"></button>
+                </div>
+                }
+
+                <!-- Formulario -->
+                <form [formGroup]="movimientoForm" (ngSubmit)="registrarMovimiento()" class="p-4">
+                    <div class="row gy-3">
+                        <!-- Producto -->
+                        <div class="col-12">
+                            <label for="productoId" class="form-label">Producto</label>
+                            <select formControlName="productoId" id="productoId" class="form-select" required>
+                                <option value="" disabled selected>Seleccionar producto</option>
+                                @for (p of productos; track p.id) {
+                                <option [value]="p.id">
+                                    {{ p.nombre }} {{ p.codigo }}
+                                </option>
+                                }
+                            </select>
+                        </div>
+
+                        <!-- Cantidad -->
+                        <div class="col-12 col-md-6">
+                            <label for="cantidad" class="form-label">Cantidad</label>
+                            <input type="number" formControlName="cantidad" id="cantidad" class="form-control" min="1"
+                                required />
+                        </div>
+
+                        <!-- Tipo de operación -->
+                        <div class="col-12 col-md-6">
+                            <label for="tipo" class="form-label">Tipo de operación</label>
+                            <select formControlName="tipo" id="tipo" class="form-select" required>
+                                <option value="" disabled selected>Seleccionar tipo</option>
+                                <option value="entrada">Entrada</option>
+                                <option value="salida">Salida</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Botón de envío -->
+                    <div class="mt-4 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-arrow-right me-2"></i> Registrar Movimiento
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
