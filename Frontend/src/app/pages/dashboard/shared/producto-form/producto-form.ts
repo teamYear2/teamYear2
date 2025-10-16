@@ -72,8 +72,17 @@ export class ProductoForm {
       return;
     }
 
-    const producto = this.productoForm.value;
     console.log(this.productoForm.value)
+
+    const formValue = this.productoForm.value;
+
+    // ⚙️ Transformamos la categoría para que solo envíe su id
+    const producto = {
+      ...formValue,
+      categoria: formValue.categoria?.idCategoria
+        ? Number(formValue.categoria.idCategoria)
+        : null
+    };
     if (this.idProducto) {
       // Editar producto existente
       const productoEditado = { ...producto, id: this.idProducto };
@@ -89,7 +98,7 @@ export class ProductoForm {
       });
     } else {
       // Crear nuevo producto
-    
+
 
       console.log('Objeto limpio para crear:', producto);
 
