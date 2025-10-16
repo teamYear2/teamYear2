@@ -2,7 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../service/auth/auth.service';
+import { UsuariosService } from '../../service/usuarios/usuarios.service';
 import { LoginRequest } from '../../models/usuario.model';
 
 declare var bootstrap: any;
@@ -21,8 +21,8 @@ export class Login implements AfterViewInit {
   cargando: boolean = false;
 
   constructor(
-    private fb: FormBuilder, 
-    private authService: AuthService, 
+    private fb: FormBuilder,
+    private usuariosService: UsuariosService,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
@@ -35,15 +35,18 @@ export class Login implements AfterViewInit {
     if (this.loginForm.valid) {
       this.cargando = true;
       const loginData: LoginRequest = this.loginForm.value;
-      
-      this.authService.login(loginData).subscribe({
+
+      this.usuariosService.login(loginData).subscribe({
         next: (response) => {
           this.cargando = false;
           if (response.success) {
-            this.mensajeToast = `¡Bienvenido ${response.usuario?.nombreCompleto || 'Usuario'}!`;
+            this.mensajeToast = `¡Bienvenido ${response.usuario?.nombre} ${response.usuario?.apellido || 'Usuario'}!`;
             this.tipoToast = 'success';
             this.mostrarToast = true;
-            
+
+            localStorage.setItem('idInventario', response.usuario?.idInventario?.toString() || '');
+            localStorage.setItem('rol', response.usuario?.referido?.trim() ? 'ref' : 'adm');
+
             // Redirigir al dashboard después de 1 segundo
             setTimeout(() => {
               this.router.navigate(['/dashboard']);

@@ -1,18 +1,34 @@
 export interface Usuario {
-  id?: number;           // ID único del usuario en la BD 
-  nombreCompleto: string; 
-  correo: string;       
-  contrasena: string;   
+  dni: number;           
+  idInventario: number;  
+  nombre: string;        
+  apellido: string;      
+  email: string;         
+  telefono?: number;    
+  contrasena: string;    
+  referido?: string;     
 }
 
 export interface LoginRequest {
-  email: string;    // Email ingresado en el formulario de acceso
-  password: string; // Contraseña ingresada en el formulario 
+  email: string;    
+  password: string; 
+}
+
+export interface RegistroRequest {
+  dni: number;
+  idInventario: number;
+  nombre: string;
+  apellido: string;
+  email: string;
+  telefono?: number;
+  contrasena: string;
+  confirmar_contrasena: string;
+  referido?: string;
 }
 
 export interface LoginResponse {
   success: boolean;   // Indica si el acceso fue exitoso o falló
-  usuario?: Usuario;  // Datos del usuario que accede (si success=true)
-  token?: string;     // Token de autenticación generado si success=true (por ahora simulado)
-  message?: string;   // Mensaje de resultado (error o éxito)
+  usuario?: Usuario;  
+  token?: string;     // Token de autenticación generado si success=true - por ahora es simulado
+  message?: string;   
 }

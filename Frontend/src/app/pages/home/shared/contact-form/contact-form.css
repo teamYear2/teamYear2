@@ -1,0 +1,19 @@
+.contact-section {
+  background-color: #EFE4D2;
+  padding: 3rem 1rem;
+  border-radius: 12px;
+}
+
+.contact-section h2 {
+  color: #131D4F;
+}
+
+.btn-primary {
+  background-color: #254D70;
+  border-color: #131D4F;
+}
+
+.btn-primary:hover {
+  background-color: #131D4F;
+  border-color: #254D70;
+}

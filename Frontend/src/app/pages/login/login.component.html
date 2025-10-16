@@ -1,4 +1,3 @@
-
 <main>
 	<div class="formulario-contenedor">
 		<div class="card p-4 shadow" style="max-width: 400px;">
@@ -19,10 +18,16 @@
 						placeholder="Correo electrónico">
 					
 					<!-- Error de email -->
-					<div class="invalid-feedback" *ngIf="email?.invalid && email?.touched">
-						<div *ngIf="email?.errors?.['required']">El correo electrónico es requerido</div>
-						<div *ngIf="email?.errors?.['email']">Ingrese un correo electrónico válido</div>
-					</div>
+					@if (email?.invalid && email?.touched) {
+						<div class="invalid-feedback">
+							@if (email?.errors?.['required']) {
+								<div>El correo electrónico es requerido</div>
+							}
+							@if (email?.errors?.['email']) {
+								<div>Ingrese un correo electrónico válido</div>
+							}
+						</div>
+					}
 				</div>
 				
 				<div class="mb-3">
@@ -37,17 +42,26 @@
 						placeholder="Contraseña">
 					
 					<!-- Error para password -->
-					<div class="invalid-feedback" *ngIf="password?.invalid && password?.touched">
-						<div *ngIf="password?.errors?.['required']">La contraseña es requerida</div>
-						<div *ngIf="password?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres</div>
-					</div>
+					@if (password?.invalid && password?.touched) {
+						<div class="invalid-feedback">
+							@if (password?.errors?.['required']) {
+								<div>La contraseña es requerida</div>
+							}
+							@if (password?.errors?.['minlength']) {
+								<div>La contraseña debe tener al menos 6 caracteres</div>
+							}
+						</div>
+					}
 				</div>
 				
+				<!-- Botón de carga -->
 				<button 
 					type="submit" 
 					class="btn btn-primary w-100 mt-3"
 					[disabled]="loginForm.invalid || cargando">
-					<span *ngIf="cargando" class="spinner-border spinner-border-sm me-2"></span>
+					@if (cargando) {
+						<span class="spinner-border spinner-border-sm me-2"></span>
+					}
 					{{ cargando ? 'Iniciando sesión...' : 'Ingresar' }}
 				</button>
 				

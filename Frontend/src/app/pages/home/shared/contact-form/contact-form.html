@@ -1,0 +1,41 @@
+<section class="contact-section">
+  <div class="container">
+    <h2 class="text-center mb-4">Contáctanos</h2>
+
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="needs-validation">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre y Apellido</label>
+        <input type="text" id="name" formControlName="name" class="form-control" placeholder="Nombre y Apellido">
+        @if (contactForm.get('nombre')?.touched && contactForm.get('nombre')?.invalid)
+        {
+        <div class="textError">El nombre es obligatorio.</div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" id="email" formControlName="email" class="form-control" placeholder="ejemplo@dominio.com">
+        @if (contactForm.get('correo')?.touched && contactForm.get('correo')?.hasError('required')) {
+        <div class="textError">El correo es obligatorio.</div>
+        }
+        @else if (contactForm.get('correo')?.hasError('email')) {
+        <div class="textError">El correo no tiene un formato válido.</div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label for="message" class="form-label">Mensaje</label>
+        <textarea id="message" formControlName="message" rows="4" class="form-control" placeholder="Escribe tu mensaje aquí...">
+        @if (contactForm.get('mensaje')?.touched && contactForm.get('mensaje')?.invalid)
+        {
+        <div class="textError">El mensaje es obligatorio (mínimo 10 caracteres).</div>
+        }
+        </textarea>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+    </form>
+  </div>
+</section>
