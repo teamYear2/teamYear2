@@ -43,7 +43,7 @@
         }
       </section>
       <section>
-        @if(currentUrl === '/dashboard/categoria-form') {
+        @if(currentUrl.startsWith('/dashboard/categoria-form')) {
         <app-categoria-form></app-categoria-form>
         }
       </section>

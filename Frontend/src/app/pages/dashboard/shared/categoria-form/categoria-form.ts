@@ -33,16 +33,25 @@ export class CategoriaForm implements OnInit {
     });
   }
 
+
+
+    
+
+idCategoriaEdit: number | null = null;
 ngOnInit(): void {
-  console.log('🟢 CategoriaForm iniciado');
+
+  const url = this.router.url;
+    const idMatch = url.match(/categoria-form\/(\d+)/);
+    const id = idMatch ? Number(idMatch[1]) : null;
+    this.idCategoriaEdit = id;
+    console.log('📦 ID recibido:', id);
 
   this.route.paramMap.subscribe(params => {
     const id = params.get('id');
     console.log('📦 ID recibido:', id); // 👈 importante para debug
 
-    if (id) {
-      this.idCategoria = Number(id);
-      console.log('📤 Cargando categoría con ID:', this.idCategoria);
+    if (this.idCategoriaEdit) {
+      this.idCategoria = Number(this.idCategoriaEdit);
 
       this.categoriaService.getCategoria(this.idCategoria).subscribe({
         next: (categoria) => {
