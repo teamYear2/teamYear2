@@ -2,16 +2,19 @@
 Script para poblar la base de datos con datos de prueba
 Ejecutar desde la carpeta Backend con: python poblar_datos.py
 """
-from decimal import Decimal
-from detalleOperaciones.models import DetalleOperaciones
-from inventarios.models import Inventario
+from categorias.models import Categoria
 from productos.models import Producto
+from inventarios.models import Inventario
+from detalleOperaciones.models import DetalleOperaciones
 import os
 import django
+from decimal import Decimal
 
 # Configurar Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'InventarioProBack.settings')
 django.setup()
+
+# Ahora sí importar los modelos
 
 
 def limpiar_datos():
@@ -20,51 +23,93 @@ def limpiar_datos():
     DetalleOperaciones.objects.all().delete()
     Producto.objects.all().delete()
     Inventario.objects.all().delete()
+    Categoria.objects.all().delete()
     print("✅ Datos eliminados")
 
 
-def crear_productos():
+def crear_categorias():
+    """Crear categorías de ejemplo"""
+    print("\n📁 Creando categorías...")
+
+    categorias_data = [
+        {"nombre": "Frutas y Verduras"},
+        {"nombre": "Lácteos"},
+        {"nombre": "Panadería"},
+        {"nombre": "Almacén"},
+        {"nombre": "Bebidas"},
+        {"nombre": "Fiambres"},
+    ]
+
+    categorias = []
+    for data in categorias_data:
+        categoria = Categoria.objects.create(**data)
+        categorias.append(categoria)
+        print(f"   ✓ {categoria.nombre}")
+
+    print(f"✅ {len(categorias)} categorías creadas")
+    return categorias
+
+
+def crear_productos(categorias):
     """Crear productos de ejemplo"""
     print("\n📦 Creando productos...")
 
+    # Asignar categorías
+    frutas = categorias[0]
+    lacteos = categorias[1]
+    panaderia = categorias[2]
+    almacen = categorias[3]
+    bebidas = categorias[4]
+    fiambres = categorias[5]
+
     productos_data = [
         {"codigo": "001", "nombre": "Manzana",
-            "descripcion": "Manzana roja fresca", "precio": Decimal("2.50")},
+            "descripcion": "Manzana roja fresca", "categoria": frutas},
         {"codigo": "002", "nombre": "Banana",
-            "descripcion": "Banana amarilla madura", "precio": Decimal("1.80")},
+            "descripcion": "Banana amarilla madura", "categoria": frutas},
         {"codigo": "003", "nombre": "Naranja",
-            "descripcion": "Naranja valenciana", "precio": Decimal("3.00")},
+            "descripcion": "Naranja valenciana", "categoria": frutas},
         {"codigo": "004", "nombre": "Leche",
-            "descripcion": "Leche entera 1L", "precio": Decimal("4.50")},
+            "descripcion": "Leche entera 1L", "categoria": lacteos},
         {"codigo": "005", "nombre": "Pan",
-            "descripcion": "Pan francés", "precio": Decimal("1.20")},
+            "descripcion": "Pan francés", "categoria": panaderia},
         {"codigo": "006", "nombre": "Arroz",
-            "descripcion": "Arroz blanco 1kg", "precio": Decimal("5.00")},
+            "descripcion": "Arroz blanco 1kg", "categoria": almacen},
         {"codigo": "007", "nombre": "Fideos",
-            "descripcion": "Fideos secos 500g", "precio": Decimal("3.50")},
+            "descripcion": "Fideos secos 500g", "categoria": almacen},
         {"codigo": "008", "nombre": "Aceite",
-            "descripcion": "Aceite de girasol 1L", "precio": Decimal("6.00")},
+            "descripcion": "Aceite de girasol 1L", "categoria": almacen},
         {"codigo": "009", "nombre": "Azúcar",
-            "descripcion": "Azúcar blanca 1kg", "precio": Decimal("2.80")},
+            "descripcion": "Azúcar blanca 1kg", "categoria": almacen},
         {"codigo": "010", "nombre": "Café",
-            "descripcion": "Café molido 250g", "precio": Decimal("8.00")},
+            "descripcion": "Café molido 250g", "categoria": bebidas},
         {"codigo": "011", "nombre": "Té",
-            "descripcion": "Té negro en saquitos", "precio": Decimal("3.20")},
+            "descripcion": "Té negro en saquitos", "categoria": bebidas},
         {"codigo": "012", "nombre": "Galletas",
-            "descripcion": "Galletas de agua", "precio": Decimal("2.00")},
+            "descripcion": "Galletas de agua", "categoria": panaderia},
         {"codigo": "013", "nombre": "Chocolate",
-            "descripcion": "Chocolate con leche 100g", "precio": Decimal("4.00")},
+            "descripcion": "Chocolate con leche 100g", "categoria": almacen},
         {"codigo": "014", "nombre": "Yogurt",
-            "descripcion": "Yogurt natural 1L", "precio": Decimal("3.80")},
+            "descripcion": "Yogurt natural 1L", "categoria": lacteos},
         {"codigo": "015", "nombre": "Queso",
-            "descripcion": "Queso cremoso 200g", "precio": Decimal("5.50")},
+            "descripcion": "Queso cremoso 200g", "categoria": lacteos},
+        {"codigo": "016", "nombre": "Manteca",
+            "descripcion": "Manteca sin sal 200g", "categoria": lacteos},
+        {"codigo": "017", "nombre": "Jamón",
+            "descripcion": "Jamón cocido 500g", "categoria": fiambres},
+        {"codigo": "018", "nombre": "Salchichas",
+            "descripcion": "Salchichas viena x12", "categoria": fiambres},
+        {"codigo": "019", "nombre": "Huevos",
+            "descripcion": "Huevos blancos x12", "categoria": lacteos},
+        {"codigo": "020", "nombre": "Agua Mineral",
+            "descripcion": "Agua mineral 2L", "categoria": bebidas},
     ]
 
     productos = []
     for data in productos_data:
         producto = Producto.objects.create(**data)
         productos.append(producto)
-        print(f"   ✓ {producto.nombre} - ${producto.precio}")
+        print(f"   ✓ {producto.nombre}")
 
     print(f"✅ {len(productos)} productos creados")
     return productos
@@ -96,11 +141,16 @@ def crear_operaciones(productos, inventarios):
     # Inventario Principal
     inventario_principal = inventarios[0]
 
-    # Entradas iniciales para todos los productos
+    # Entradas iniciales para todos los productos (con cantidades variadas)
     print("   📥 Creando entradas...")
     operaciones = []
+    entradas_cantidades = [
+        50, 45, 60, 40, 80, 55, 70, 50, 65, 35,  # Productos 1-10
+        40, 75, 55, 45, 50, 30, 40, 35, 60, 100  # Productos 11-20
+    ]
+
     for i, producto in enumerate(productos):
-        cantidad_entrada = 50 + (i * 10)  # Cantidades variadas
+        cantidad_entrada = entradas_cantidades[i]
         operacion = DetalleOperaciones.objects.create(
             inventario=inventario_principal,
             producto=producto,
@@ -111,17 +161,36 @@ def crear_operaciones(productos, inventarios):
         print(
             f"      ✓ Entrada: {producto.nombre} - {cantidad_entrada} unidades")
 
-    # Salidas para algunos productos
-    print("   📤 Creando salidas...")
+    # Salidas para crear productos MÁS VENDIDOS y con BAJO STOCK
+    print("   📤 Creando salidas (ventas)...")
+
+    # Productos más vendidos (muchas salidas)
     salidas_data = [
-        (productos[0], 20),  # Manzana
-        (productos[1], 15),  # Banana
-        (productos[3], 10),  # Leche
-        (productos[4], 30),  # Pan
-        (productos[6], 8),   # Fideos
-        (productos[9], 5),   # Café
-        (productos[11], 12),  # Galletas
-        (productos[13], 7),  # Yogurt
+        # Productos muy vendidos (top ventas)
+        (productos[4], 70),   # Pan - stock final: 10 (BAJO STOCK)
+        (productos[19], 95),  # Agua - stock final: 5 (BAJO STOCK)
+        (productos[3], 35),   # Leche - stock final: 5 (BAJO STOCK)
+        (productos[0], 45),   # Manzana - stock final: 5 (BAJO STOCK)
+        (productos[11], 70),  # Galletas - stock final: 5 (BAJO STOCK)
+
+        # Productos medianamente vendidos
+        (productos[1], 38),   # Banana - stock final: 7 (BAJO STOCK)
+        (productos[6], 62),   # Fideos - stock final: 8 (BAJO STOCK)
+        (productos[9], 28),   # Café - stock final: 7 (BAJO STOCK)
+        (productos[13], 37),  # Yogurt - stock final: 8 (BAJO STOCK)
+        (productos[2], 52),   # Naranja - stock final: 8 (BAJO STOCK)
+
+        # Productos poco vendidos
+        (productos[5], 30),   # Arroz - stock final: 25
+        (productos[7], 25),   # Aceite - stock final: 25
+        (productos[8], 35),   # Azúcar - stock final: 30
+        (productos[10], 20),  # Té - stock final: 20
+        (productos[12], 30),  # Chocolate - stock final: 25
+        (productos[14], 25),  # Queso - stock final: 25
+        (productos[15], 15),  # Manteca - stock final: 15
+        (productos[16], 20),  # Jamón - stock final: 20
+        (productos[17], 18),  # Salchichas - stock final: 17
+        (productos[18], 40),  # Huevos - stock final: 20
     ]
 
     for producto, cantidad in salidas_data:
@@ -134,7 +203,7 @@ def crear_operaciones(productos, inventarios):
         operaciones.append(operacion)
         print(f"      ✓ Salida: {producto.nombre} - {cantidad} unidades")
 
-    # Inventario Secundario
+    # Inventario Secundario (opcional)
     if len(inventarios) > 1:
         inventario_secundario = inventarios[1]
         print("   📥 Creando entradas para inventario secundario...")
@@ -193,7 +262,8 @@ def main():
     limpiar_datos()
 
     # Crear datos
-    productos = crear_productos()
+    categorias = crear_categorias()
+    productos = crear_productos(categorias)
     inventarios = crear_inventarios()
     operaciones = crear_operaciones(productos, inventarios)
 

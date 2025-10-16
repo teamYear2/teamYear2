@@ -1,45 +1,83 @@
-// import { Component, OnInit } from '@angular/core';
-// import { Producto } from '../../../../models/producto.model';
-// import { ProductoService } from '../../../../service/producto/producto.service';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MovimientoService } from '../../../../service/movimiento/movimiento.service';
 
-// @Component({
-//   selector: 'app-productos-bajo-stock',
-//   templateUrl: './productos-bajo-stock.html',
-//   styleUrls: ['./productos-bajo-stock.css']
-// })
-// export class ProductosBajoStock implements OnInit {
+interface ProductoBajoStock {
+  producto_id: number;
+  producto__nombre: string;
+  entradas: number;
+  salidas: number;
+  stock: number;
+}
 
-//   productos: Producto[] = [];
-//   threshold: number = 10; // stock mínimo para considerar bajo
+@Component({
+  selector: 'app-productos-bajo-stock',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './productos-bajo-stock.html',
+  styleUrls: ['./productos-bajo-stock.css']
+})
+export class ProductosBajoStock implements OnInit {
 
-//   constructor(private productoService: ProductoService) {}
+  productos: ProductoBajoStock[] = [];
+  threshold: number = 10; // stock mínimo para considerar bajo
 
-//   ngOnInit(): void {
-//     this.loadProductosBajoStock();
-//   }
+  constructor(private movimientoService: MovimientoService) {}
 
-//   loadProductosBajoStock(): void {
-//     this.productoService.getBajoStock(this.threshold).subscribe({
-//       next: (data) => this.productos = data,
-//       error: (err) => console.error('Error cargando productos bajo stock:', err)
-//     });
-//   }
+  ngOnInit(): void {
+    this.loadProductosBajoStock();
+  }
 
-//   // Método opcional para mostrar un color según el stock
-//   getColor(producto: Producto): string {
-//     if (producto.stock === 0) return 'danger';
-//     if (producto.stock <= 5) return 'warning';
-//     return 'success';
-//   }
+  loadProductosBajoStock(): void {
+    // Obtenemos todos los movimientos y calculamos el stock en el frontend
+    this.movimientoService.getMovimientos().subscribe({
+      next: (movimientos: any[]) => {
+        // Agrupar por producto y calcular stock
+        const productosMap = new Map<number, ProductoBajoStock>();
+        
+        movimientos.forEach(mov => {
+          const productoId = mov.producto.idProducto;
+          const productoNombre = mov.producto.nombre;
+          
+          if (!productosMap.has(productoId)) {
+            productosMap.set(productoId, {
+              producto_id: productoId,
+              producto__nombre: productoNombre,
+              entradas: 0,
+              salidas: 0,
+              stock: 0
+            });
+          }
+          
+          const producto = productosMap.get(productoId)!;
+          
+          if (mov.tipo_operacion === 'entrada') {
+            producto.entradas += mov.cantidad;
+          } else if (mov.tipo_operacion === 'salida') {
+            producto.salidas += mov.cantidad;
+          }
+          
+          producto.stock = producto.entradas - producto.salidas;
+        });
+        
+        // Filtrar productos con stock bajo el umbral y ordenar por stock
+        this.productos = Array.from(productosMap.values())
+          .filter(p => p.stock <= this.threshold)
+          .sort((a, b) => a.stock - b.stock);
+      },
+      error: (err) => console.error('Error cargando productos bajo stock:', err)
+    });
+  }
 
-//   // Método opcional para asignar iconos según categoría
-//   getIcono(producto: Producto): string {
-//     switch (producto.categoria.toLowerCase()) {
-//       case 'periféricos': return 'fas fa-keyboard';
-//       case 'almacenamiento': return 'fas fa-hdd';
-//       case 'monitores': return 'fas fa-desktop';
-//       case 'audio': return 'fas fa-headphones';
-//       default: return 'fas fa-box';
-//     }
-//   }
-// }
+  // Método para mostrar un color según el stock
+  getColor(stock: number): string {
+    if (stock === 0 || stock < 0) return 'danger';
+    if (stock <= 5) return 'warning';
+    return 'success';
+  }
+
+  // Método para asignar iconos por defecto
+  getIcono(): string {
+    return 'fas fa-box';
+  }
+}

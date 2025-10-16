@@ -2,17 +2,16 @@
   <div class="space-y-4 rounded-lg">
     <h2 class="h6 fw-semibold mb-3">Productos más vendidos</h2>
 
-    <!-- Pseudo @for -->
-    @for (producto of productos; track producto.id) {
+    @for (producto of productos; track producto.producto_id) {
     <div class="d-flex flex-row flex-wrap justify-content-between mb-1">
-      <p class="text-sm font-medium">{{ producto.nombre }}</p>
-      <p class="text-sm font-medium">{{ producto.unidadesVendidas }} unidades</p>
+      <p class="text-sm font-medium">{{ producto.producto__nombre }}</p>
+      <p class="text-sm font-medium">{{ producto.total_salidas }} unidades</p>
     </div>
-    <div class="progress mb-3" [attr.aria-label]="'Progreso de ventas de ' + producto.nombre">
+    <div class="progress mb-3" [attr.aria-label]="'Progreso de ventas de ' + producto.producto__nombre">
       <div class="progress-bar {{getColor(producto)}}" role="progressbar" title="Progreso de ventas"
-        [style.width]="getWidth(producto)" [attr.aria-valuenow]="producto.unidadesVendidas" aria-valuemin="0"
+        [style.width]="getWidth(producto)" [attr.aria-valuenow]="producto.total_salidas" aria-valuemin="0"
         [attr.aria-valuemax]="maxUnidades"
-        [attr.aria-label]="producto.nombre + ': ' + producto.unidadesVendidas + ' unidades'">
+        [attr.aria-label]="producto.producto__nombre + ': ' + producto.total_salidas + ' unidades'">
         {{ getWidth(producto) }}
       </div>
     </div>

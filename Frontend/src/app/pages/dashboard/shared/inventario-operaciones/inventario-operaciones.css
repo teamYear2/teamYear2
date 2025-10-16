@@ -1,8 +1,13 @@
-button, a {
+button,
+a {
   background-color: #254d70 !important;
 }
 
 form {
-    padding: 20px !important;
-    box-sizing: border-box !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.movimientos-row {
+  min-height: 100vh;
 }

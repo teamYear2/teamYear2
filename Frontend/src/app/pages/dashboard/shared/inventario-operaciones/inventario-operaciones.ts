@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MovimientoService } from '../../../../service/movimiento/movimiento.service';
 import { Producto } from '../../../../models/producto.model';
-import { Movimiento } from '../../../../models/movimiento.model';
 import { CommonModule, Location } from '@angular/common';
 
 @Component({
@@ -57,16 +56,17 @@ export class InventarioOperaciones {
 
     const { productoId, cantidad, tipo } = this.movimientoForm.value;
 
-    const movimiento: Movimiento = {
+    // Crear objeto para enviar al backend (no usa el tipo Movimiento completo)
+    const movimientoData = {
       producto_id: Number(productoId),
       cantidad: Number(cantidad),
       tipo_operacion: tipo,
       inventario_id: Number(this.inventarioId),
     };
 
-    console.log('Movimiento enviado:', movimiento);
+    console.log('Movimiento enviado:', movimientoData);
 
-    this.movimientoService.createMovimiento(movimiento).subscribe({
+    this.movimientoService.createMovimiento(movimientoData).subscribe({
       next: () => {
         this.mostrarAlerta('success', 'Movimiento generado correctamente');
         console.log('Movimiento registrado con éxito');
