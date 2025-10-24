@@ -32,8 +32,8 @@ export class CategoriaList implements OnInit {
   }
 
  editCategory(cat: Categoria) {
-  console.log('Editar categoría con ID:', cat.id);
-  this.router.navigate([`/dashboard/categoria-form`, cat.id]);
+  console.log('Editar categoría con ID:', cat.idCategoria);
+  this.router.navigate([`/dashboard/categoria-form`, cat.idCategoria]);
 }
 
 
@@ -41,10 +41,10 @@ export class CategoriaList implements OnInit {
     const confirmar = confirm(`¿Eliminar la categoría "${cat.nombre}"?`);
     if (!confirmar) return;
 
-    this.categoriaService.deleteCategoria(cat.id!).subscribe({
+    this.categoriaService.deleteCategoria(cat.idCategoria!).subscribe({
       next: () => {
         // Si se elimina correctamente del backend
-        this.categories = this.categories.filter(c => c.id !== cat.id);
+        this.categories = this.categories.filter(c => c.idCategoria !== cat.idCategoria);
         alert(`Categoría "${cat.nombre}" eliminada correctamente`);
       },
       error: (err) => {
@@ -55,11 +55,11 @@ export class CategoriaList implements OnInit {
   }
 
   selectCategory(cat: Categoria) {
-    this.selectedCategoryId = cat.id;
+    this.selectedCategoryId = cat.idCategoria;
   }
 
   trackById(_: number, item: Categoria) {
-    return item.id;
+    return item.idCategoria;
   }
 }
 

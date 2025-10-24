@@ -29,7 +29,7 @@
               <label for="categoria" class="form-label">Categoria</label>
               <select formControlName="categoria" id="categoria" class="form-select" required>
                 <option [ngValue]="null" disabled selected>Seleccionar categoria</option>
-                @for (p of categorias; track p.id) {
+                @for (p of categorias; track p.idCategoria) {
                 <option [ngValue]="p">{{ p.nombre }}</option>
                 }
               </select>
