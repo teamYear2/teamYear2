@@ -21,7 +21,7 @@ export class InventarioService {
         entradas: item['entradas'],
         salidas: item['salidas'],
         stock: item['stock'],
-        categoria: item['producto__categoria'] ?? "n/d",
+        categoria: item['producto__categoria__nombre'],
         estado: item['stock'] > 0 ? 'Disponible' : 'Agotado'
       })))
     );

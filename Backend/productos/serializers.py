@@ -14,7 +14,7 @@ class ProductoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Producto
-        fields = ['id', 'codigo', 'nombre', 'descripcion']
+        fields = '__all__'
         read_only_fields = ('idProducto',)
 
     def validate_codigo(self, value):
